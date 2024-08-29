@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Image, StyleSheet, Platform } from 'react-native';
 
 import { HelloWave } from '@/app/src/components/HelloWave';
 import ParallaxScrollView from '@/app/src/components/ParallaxScrollView';
 import { ThemedText } from '@/app/src/components/ThemedText';
 import { ThemedView } from '@/app/src/components/ThemedView';
+import { getUserData } from '../../../auth/util/authLogic';
 
 export default function HomeScreen() {
+  const [user, setUser] = React.useState("");
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      const userData = await getUserData();
+      if (userData) {
+        setUser(userData.userName);
+      }
+    };
+
+    loadUserData();
+  }, []);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -17,7 +31,7 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Welcome {user}!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
