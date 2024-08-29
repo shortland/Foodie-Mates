@@ -9,7 +9,7 @@ import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
 import { checkTokenValidity } from "./src/screens/auth/util/authLogic";
 
-const Welcome = () => {
+export default function WelcomeScreen () {
   const [loading, setLoading] = useState(true);
   const [isLogged, setIsLogged] = useState(false);
 
@@ -82,4 +82,3 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
