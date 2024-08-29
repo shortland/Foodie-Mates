@@ -4,14 +4,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
-import { signIn, setTokenWithSessionExpirationTime } from "@/app/src/screens/auth/util/authLogic";
+import { signIn, setTokenWithSessionExpirationTime, saveUserData } from "@/app/src/screens/auth/util/authLogic";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 
 const SignInScreen = () => {
-
-  const [user, setUser] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
 
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -32,10 +29,9 @@ const SignInScreen = () => {
       const result = await signIn(form.email, form.password);
       if (result){
         const token = setTokenWithSessionExpirationTime(result.token);
-        console.log(token);
         await AsyncStorage.setItem('userToken', token);
-        setUser(result);
-        setIsLogged(true);
+        await saveUserData(result);
+        
         // Navigate to the home screen
         router.replace("/home");
       } else {
