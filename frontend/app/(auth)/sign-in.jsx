@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
-import { signIn, setTokenWithSessionExpirationTime } from "./authLogic";
+import { signIn, setTokenWithSessionExpirationTime } from "../src/screens/auth/util/authLogic";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 

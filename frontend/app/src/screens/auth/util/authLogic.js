@@ -1,7 +1,7 @@
 import { Buffer } from "buffer";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { authService } from "./api/api";
+import { authService } from "../api/api";
 
 export const signIn = async (email, password) => {
   try {

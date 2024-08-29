@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
-import { checkTokenValidity } from "./(auth)/authLogic";
+import { checkTokenValidity } from "./src/screens/auth/util/authLogic";
 
 const Welcome = () => {
   const [loading, setLoading] = useState(true);

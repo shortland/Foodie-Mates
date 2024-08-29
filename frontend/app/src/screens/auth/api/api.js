@@ -3,8 +3,8 @@
 
 import { IS_TESTING } from '@/app/_layout';
 
-import dummySignInData from '../../test/mockData/(auth)/api/signin.json';
-import dummySignUpData from '../../test/mockData/(auth)/api/signup.json';
+import dummySignInData from '@/app/test/screens/auth/api/signin.json';
+import dummySignUpData from '@/app/test/screens/auth/api/signup.json';
 
 const AUTH_API_URL = 'https://your-api-endpoint.com/auth';
 
