@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
-import { signIn } from "./authLogic";
+import { signIn, setTokenWithSessionExpirationTime } from "./authLogic";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 
@@ -30,6 +31,9 @@ const SignIn = () => {
       // Simulate getting the current user (replace with actual user retrieval logic)
       const result = await signIn(form.email, form.password);
       if (result){
+        const token = setTokenWithSessionExpirationTime(result.token);
+        console.log(token);
+        await AsyncStorage.setItem('userToken', token);
         setUser(result);
         setIsLogged(true);
         // Navigate to the home screen

@@ -1,21 +1,33 @@
+import React from "react";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { images } from "../constants/images";
-
 import CustomButton from "../components/CustomButton";
 import Loader from "../components/Loader";
-// import { useGlobalContext } from "../context/GlobalProvider";
+import { checkTokenValidity } from "./(auth)/authLogic";
 
 const Welcome = () => {
-  // const { loading, isLogged } = useGlobalContext();
-const loading = false;
-const isLogged = false;
+  const [loading, setLoading] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
+  useEffect(() => {
+    const checkSession = async () => {
+      const sessionExists = await checkTokenValidity();
+      if (sessionExists) {
+        setIsLogged(true);
+      }
+      setLoading(false); // Mark loading as complete
+    };
 
-  if (!loading && isLogged) return <Redirect href="/home" />;
+    checkSession();
+  }, []);
+
+  if (!loading && isLogged) {
+    return <Redirect href="/home" />;
+  }
 
   return (
     <SafeAreaView className="bg-primary h-full">
