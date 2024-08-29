@@ -68,3 +68,20 @@ export const checkTokenValidity = async () => {
   }
   return false; // Token is invalid or expired
 };
+
+export const saveUserData = async (userData) => {
+  try {
+    await AsyncStorage.setItem('user', JSON.stringify(userData));
+  } catch (error) {
+    console.error('Error saving user data:', error);
+  }
+};
+
+export const getUserData = async () => {
+  try {
+    const userData = await AsyncStorage.getItem('user');
+    return userData ? JSON.parse(userData) : null;
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+  }
+};
