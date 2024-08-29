@@ -1,12 +1,9 @@
 import { Redirect, Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-import Loader from "../../components/Loader";
-// import { useGlobalContext } from "../../context/GlobalProvider";
+import Loader from "@/app/src/components/Loader";
 
 const AuthLayout = () => {
-  // const { loading, isLogged } = useGlobalContext();
-
   const loading = false;
   const isLogged = false;
 
@@ -14,19 +11,13 @@ const AuthLayout = () => {
 
   return (
     <>
-      <Stack>
-        <Stack.Screen
-          name="sign-in"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="sign-up"
-          options={{
-            headerShown: false,
-          }}
-        />
+      <Stack
+        screenOptions={{
+          headerShown: false, // Hide the header for all screens in this stack
+        }}
+      >
+        <Stack.Screen name="sign-in" />
+        <Stack.Screen name="sign-up" />
       </Stack>
 
       <Loader isLoading={loading} />
