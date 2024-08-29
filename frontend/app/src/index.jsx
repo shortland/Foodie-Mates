@@ -3,14 +3,10 @@ import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { images } from "../constants/images";
-
 import CustomButton from "../../components/CustomButton";
 import Loader from "../../components/Loader";
-// import { useGlobalContext } from "../context/GlobalProvider";
 
 const Welcome = () => {
-  // const { loading, isLogged } = useGlobalContext();
 const loading = false;
 const isLogged = false;
 
