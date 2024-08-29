@@ -3,8 +3,8 @@ import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import CustomButton from "../../components/CustomButton";
-import Loader from "../../components/Loader";
+import CustomButton from "@/app/src/components/CustomButton";
+import Loader from "@/app/src/components/Loader";
 
 const Welcome = () => {
 const loading = false;

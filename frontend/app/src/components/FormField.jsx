@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 
-import icons from "../app/constants/icons";
+import icons from "@/app/constants/icons";
 
 const FormField = ({
   title,

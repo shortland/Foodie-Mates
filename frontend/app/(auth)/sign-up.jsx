@@ -4,8 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
 import { signUp } from "./authLogic";
-import FormField from "../../components/FormField";
-import CustomButton from "../../components/CustomButton";
+import FormField from "@/app/src/components/FormField";
+import CustomButton from "@/app/src/components/CustomButton";
 
 const SignUp = () => {
   const [isSubmitting, setSubmitting] = useState(false);

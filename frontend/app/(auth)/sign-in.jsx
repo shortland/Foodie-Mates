@@ -5,8 +5,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
 import { signIn, setTokenWithSessionExpirationTime } from "./authLogic";
-import FormField from "../../components/FormField";
-import CustomButton from "../../components/CustomButton";
+import FormField from "@/app/src/components/FormField";
+import CustomButton from "@/app/src/components/CustomButton";
 
 const SignIn = () => {
 
