@@ -3,15 +3,11 @@ import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-// import { images } from "../../constants";
-import CustomButton from "../../components/CustomButton";
+import { signIn } from "./authLogic";
 import FormField from "../../components/FormField";
-
-// import { getCurrentUser, signIn } from "../../lib/appwrite";
-// import { useGlobalContext } from "../../context/GlobalProvider";
+import CustomButton from "../../components/CustomButton";
 
 const SignIn = () => {
-  // const { setUser, setIsLogged } = useGlobalContext();
 
   const [user, setUser] = useState("");
   const [isLogged, setIsLogged] = useState(false);
@@ -23,26 +19,24 @@ const SignIn = () => {
   });
 
   const submit = async () => {
-    if (form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill in all fields");
-    }
-
-    setSubmitting(true);
 
     try {
-      // Simulate a successful sign-in (replace with actual sign-in logic)
-      await new Promise((resolve) => resolve());
+      if (form.email === "" || form.password === "") {
+        throw new Error("Please fill in all fields");
+      }
+  
+      setSubmitting(true);
 
       // Simulate getting the current user (replace with actual user retrieval logic)
-      const result = {}; // Replace with actual result
-      setUser(result);
-      setIsLogged(true);
-
-      // Show success message
-      Alert.alert("Success", "User signed in successfully");
-
-      // Navigate to the home screen
-      router.replace("/home");
+      const result = await signIn(form.email, form.password);
+      if (result){
+        setUser(result);
+        setIsLogged(true);
+        // Navigate to the home screen
+        router.replace("/home");
+      } else {
+        throw new Error("Sign-in failed. Please try again.");
+      }
     } catch (error) {
       // Show error message
       Alert.alert("Error", error.message);

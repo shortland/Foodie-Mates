@@ -1,22 +1,13 @@
 import { useState } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
+import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 
-// import { images } from "../../constants";
-// import { createUser } from "../../lib/appwrite";
-
-import CustomButton from "../../components/CustomButton";
+import { signUp } from "./authLogic";
 import FormField from "../../components/FormField";
-
-// import { useGlobalContext } from "../../context/GlobalProvider";
+import CustomButton from "../../components/CustomButton";
 
 const SignUp = () => {
-  // const { setUser, setIsLogged } = useGlobalContext();
-
-  const [user, setUser] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
-
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     username: "",
@@ -25,20 +16,20 @@ const SignUp = () => {
   });
 
   const submit = async () => {
-    if (form.username === "" || form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill in all fields");
-    }
-
-    setSubmitting(true);
     try {
-      // const result = await createUser(form.email, form.password, form.username);
-      const result = {}
-      setUser(result);
-      setIsLogged(true);
-
-      router.replace("/home");
+      if (form.username === "" || form.email === "" || form.password === "") {
+        throw new Error("Please fill in all fields");
+      }
+      setSubmitting(true);
+      const result = await signUp(form.email, form.password, form.username);
+      console.log(result);
+      if (result.success) {
+        router.replace("/sign-in");
+      } else {
+        throw new Error("Sign-up failed. Please try again.");
+      }
     } catch (error) {
-      Alert.alert("Error", error.message);
+      Alert.alert("Error", error.message || "An unexpected error occurred.");
     } finally {
       setSubmitting(false);
     }
@@ -60,7 +51,7 @@ const SignUp = () => {
           /> */}
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Sign Up to FoodieMate
+            Sign Up For FoodieMate
           </Text>
 
           <FormField
