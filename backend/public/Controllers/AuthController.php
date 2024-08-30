@@ -100,6 +100,8 @@ class AuthController extends Controller {
     }
 
     function logout($args, $data, $cookies) {
-        return 'logout';
+        unlink(SESS_COOKIES_PATH . '/sess_' . $cookies['SESSION_ID']);
+
+        return ['success' => 'logged out'];
     }
 }

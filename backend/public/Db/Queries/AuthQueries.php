@@ -52,8 +52,7 @@ class AuthQueries {
         $hash = hash('sha256', $password . $salt);
         $query = <<<SQL
             INSERT INTO
-                users
-                (email, phone_number, first_name, last_name, password_hash, password_salt)
+                users (email, phone_number, first_name, last_name, password_hash, password_salt)
             VALUES
                 (?, ?, ?, ?, ?, ?);
         SQL;

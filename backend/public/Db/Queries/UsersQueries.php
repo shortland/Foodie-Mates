@@ -39,7 +39,7 @@ class UsersQueries {
         return $users;
     }
 
-    public function getUser($id) {
+    public function getUser($user_id) {
         $this->db->connect();
         $query = <<<SQL
             SELECT
@@ -54,11 +54,29 @@ class UsersQueries {
             WHERE
                 user_id = ?;
         SQL;
-        $result = $this->db->doRawQuery($query, [$id]);
+        $result = $this->db->doRawQuery($query, [$user_id]);
 
         $user = $result->fetch_object();
         $this->db->disconnect();
 
         return $user;
+    }
+
+    public function getAccountType($user_id) {
+        $this->db->connect();
+        $query = <<<SQL
+            SELECT
+                account_type
+            FROM 
+                users
+            WHERE
+                user_id = ?;
+        SQL;
+        $result = $this->db->doRawQuery($query, [$user_id]);
+
+        $account_type = $result->fetch_object();
+        $this->db->disconnect();
+
+        return $account_type;
     }
 }

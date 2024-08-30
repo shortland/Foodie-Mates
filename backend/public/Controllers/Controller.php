@@ -2,9 +2,12 @@
 
 class Controller {
 
-    protected $endpoints;
+    protected array $endpoints;
 
-    public function route(string $method, string $endpoint, Array $query_string, Array $bin_data, Array $cookies) {
+    /** only available when the user is logged in aka 'auth' == true for the endpoint */
+    protected int $user_id = -1;
+
+    public function route(string $method, string $endpoint, array $query_string, array $bin_data, array $cookies) {
         if (isset($this->endpoints[$method][$endpoint])) {
             
             // check that user is logged in if endpoint requires it
@@ -21,6 +24,9 @@ class Controller {
                         echo (new HttpResponse)->json(new ErrorRes('not logged in'));
                         return;
                     }
+
+                    /** you made it here so you're logged in */
+                    $this->user_id = json_decode(file_get_contents($cookie_path), true)['user_id'];
                 }
             }
 
