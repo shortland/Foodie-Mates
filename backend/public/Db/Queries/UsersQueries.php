@@ -13,14 +13,52 @@ class UsersQueries {
     }
 
     public function getUsers() {
-       $this->db->connect();
+        $this->db->connect();
+        $query = <<<SQL
+            SELECT
+                user_id,
+                first_name,
+                last_name,
+                email,
+                phone_number,
+                address 
+            FROM 
+                users;
+        SQL;
+        $result = $this->db->doRawQuery($query, []);
 
-       $query = "SELECT user_id, first_name, last_name, email, phone_number, address FROM users";
+        $users = [];
+        if ($result->num_rows > 0) {
+            // Fetch each object and store it in the array
+            while ($obj = $result->fetch_object()) {
+                $users[] = $obj;
+            }
+        }
+        $this->db->disconnect();
 
-       $result = $this->db->doRawQuery($query, [], true);
+        return $users;
+    }
 
-       $this->db->disconnect();
+    public function getUser($id) {
+        $this->db->connect();
+        $query = <<<SQL
+            SELECT
+                user_id,
+                first_name,
+                last_name,
+                email,
+                phone_number,
+                address 
+            FROM 
+                users
+            WHERE
+                user_id = ?;
+        SQL;
+        $result = $this->db->doRawQuery($query, [$id]);
 
-       return $result;
+        $user = $result->fetch_object();
+        $this->db->disconnect();
+
+        return $user;
     }
 }
