@@ -8,6 +8,7 @@ import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 import FormSwitch from "@/app/src/components/FormSwitch";
 import images from "@/app/src/constants/images";
+import { AccountType } from "@/app/src/models/AccountType";
 
 const SignUpScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -37,14 +38,13 @@ const SignUpScreen = () => {
         throw new Error("Please fill in all fields");
       }
       setSubmitting(true);
-      const accountType = form.accountType ? "person" : "restaurant";
       const result = await signUp(
         form.email,
         form.password,
         form.firstName,
         form.lastName,
         form.phoneNumber,
-        accountType
+        form.accountType ? AccountType.PERSON : AccountType.RESTAURANT
       );
       if (result.data.success) {
         Alert.alert("Sign-up successful. Please sign in.");
@@ -68,12 +68,7 @@ const SignUpScreen = () => {
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
-          <Image
-            source={images.logo}
-            resizeMode="contain"
-            className="w-[115px] h-[34px]"
-          />
-
+          
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Sign Up For FoodieMate
           </Text>
