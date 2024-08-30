@@ -5,21 +5,8 @@ import { HelloWave } from '@/app/src/components/HelloWave';
 import ParallaxScrollView from '@/app/src/components/ParallaxScrollView';
 import { ThemedText } from '@/app/src/components/ThemedText';
 import { ThemedView } from '@/app/src/components/ThemedView';
-import { getUserData } from '../../../auth/util/authLogic';
 
 export default function HomeScreen() {
-  const [user, setUser] = React.useState("");
-
-  useEffect(() => {
-    const loadUserData = async () => {
-      const userData = await getUserData();
-      if (userData) {
-        setUser(userData.userName);
-      }
-    };
-
-    loadUserData();
-  }, []);
 
   return (
     <ParallaxScrollView
@@ -31,18 +18,16 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome {user}!</ThemedText>
+        <ThemedText type="title">Maps Page</ThemedText>
         <HelloWave />
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Goals For This Page</ThemedText>
         <ThemedText>
-          On the home screen, there will be a list of recomended/potential restaurants in the area for the user to browse through.
+          We can show a bunch of restaurants on the map near the user here
         </ThemedText>
-        <ThemedText>
-          Upon clickng the restaurant, user can view the menu items and the reviews. Moving forward with the restaurant will yield a request. 
-        </ThemedText>
+
       </ThemedView>
 
     </ParallaxScrollView>

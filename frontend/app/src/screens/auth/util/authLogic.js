@@ -17,31 +17,34 @@ export const signIn = async (email, password) => {
   }
 };
 
-export const signUp = async (email, password, userName) => {
+export const signUp = async (email, password, firstName, lastName, phoneNumber, accountType) => {
   try {
     const response = await authService.signUpWithEmailAndPassword(
       email,
       password,
-      userName
+      firstName,
+      lastName,
+      phoneNumber,
+      accountType
     );
     return response;
   } catch (error) {
     // Handle errors
-    console.error("Error signing in:", error);
+    console.error("Error signing up:", error);
     throw error; // rethrow the error for the caller to handle
   }
 };
 
 
-export const setTokenWithSessionExpirationTime = (res) => {
-  const currentTime = new Date("2024-08-29T12:00:00Z"); // Aug 29, 2024, 12 PM UTC
+export const setTokenWithSessionExpirationTime = (token) => {
+  const currentTime = new Date();
   const expirationTime = new Date(currentTime);
   expirationTime.setDate(expirationTime.getDate() + 30); // Add 30 days
 
   const tokenData = {
     createdAt: currentTime.toISOString(),
     expiresAt: expirationTime.toISOString(),
-    token: res.token,
+    token: token,
   };
 
   // Convert tokenData to a JSON string and encode it in Base64
