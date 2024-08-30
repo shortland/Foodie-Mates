@@ -32,7 +32,8 @@ class Db {
             $this->host,
             $this->username,
             $this->password,
-            $this->database
+            $this->database,
+            3306
         );
 
         if (!$connection->set_charset("utf8mb4")) {

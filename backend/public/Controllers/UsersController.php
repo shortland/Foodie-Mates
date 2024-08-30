@@ -6,7 +6,7 @@ class UsersController extends Controller {
         $this->endpoints = [
             'GET' => [
                 '/users' => "getUsers",
-                '/user' => "getUser"
+                '/users/user' => "getUser"
             ],
             'POST' => [
                 '/users/' => 'create'
@@ -23,10 +23,15 @@ class UsersController extends Controller {
     function getUsers() {
         $users = new UsersQueries();
         return $users->getUsers();
-        // return 'users index';
     }
 
-    function getUser() {
-        return 'users show' . $id;
+    function getUser($args) {
+        // todo: eventually move this validation to __construct() and Controller() to validate args
+        if (!isset($args['id'])) {
+            return 'id not found & required';
+        }
+
+        $users = new UsersQueries();
+        return $users->getUser($args['id']);
     }
 }
