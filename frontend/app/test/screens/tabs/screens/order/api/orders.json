@@ -1,0 +1,31 @@
+{
+    "status": 200,
+    "data": [
+        {
+            "request_id": "5",
+            "user_id": "3",
+            "restaurant_id": null,
+            "preferred_cuisine_type": "chinese",
+            "num_people": "3",
+            "num_vegetarian": null,
+            "preferred_location_zipcode": null,
+            "distance_miles": "3.50",
+            "request_details": null,
+            "individual_budget": null,
+            "total_budget": "120.97",
+            "num_appetizer": "1",
+            "num_main_course": "3",
+            "num_dessert": "2",
+            "num_drink": "3",
+            "tax_included": null,
+            "tip_included": null,
+            "dine_date1": null,
+            "time_limit": null,
+            "reservation_id": null,
+            "is_live": "1",
+            "created_at": "2024-08-30 04:58:33",
+            "longitude": "-74.012400",
+            "latitude": "40.804100"
+        }
+    ]
+}

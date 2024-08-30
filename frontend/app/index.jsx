@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
-import { checkTokenValidity } from "./src/screens/auth/util/authLogic";
+import { checkTokenValidity } from "./src/screens/auth/util/helpers";
 import images from "./src/constants/images";
 
 export default function WelcomeScreen() {
