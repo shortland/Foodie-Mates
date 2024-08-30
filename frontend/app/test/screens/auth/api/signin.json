@@ -1,6 +1,7 @@
 {
-    "userId": "12345",
-    "token": "dummy-token-abcde",
-    "email": "testuser@example.com",
-    "userName": "Test User"
+    "data": {
+        "SESSION_ID": "c5ae033a00590c7e4ef9eab233ebbb17",
+        "user_id": "23"
+    },
+    "status": 200
 }
