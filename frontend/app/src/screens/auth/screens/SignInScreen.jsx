@@ -1,47 +1,50 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-import { signIn, setTokenWithSessionExpirationTime, saveUserData } from "@/app/src/screens/auth/util/authLogic";
+import {
+  signIn,
+  setTokenWithSessionExpirationTime,
+  saveUserData,
+} from "@/app/src/screens/auth/util/authLogic";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
+import images from "@/app/src/constants/images";
 
 const SignInScreen = () => {
-
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  const submit = async () => {
+  // Refs for form fields
+  const passwordRef = useRef(null);
 
+  const submit = async () => {
     try {
       if (form.email === "" || form.password === "") {
         throw new Error("Please fill in all fields");
       }
-  
+
       setSubmitting(true);
 
-      // Simulate getting the current user (replace with actual user retrieval logic)
       const result = await signIn(form.email, form.password);
-      if (result){
-        const token = setTokenWithSessionExpirationTime(result.token);
-        await AsyncStorage.setItem('userToken', token);
+      if (result) {
+        const token = setTokenWithSessionExpirationTime(result.SESSION_ID);
+        await AsyncStorage.setItem("userToken", token);
         await saveUserData(result);
-        
+
         // Navigate to the home screen
         router.replace("/home");
       } else {
         throw new Error("Sign-in failed. Please try again.");
       }
     } catch (error) {
-      // Show error message
       Alert.alert("Error", error.message);
     } finally {
-      // Reset the submitting state
       setSubmitting(false);
     }
   };
@@ -55,11 +58,11 @@ const SignInScreen = () => {
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
-          {/* <Image
+          <Image
             source={images.logo}
             resizeMode="contain"
             className="w-[115px] h-[34px]"
-          /> */}
+          />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Log in to FoodieMate
@@ -71,6 +74,8 @@ const SignInScreen = () => {
             handleChangeText={(e) => setForm({ ...form, email: e })}
             otherStyles="mt-7"
             keyboardType="email-address"
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()} // Focus on password field when "Next" is pressed
           />
 
           <FormField
@@ -78,6 +83,9 @@ const SignInScreen = () => {
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
+            ref={passwordRef} // Reference for password field
+            returnKeyType="done"
+            onSubmitEditing={submit} // Trigger submit when "Done" is pressed
           />
 
           <CustomButton

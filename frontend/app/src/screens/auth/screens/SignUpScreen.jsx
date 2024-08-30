@@ -1,29 +1,53 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
+import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
 import { signUp } from "@/app/src/screens/auth/util/authLogic";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
+import FormSwitch from "@/app/src/components/FormSwitch";
+import images from "@/app/src/constants/images";
 
 const SignUpScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
-    username: "",
+    firstName: "",
+    lastName: "",
     email: "",
+    phoneNumber: "",
     password: "",
+    accountType: false,
   });
+
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+  const passwordRef = useRef(null);
 
   const submit = async () => {
     try {
-      if (form.username === "" || form.email === "" || form.password === "") {
+      if (
+        form.firstName === "" ||
+        form.email === "" ||
+        form.password === "" ||
+        form.phoneNumber === "" ||
+        form.lastName === ""
+      ) {
         throw new Error("Please fill in all fields");
       }
       setSubmitting(true);
-      const result = await signUp(form.email, form.password, form.username);
-      console.log(result);
-      if (result.success) {
+      const accountType = form.accountType ? "person" : "restaurant";
+      const result = await signUp(
+        form.email,
+        form.password,
+        form.firstName,
+        form.lastName,
+        form.phoneNumber,
+        accountType
+      );
+      if (result.data.success) {
+        Alert.alert("Sign-up successful. Please sign in.");
         router.replace("/sign-in");
       } else {
         throw new Error("Sign-up failed. Please try again.");
@@ -44,21 +68,33 @@ const SignUpScreen = () => {
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
-          {/* <Image
+          <Image
             source={images.logo}
             resizeMode="contain"
             className="w-[115px] h-[34px]"
-          /> */}
+          />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Sign Up For FoodieMate
           </Text>
 
           <FormField
-            title="Username"
-            value={form.username}
-            handleChangeText={(e) => setForm({ ...form, username: e })}
+            title="First Name"
+            value={form.firstName}
+            handleChangeText={(e) => setForm({ ...form, firstName: e })}
             otherStyles="mt-10"
+            returnKeyType="next"
+            onSubmitEditing={() => lastNameRef.current.focus()}
+          />
+
+          <FormField
+            title="Last Name"
+            value={form.lastName}
+            handleChangeText={(e) => setForm({ ...form, lastName: e })}
+            otherStyles="mt-10"
+            ref={lastNameRef}
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
           />
 
           <FormField
@@ -67,12 +103,39 @@ const SignUpScreen = () => {
             handleChangeText={(e) => setForm({ ...form, email: e })}
             otherStyles="mt-7"
             keyboardType="email-address"
+            ref={emailRef}
+            returnKeyType="next"
+            onSubmitEditing={() => phoneNumberRef.current.focus()}
+          />
+
+          <FormField
+            title="Phone Number"
+            value={form.phoneNumber}
+            handleChangeText={(e) => setForm({ ...form, phoneNumber: e })}
+            otherStyles="mt-7"
+            keyboardType="phone-pad"
+            ref={phoneNumberRef}
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
 
           <FormField
             title="Password"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
+            otherStyles="mt-7"
+            ref={passwordRef}
+            returnKeyType="done"
+            onSubmitEditing={submit} // Optionally trigger form submission here
+          />
+
+          <FormSwitch
+            title="Account Type"
+            value={form.accountType}
+            options={["Customer", "Restaurant"]}
+            onValueChange={() =>
+              setForm({ ...form, accountType: !form.accountType })
+            }
             otherStyles="mt-7"
           />
 
