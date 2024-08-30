@@ -15,6 +15,26 @@ class UsersController extends Controller {
                     'function' => 'getUser',
                     'auth' => true,
                     'query' => ['id']
+                ],
+                '/users/type' => [
+                    'function' => 'accountType',
+                    'auth' => true
+                ]
+            ],
+            'PUT' => [
+                '/users/profile' => [
+                    // todo
+                    'function' => 'updateProfile',
+                    'auth' => true,
+                    'data' => [
+                        'first_name',
+                        'last_name',
+                        'email',
+                        'phone_number',
+                        'address',
+                        'password',
+                        'payment_credit_card'
+                    ]
                 ]
             ]
         ];
@@ -33,5 +53,10 @@ class UsersController extends Controller {
 
         $users = new UsersQueries();
         return $users->getUser($args['id']);
+    }
+
+    function accountType() {
+        $users = new UsersQueries();
+        return $users->getAccountType($this->user_id);
     }
 }

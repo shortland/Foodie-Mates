@@ -4,12 +4,15 @@ require 'Controllers/Controller.php';
 require 'Controllers/HomeController.php';
 require 'Controllers/UsersController.php';
 require 'Controllers/AuthController.php';
+require 'Controllers/AuctionsController.php';
 
 require 'Models/HttpResponse.php';
 
 require 'Db/Db.php';
 require 'Db/Queries/UsersQueries.php';
 require 'Db/Queries/AuthQueries.php';
+require 'Db/Queries/AuctionsQueries.php';
+
 
 class Router {
     public static function resolvePath() {
@@ -62,6 +65,9 @@ class Router {
                 break;
             case 'auth':
                 (new AuthController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
+                break;
+            case 'auctions':
+                (new AuctionsController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
                 break;
             case 'restaurants':
                 echo 'restaurants';
