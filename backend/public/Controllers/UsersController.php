@@ -6,24 +6,25 @@ class UsersController extends Controller {
         $this->endpoints = [
             'GET' => [
                 '/users' => [
-                    // todo: this is a dev-only endpoint, remove in prod
+                    'description' => 'TODO: working; but dev-only endpoint; remove in prod',
                     'function' => 'getUsers',
                     'auth' => true
                 ],
                 '/users/user' => [
-                    // todo: this is a dev-only endpoint, remove in prod
+                    'description' => 'TODO: working; but dev-only endpoint; remove in prod',
                     'function' => 'getUser',
                     'auth' => true,
                     'query' => ['id']
                 ],
                 '/users/type' => [
+                    'description' => 'to get info on whether current account is a person or restaurant',
                     'function' => 'accountType',
                     'auth' => true
                 ]
             ],
             'PUT' => [
                 '/users/profile' => [
-                    // todo
+                    'description' => 'TODO: allow account to update their profile',
                     'function' => 'updateProfile',
                     'auth' => true,
                     'data' => [

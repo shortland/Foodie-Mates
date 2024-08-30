@@ -6,12 +6,14 @@ class AuthController extends Controller {
         $this->endpoints = [
             'GET' => [
                 '/auth/profile' => [
+                    'description' => 'for an account to get info their own profile',
                     'function' => 'profile',
                     'auth' => true
                 ]
             ],
             'POST' => [
                 '/auth/login' => [
+                    'description' => 'for an account to login',
                     'function' => 'login',
                     'data' => [
                         'username',
@@ -19,18 +21,21 @@ class AuthController extends Controller {
                     ]
                 ],
                 '/auth/register' => [
+                    'description' => 'for user/restaurants to create a new account',
                     'function' => 'register',
                     'data' => [
                         'email_address',
                         'phone_number',
                         'first_name',
                         'last_name',
-                        'password'
+                        'password',
+                        'account_type'
                     ]
                 ]
             ],
             'DELETE' => [
                 '/auth/logout' => [
+                    'description' => 'for user/restaurants to logout (destroys current session cookie)',
                     'function' => 'logout',
                     'auth' => true
                 ]
@@ -87,11 +92,12 @@ class AuthController extends Controller {
         $first_name = $data['first_name'];
         $last_name = $data['last_name'];
         $password = $data['password'];
+        $account_type = $data['account_type'];
 
         $auth = new AuthQueries();
 
         try {
-            $user_id = $auth->createUser($email, $phone_number, $first_name, $last_name, $password);
+            $user_id = $auth->createUser($email, $phone_number, $first_name, $last_name, $password, $account_type);
         } catch (Exception $e) {
             return new ErrorRes($e->getMessage());
         }
