@@ -9,7 +9,6 @@ include 'Components/Header.php';
 
 include 'Handlers/Router.php';
 
-$header = new Header('text', true);
 // $params = new Parameters();
 
 Router::route();
