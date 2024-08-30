@@ -1,36 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Alert,
+  RefreshControl,
+} from "react-native";
 
-import ParallaxScrollView from '@/app/src/components/ParallaxScrollView';
-import { ThemedText } from '@/app/src/components/ThemedText';
-import { ThemedView } from '@/app/src/components/ThemedView';
-import { orderService } from './api/api';  // Import the order service
-import OrderItem from './components/OrderItem';
+import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
+import { ThemedText } from "@/app/src/components/ThemedText";
+import { ThemedView } from "@/app/src/components/ThemedView";
+import { orderService } from "./api/api"; // Import the order service
+import OrderItem from "./components/OrderItem";
 
 export default function OrderScreen() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const fetchOrders = async () => {
+    try {
+      const data = await orderService.fetchUserOrders(); // Use the API service to fetch orders
+      setOrders(data.data);
+      setLoading(false);
+      setRefreshing(false);
+    } catch (error) {
+      console.error("Error fetching user orders:", error);
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const data = await orderService.fetchUserOrders();  // Use the API service to fetch orders
-        console.log(data);
-        setOrders(data.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching user orders:", data.error);
-        setLoading(false);
-      }
-    };
-
     fetchOrders();
   }, []);
 
+  const handleCancelOrder = (requestId) => {
+    setOrders(orders.filter((order) => order.request_id !== requestId));
+  };
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    fetchOrders();
+  };
+
   // Separate live order and past orders
-  const liveOrder = orders.find(order => order.is_live === "1");
-  const pastOrders = orders.filter(order => order.is_live !== "1");
+  const liveOrder = orders.find((order) => order.is_live === "1");
+  const pastOrders = orders.filter((order) => order.is_live !== "1");
 
   return (
     <ParallaxScrollView
@@ -43,7 +60,12 @@ export default function OrderScreen() {
         <ThemedText type="title">Orders</ThemedText>
       </ThemedView>
 
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
         {loading ? (
           <ThemedText>Loading orders...</ThemedText>
         ) : (
@@ -53,7 +75,7 @@ export default function OrderScreen() {
                 <ThemedText type="title" style={styles.currentHeader}>
                   Current
                 </ThemedText>
-                <OrderItem order={liveOrder} />
+                <OrderItem order={liveOrder} onCancel={handleCancelOrder} />
               </View>
             )}
 
@@ -76,13 +98,13 @@ export default function OrderScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: "#808080",
     bottom: -90,
     left: -35,
-    position: 'absolute',
+    position: "absolute",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
     marginBottom: 16,
   },
@@ -91,22 +113,12 @@ const styles = StyleSheet.create({
   },
   currentHeader: {
     marginBottom: 8,
-    color: '#FF5733', // Customize the color for the "Current" label
+    color: "#FF5733", // Customize the color for the "Current" label
   },
   pastHeader: {
     marginTop: 24,
     marginBottom: 8,
-    color: '#3498db', // Customize the color for the "Past Orders" label
-  },
-  orderContainer: {
-    padding: 16,
-    backgroundColor: '#ffffff',
-    marginBottom: 16,
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    color: "#3498db", // Customize the color for the "Past Orders" label
   },
 });
+

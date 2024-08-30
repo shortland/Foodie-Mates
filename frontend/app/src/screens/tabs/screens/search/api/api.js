@@ -27,22 +27,15 @@ export const createService = {
           body: new URLSearchParams(formData).toString(),
         });
 
+        // Parse the JSON response
+        const data = await response.json();
+
         // Check if the response was successful
-        if (!response.ok) {
+        if (data.status !== 200) {
           const errorData = await response.json();
           throw new Error(
             "Request creation failed. " +
               (errorData.error || "Unexpected error.")
-          );
-        }
-
-        // Parse the JSON response
-        const data = await response.json();
-
-        // Check if the request creation was successful according to the response data
-        if (!data.data || !data.data.success) {
-          throw new Error(
-            "Request creation failed. " + (data.error || "Unexpected error.")
           );
         }
 
