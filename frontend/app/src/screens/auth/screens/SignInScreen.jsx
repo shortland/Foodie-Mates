@@ -8,7 +8,7 @@ import {
   signIn,
   setTokenWithSessionExpirationTime,
   saveUserData,
-} from "@/app/src/screens/auth/util/authLogic";
+} from "@/app/src/screens/auth/util/helpers";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 import images from "@/app/src/constants/images";
