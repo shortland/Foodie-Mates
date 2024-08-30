@@ -134,9 +134,9 @@ class HomeController extends Controller {
             </html>
         HTML;
 
-        $resp = sprintf($resp, '<pre>' . $this->generateHtmlFromEndpoints($endpoints) . '</pre>');
-
-        return new HtmlRes($resp);
+        return new HtmlRes(
+            sprintf($resp, '<pre>' . $this->generateHtmlFromEndpoints($endpoints) . '</pre>')
+        );
     }
 
     function ok() {

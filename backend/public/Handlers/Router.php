@@ -4,7 +4,8 @@ require 'Controllers/Controller.php';
 require 'Controllers/HomeController.php';
 require 'Controllers/UsersController.php';
 require 'Controllers/AuthController.php';
-require 'Controllers/AuctionsController.php';
+require 'Controllers/UserAuctionsController.php';
+require 'Controllers/RestaurantAuctionsController.php';
 
 require 'Models/HttpResponse.php';
 
@@ -46,7 +47,7 @@ class Router {
 
     public static function route() {
         $full_endpoint = static::resolvePath();
-        $first_part_endport = explode('/', $full_endpoint)[1];
+        $parts_endport = explode('/', $full_endpoint);
 
         $query_string = static::resolveQueryString();
 
@@ -56,7 +57,7 @@ class Router {
 
         $method = $_SERVER['REQUEST_METHOD'];
 
-        switch ($first_part_endport) {
+        switch ($parts_endport[1]) {
             case '':
                 (new HomeController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
                 break;
@@ -67,13 +68,16 @@ class Router {
                 (new AuthController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
                 break;
             case 'auctions':
-                (new AuctionsController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
-                break;
-            case 'restaurants':
-                echo 'restaurants';
-                break;
+                switch ($parts_endport[2]) {
+                    case 'user':
+                        (new UserAuctionsController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
+                        break;
+                    case 'restaurant':
+                        (new RestaurantAuctionsController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
+                        break;
+                }
             default:
-                echo '"' . $first_part_endport . '" not found';
+                echo '"' . $full_endpoint . '" not found';
         }
     }
 }
