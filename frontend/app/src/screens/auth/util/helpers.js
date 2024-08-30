@@ -88,3 +88,13 @@ export const getUserData = async () => {
     console.error('Error fetching user data:', error);
   }
 };
+
+export const getSessionId = async () => {
+  try {
+    const userData = await getUserData();
+    return userData?.data?.SESSION_ID || null;
+  } catch (error) {
+    console.error('Error fetching session ID:', error);
+    throw error;
+  }
+};
