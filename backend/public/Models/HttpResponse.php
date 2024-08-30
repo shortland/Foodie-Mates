@@ -5,11 +5,19 @@ class HttpResponse {
 
     public function json($data) {
         if ($data instanceof ErrorRes) {
+            new Header('text', true);
+
             return json_encode ([
                 'status' => $data->error_code,
                 'error' => $data->error_reason
             ]);
+        } else if ($data instanceof HtmlRes) {
+            new Header('html', true);
+
+            return $data->html;
         } else {
+            new Header('text', true);
+
             return json_encode ([
                 'status' => 200,
                 'data' => $data
@@ -39,5 +47,14 @@ class ErrorRes {
     public function __construct($error_reason, $error_code = 500) {
         $this->error_reason = $error_reason;
         $this->error_code = $error_code;    
+    }
+}
+
+class HtmlRes {
+    
+    public $html;
+
+    public function __construct($html) {
+        $this->html = $html;
     }
 }
