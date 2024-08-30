@@ -5,29 +5,45 @@ class HomeController extends Controller {
     public function __construct() {
         $this->endpoints = [
             'GET' => [
-                '/' => "index",
-                '' => "index"
+                '/' => [
+                    'function' => 'index'
+                ],
+                '' => [
+                    'function' => 'index'
+                ]
             ],
             'POST' => [
-                '/' => 'ok',
-                '' => 'ok'
+                '/' => [
+                    'function' => 'ok'
+                ],
+                '' => [
+                    'function' => 'ok'
+                ]
             ],
             'PUT' => [
-                '/' => 'ok',
-                '' => 'ok'
+                '/' => [
+                    'function' => 'ok'
+                ],
+                '' => [
+                    'function' => 'ok'
+                ]
             ],
             'DELETE' => [
-                '/' => 'ok',
-                '' => 'ok'
+                '/' => [
+                    'function' => 'ok'
+                ],
+                '' => [
+                    'function' => 'ok'
+                ]
             ]
         ];
     }
 
-    function index($args) {
-        return 'hello world!' . json_encode($args);
+    function index() {
+        return 'hello world!';
     }
 
     function ok() {
-        return 'that method isnt supported here';
+        return 'that method isnt really supported here';
     }
 }

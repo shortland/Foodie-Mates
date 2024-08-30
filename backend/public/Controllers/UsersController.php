@@ -5,17 +5,17 @@ class UsersController extends Controller {
     public function __construct() {
         $this->endpoints = [
             'GET' => [
-                '/users' => "getUsers",
-                '/users/user' => "getUser"
-            ],
-            'POST' => [
-                '/users/' => 'create'
-            ],
-            'PUT' => [
-                '/users/' => 'update'
-            ],
-            'DELETE' => [
-                '/users/' => 'delete'
+                '/users' => [
+                    // todo: this is a dev-only endpoint, remove in prod
+                    'function' => 'getUsers',
+                    'auth' => true
+                ],
+                '/users/user' => [
+                    // todo: this is a dev-only endpoint, remove in prod
+                    'function' => 'getUser',
+                    'auth' => true,
+                    'query' => ['id']
+                ]
             ]
         ];
     }
