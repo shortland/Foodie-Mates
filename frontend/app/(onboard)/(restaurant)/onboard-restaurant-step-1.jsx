@@ -1,11 +1,6 @@
 import React from "react";
-import { View } from "react-native";
-import { ThemedText } from "@/app/src/components/ThemedText";
+import OnboardRestaurantStep1Screen from "@/app/src/screens/onboard/restaurant/OnboardRestaurantStep1Screen";
 
 export default function OnBoardRestaurantStep1() {
-  return (
-    <View>
-      <ThemedText>Screen 1</ThemedText>
-    </View>
-  );
+  return <OnboardRestaurantStep1Screen />;
 }

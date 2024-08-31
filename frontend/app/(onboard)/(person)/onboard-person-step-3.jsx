@@ -1,11 +1,6 @@
 import React from "react";
-import { View } from "react-native";
-import { ThemedText } from "@/app/src/components/ThemedText";
+import OnboardPersonStep3Screen from "@/app/src/screens/onboard/person/OnboardPersonStep3Screen";
 
 export default function OnBoardPersonStep3() {
-  return (
-    <View>
-      <ThemedText>Screen 3</ThemedText>
-    </View>
-  );
+  return <OnboardPersonStep3Screen />;
 }

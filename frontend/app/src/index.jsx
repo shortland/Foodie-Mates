@@ -1,3 +1,4 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";

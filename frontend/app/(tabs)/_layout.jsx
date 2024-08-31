@@ -10,8 +10,7 @@ export default function TabLayout() {
 
   const tabScreens = [
     { name: "home", title: "Home", icon: "home" },
-    { name: "map", title: "Map", icon: "map" },
-    { name: "search", title: "Add", icon: "add-circle" }, // Changed "search" to "add"
+    { name: "search", title: "Add", icon: "add-circle" },
     { name: "orders", title: "Orders", icon: "menu" },
     { name: "account", title: "Account", icon: "person" },
   ];
