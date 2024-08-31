@@ -30,9 +30,11 @@ const SignInScreen = () => {
 
       const result = await authService.signInWithEmailAndPassword(form.email, form.password);
       if (result.status == 200) {
-        await Session.setTokenWithSessionExpirationTime(result.SESSION_ID);
+        await Session.setTokenWithSessionExpirationTime(result.data.SESSION_ID);
         await Session.saveUserData(result);
         // Navigate to the home screen
+        const profileData = await authService.getProfileData();
+        console.log(profileData);
         router.replace("/home");
       } else {
         throw new Error("Sign-in failed. Please try again.");

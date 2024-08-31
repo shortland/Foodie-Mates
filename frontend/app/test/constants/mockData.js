@@ -1,19 +1,24 @@
 export const TESTING = {
-  auth: false,
+  auth: true,
+  profile: true,
   create: false,
   order: false,
 };
 
-import dummySignInData from "@/app/test/screens/auth/api/signin.json";
-import dummySignUpData from "@/app/test/screens/auth/api/signup.json";
-import dummyCreateData from "@/app/test/screens/tabs/screens/search/api/createRequest.json";
-import dummyOrderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
-import dummyCancelData from "@/app/test/screens/tabs/screens/order/api/cancel.json";
+import signInData from "@/app/test/screens/auth/api/signin.json";
+import signOutData from "@/app/test/screens/auth/api/signout.json";
+import profileData from "@/app/test/screens/auth/api/profileData.json"
+import signUpData from "@/app/test/screens/auth/api/signup.json";
+import createData from "@/app/test/screens/tabs/screens/search/api/createRequest.json";
+import orderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
+import cancelData from "@/app/test/screens/tabs/screens/order/api/cancel.json";
 
 export const mock = {
-  dummySignInData,
-  dummySignUpData,
-  dummyCreateData,
-  dummyOrderData,
-  dummyCancelData,
+  signInData,
+  signOutData,
+  profileData,
+  signUpData,
+  createData,
+  orderData,
+  cancelData,
 };
