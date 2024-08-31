@@ -1,8 +1,8 @@
 export const TESTING = {
   auth: true,
   profile: true,
-  create: false,
-  order: false,
+  create: true,
+  order: true,
 };
 
 import signInData from "@/app/test/screens/auth/api/signin.json";

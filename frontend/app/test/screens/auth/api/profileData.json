@@ -5,7 +5,9 @@
     "first_name": "Loo",
     "last_name": "Poo",
     "phone_number": "112487843131",
-    "user_id": "27"
+    "user_id": "27",
+    "requires_onboard": true,
+    "account_type": "person"
   },
   "status": 200
 }

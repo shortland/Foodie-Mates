@@ -3,9 +3,9 @@ import { Buffer } from 'buffer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 class Session {
-  static async saveUserData(userData) {
+  static async saveUserData(key, userData) {
     try {
-      await AsyncStorage.setItem("user", JSON.stringify(userData));
+      await AsyncStorage.setItem(key, JSON.stringify(userData));
     } catch (error) {
       console.error("Error saving user data:", error);
       throw error;

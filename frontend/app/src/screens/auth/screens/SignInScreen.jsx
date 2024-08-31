@@ -7,8 +7,10 @@ import images from "@/app/src/constants/images";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 
-import Session from "../util/Session";
+import Session from "../../../utils/Session/Session";
 import { authService } from "../api/api";
+import { session } from "@/app/src/utils/Session/constants";
+import { AccountType } from "@/app/src/models/AccountType";
 
 const SignInScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -28,14 +30,15 @@ const SignInScreen = () => {
 
       setSubmitting(true);
 
-      const result = await authService.signInWithEmailAndPassword(form.email, form.password);
+      const result = await authService.signInWithEmailAndPassword(
+        form.email,
+        form.password
+      );
       if (result.status == 200) {
         await Session.setTokenWithSessionExpirationTime(result.data.SESSION_ID);
-        await Session.saveUserData(result);
-        // Navigate to the home screen
-        const profileData = await authService.getProfileData();
-        console.log(profileData);
-        router.replace("/home");
+        await Session.saveUserData(session.userData, result);
+        // navigate to onboard page after login to determine next route
+        router.replace("/onboard");
       } else {
         throw new Error("Sign-in failed. Please try again.");
       }
@@ -55,10 +58,7 @@ const SignInScreen = () => {
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
-          <Image
-            source={images.logo}
-            resizeMode="contain"
-          />
+          <Image source={images.logo} resizeMode="contain" />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Log in to FoodieMate
