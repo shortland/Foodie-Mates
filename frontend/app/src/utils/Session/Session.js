@@ -1,39 +1,11 @@
-// src/utils/Session.js
 import { Buffer } from 'buffer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Profile from '../Profile/Profile';
 
 class Session {
-  static async saveUserData(key, userData) {
-    try {
-      await AsyncStorage.setItem(key, JSON.stringify(userData));
-    } catch (error) {
-      console.error("Error saving user data:", error);
-      throw error;
-    }
-  }
-
-  static async getUserData() {
-    try {
-      const userData = await AsyncStorage.getItem("user");
-      return userData ? JSON.parse(userData) : null;
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-      throw error;
-    }
-  }
-
-  static async clearUserData() {
-    try {
-      await AsyncStorage.removeItem("user");
-    } catch (error) {
-      console.error("Error clearing user data:", error);
-      throw error;
-    }
-  }
-
   static async getSessionId() {
     try {
-      const userData = await Session.getUserData();
+      const userData = await Profile.getUserData();
       return userData?.data?.SESSION_ID || null;
     } catch (error) {
       console.error("Error fetching session ID:", error);

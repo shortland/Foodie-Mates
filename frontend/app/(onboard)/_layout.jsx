@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Stack, useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
-import Session from "../src/utils/Session/Session";
 import { AccountType } from "../src/models/AccountType";
 import { authService } from "../src/screens/auth/api/api";
-import { session } from "../src/utils/Session/constants";
+import { profile } from "../src/utils/Profile/constants";
+import Profile from "../src/utils/Profile/Profile";
 
 const OnBoardLayout = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const OnBoardLayout = () => {
   const determineRouteAndNavigate = async () => {
     try {
       const profileData = await authService.getProfileData();
-      await Session.saveUserData(session.profileData, profileData);
+      await Profile.saveUserData(profile.profileData, profileData);
 
       if (profileData) {
         const {account_type, requires_onboard} = profileData.data;

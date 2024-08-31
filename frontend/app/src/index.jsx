@@ -8,10 +8,10 @@ import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
 
 const Welcome = () => {
-const loading = false;
-const isLogged = false;
+  const loading = false;
+  const isLogged = false;
 
-
+  console.log("welcome");
   if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (

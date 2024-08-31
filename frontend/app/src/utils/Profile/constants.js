@@ -2,4 +2,4 @@
 const userData = "userData";
 const profileData = "profileData";
 
-export const session = { userData, profileData}
+export const profile = { userData, profileData}

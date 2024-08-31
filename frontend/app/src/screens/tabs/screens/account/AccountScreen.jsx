@@ -12,13 +12,14 @@ import {
 } from "react-native";
 import { useRouter } from "expo-router";
 import { authService } from "../../../auth/api/api";
+import Profile from "@/app/src/utils/Profile/Profile";
 
 export default function AccountScreen() {
   const router = useRouter();
 
   async function handleSignOut() {
     try {
-      await AsyncStorage.clear();
+      await Profile.clearUserData();
       const result = await authService.signOut();
       router.replace("/");
     } catch (error) {
