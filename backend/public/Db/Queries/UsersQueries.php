@@ -34,7 +34,6 @@ class UsersQueries {
                 $users[] = $obj;
             }
         }
-        $this->db->disconnect();
 
         return $users;
     }
@@ -59,7 +58,6 @@ class UsersQueries {
         $result = $this->db->doRawQuery($query, [$user_id]);
 
         $user = $result->fetch_object();
-        $this->db->disconnect();
 
         return $user;
     }
@@ -88,11 +86,9 @@ class UsersQueries {
                 user_id = ?;
         SQL;
 
-        $result = $this->db->doRawQuery($query, [...array_values($data), $user_id], false);
+        $res = $this->db->doRawQuery($query, [...array_values($data), $user_id]);
 
-        $this->db->disconnect();
-
-        return $result;
+        return $res;
     }
 
     public function getAccountType($user_id) {
@@ -108,7 +104,6 @@ class UsersQueries {
         $result = $this->db->doRawQuery($query, [$user_id]);
 
         $account_type = $result->fetch_object();
-        $this->db->disconnect();
 
         return $account_type;
     }

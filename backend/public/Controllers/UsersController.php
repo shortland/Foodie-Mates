@@ -49,12 +49,9 @@ class UsersController extends Controller {
 
         if (count($data) == 0) {
             return new ErrorRes('No data provided to update');
-        } else {
-            // logger lol
-            // var_dump($data);
         }
 
-        $user->updateUser($this->user_id, $data);
+        return !$user->updateUser($this->user_id, $data);
     }
 
     function getUsers($args, $data, $cookies) {

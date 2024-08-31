@@ -50,41 +50,43 @@ class Db {
     }
 
     /**
-     * @throws Exception
+     * Executes a raw SQL query using prepared statements.
+     * 
+     * @param string $query The SQL query with placeholders.
+     * @param array $params The parameters to bind to the query.
+     * @param bool $verbose Whether to print the executed query.
+     * 
+     * @return mysqli_result|false The result set on success, or false on failure.
+     * @throws Exception If the query fails to execute.
      */
     public function doRawQuery(string $query, array $params = [], bool $verbose = false) {
-        $query = $this->addParams($query, $params);
+        // Prepare the statement
+        $stmt = $this->connection->prepare($query);
+        if (!$stmt) {
+            throw new Exception(sprintf("Db Error: %s\n", $this->connection->error));
+        }
 
+        // Dynamically bind parameters if any are provided
+        if (!empty($params)) {
+            // Determine the types of the parameters
+            $types = str_repeat('s', count($params)); // Assuming all params are strings
+            $stmt->bind_param($types, ...$params);
+        }
+
+        // Print the executed query if verbose mode is on (debugging purpose)
         if ($verbose) {
-            echo $query;
+            echo $query . " [" . implode(", ", $params) . "]";
         }
 
-        if ($result = $this->connection->query($query)) {
-            return $result;
-        }
-        else {
-            throw new Exception(sprintf("Db Error: %s\n", mysqli_error($this->connection)));
-        }
-    }
-
-    public function disconnect() {
-        $this->connection->close();
-    }
-
-    /**
-     * @throws Exception
-     */
-    private function addParams($query, $params) {
-        if ($params) {
-            foreach ($params as $param) {
-                $queryNew = preg_replace('/(\?)/', sprintf("'%s'", $param), $query, 1);
-                if ($queryNew == $query) {
-                    throw new Exception("Db Error: Number of given parameters and available replacements in query string do not match\n");
-                }
-                $query = $queryNew;
-            }
+        // Execute the statement
+        if (!$stmt->execute()) {
+            throw new Exception(sprintf("Db Error: %s\n", $stmt->error));
         }
 
-        return $query;
+        // Return the result
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result;
     }
 }
