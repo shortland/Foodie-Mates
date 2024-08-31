@@ -5,14 +5,14 @@ import { HelloWave } from '@/app/src/components/HelloWave';
 import ParallaxScrollView from '@/app/src/components/ParallaxScrollView';
 import { ThemedText } from '@/app/src/components/ThemedText';
 import { ThemedView } from '@/app/src/components/ThemedView';
-import { getUserData } from '../../../auth/util/helpers';
+import Session from '../../../auth/util/Session';
 
 export default function HomeScreen() {
   const [user, setUser] = React.useState("");
 
   useEffect(() => {
     const loadUserData = async () => {
-      const userData = await getUserData();
+      const userData = await Session.getUserData();
       if (userData) {
         setUser(userData.userName);
       }
