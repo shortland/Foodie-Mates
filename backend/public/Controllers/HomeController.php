@@ -80,6 +80,7 @@ class HomeController extends Controller {
                     $html .= '<p>' . htmlspecialchars($method) . ': ' . htmlspecialchars($route) . '</p>';
                     if (isset($details['description'])) {
                         $details['description'] = str_replace('TODO:', "<p style='color:red;display:inline;'>TODO:</p>", $details['description']);
+                        $details['description'] = str_replace('NOTE:', "<p style='color:purple;display:inline;'>NOTE:</p>", $details['description']);
                         $html .= '<p>description: <i>' . $details['description'] . '</i></p>';
                     }
                     if (isset($details['auth']) && $details['auth'] == 1) {
