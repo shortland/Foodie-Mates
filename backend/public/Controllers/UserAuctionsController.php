@@ -9,6 +9,11 @@ class UserAuctionsController extends Controller {
                     'description' => 'for a user to see their own auctions (only 1 live allowed. but this will have past ones too)',
                     'function' => 'myAuctions',
                     'auth' => true
+                ],
+                '/auctions/user/bids' => [
+                    'description' => 'NOTE: should we nest the menu into this response? for a user to see bids on their active auction',
+                    'function' => 'viewBids',
+                    'auth' => true
                 ]
             ],
             'POST' => [
@@ -87,5 +92,16 @@ class UserAuctionsController extends Controller {
         // TODO: send push notification to restaurants that bid
 
         return $auction;
+    }
+
+    function viewBids(array $args, array $data, array $cookies) {
+        $auction_qs = new AuctionsQueries();
+
+        // check if user has a live auction
+        if (!$auction_qs->userHasLiveAuction($this->user_id)) {
+            return new ErrorRes('you do not have a live auction');
+        }
+
+        return $auction_qs->getBids($this->user_id);
     }
 }
