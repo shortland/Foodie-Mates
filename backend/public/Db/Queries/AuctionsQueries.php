@@ -34,8 +34,6 @@ class AuctionsQueries {
             }
         }
 
-        $this->db->disconnect();
-
         return $auctions;
     }
 
@@ -54,8 +52,6 @@ class AuctionsQueries {
         $result = $this->db->doRawQuery($query, [$user_id]);
 
         $has_auction = $result->fetch_object();
-        
-        $this->db->disconnect();
 
         return $has_auction ? true : false;
     }
@@ -95,8 +91,6 @@ class AuctionsQueries {
             $data['num_drink']
         ]);
 
-        $this->db->disconnect();
-
         return $result;
     }
 
@@ -113,8 +107,6 @@ class AuctionsQueries {
                 is_live = 1;
         SQL;
         $result = $this->db->doRawQuery($query, [$user_id]);
-
-        $this->db->disconnect();
 
         return $result;
     }
@@ -152,8 +144,6 @@ class AuctionsQueries {
                 $bids[] = $obj;
             }
         }
-
-        $this->db->disconnect();
 
         return $bids;
     }
