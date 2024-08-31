@@ -1,17 +1,14 @@
 import React, { useState, useRef } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-import {
-  signIn,
-  setTokenWithSessionExpirationTime,
-  saveUserData,
-} from "@/app/src/screens/auth/util/helpers";
+import images from "@/app/src/constants/images";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
-import images from "@/app/src/constants/images";
+
+import Session from "../util/Session";
+import { authService } from "../api/api";
 
 const SignInScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -31,12 +28,10 @@ const SignInScreen = () => {
 
       setSubmitting(true);
 
-      const result = await signIn(form.email, form.password);
-      if (result) {
-        const token = setTokenWithSessionExpirationTime(result.SESSION_ID);
-        await AsyncStorage.setItem("userToken", token);
-        await saveUserData(result);
-
+      const result = await authService.signInWithEmailAndPassword(form.email, form.password);
+      if (result.status == 200) {
+        await Session.setTokenWithSessionExpirationTime(result.SESSION_ID);
+        await Session.saveUserData(result);
         // Navigate to the home screen
         router.replace("/home");
       } else {

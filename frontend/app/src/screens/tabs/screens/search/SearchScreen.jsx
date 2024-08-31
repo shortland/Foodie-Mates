@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Button, Alert, ScrollView, View } from "react-native";
+import { StyleSheet, Alert, ScrollView } from "react-native";
 
-import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
+import { createService } from "./api/api";
+import FormField from "@/app/src/components/FormField";
 import { ThemedText } from "@/app/src/components/ThemedText";
 import { ThemedView } from "@/app/src/components/ThemedView";
-import FormField from "@/app/src/components/FormField";
-import { createRequest } from "./util/helpers";
 import CustomButton from "@/app/src/components/CustomButton";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
+import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
 
 export default function SearchScreen() {
   const [form, setForm] = useState({
@@ -61,7 +61,7 @@ export default function SearchScreen() {
         throw new Error("Please fill in all fields");
       }
 
-      const result = await createRequest(formData);
+      const result = await createService.createRequest(formData);
       if (result.status === 200) {
         Alert.alert("Success", "Request created successfully!");
       } else {

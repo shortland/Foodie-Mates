@@ -7,8 +7,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
-import { checkTokenValidity } from "./src/screens/auth/util/helpers";
 import images from "./src/constants/images";
+import Session from "./src/screens/auth/util/Session";
 
 export default function WelcomeScreen() {
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ export default function WelcomeScreen() {
 
   useEffect(() => {
     const checkSession = async () => {
-      const sessionExists = await checkTokenValidity();
+      const sessionExists = await Session.checkTokenValidity();
       if (sessionExists) {
         setIsLogged(true);
       }
