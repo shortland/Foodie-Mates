@@ -32,8 +32,6 @@ class AuthQueries {
 
         $user = $result->fetch_object();
 
-        $this->db->disconnect();
-
         if ($user == null) {
             throw new Exception("User not found");
         }
@@ -65,8 +63,6 @@ class AuthQueries {
             $salt,
             $account_type
         ]);
-
-        $this->db->disconnect();
 
         return $result;
     }
