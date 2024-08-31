@@ -4,13 +4,6 @@ class AuthController extends Controller {
 
     public function __construct() {
         $this->endpoints = [
-            'GET' => [
-                '/auth/profile' => [
-                    'description' => 'for an account to get info their own profile',
-                    'function' => 'profile',
-                    'auth' => true
-                ]
-            ],
             'POST' => [
                 '/auth/login' => [
                     'description' => 'for an account to login',
@@ -41,16 +34,6 @@ class AuthController extends Controller {
                 ]
             ]
         ];
-    }
-
-    function profile($args, $data, $cookies) {
-        $cookie_path = SESS_COOKIES_PATH . "/sess_" . $cookies['SESSION_ID'];
-        $sess_data = json_decode(file_get_contents($cookie_path), true);
-        $user_id = $sess_data['user_id'];
-        
-        $user = new UsersQueries();
-
-        return $user->getUser($user_id);
     }
 
     function login($args, $data, $cookies) {

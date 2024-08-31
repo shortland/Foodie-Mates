@@ -118,4 +118,43 @@ class AuctionsQueries {
 
         return $result;
     }
+
+    public function getBids($user_id) {
+        $this->db->connect();
+        $query = <<<SQL
+            SELECT
+                offer_id,
+                request_id,
+                offer_details,
+                menu_id,
+                special_offer_id,
+                meal_set_id,
+                price
+            FROM 
+                offers
+            WHERE
+                request_id = (
+                    SELECT
+                        request_id
+                    FROM
+                        user_requests
+                    WHERE
+                        user_id = ?
+                    AND
+                        is_live = 1
+                );
+        SQL;
+        $result = $this->db->doRawQuery($query, [$user_id]);
+
+        $bids = [];
+        if ($result->num_rows > 0) {
+            while ($obj = $result->fetch_object()) {
+                $bids[] = $obj;
+            }
+        }
+
+        $this->db->disconnect();
+
+        return $bids;
+    }
 }

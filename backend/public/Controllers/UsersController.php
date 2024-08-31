@@ -5,13 +5,18 @@ class UsersController extends Controller {
     public function __construct() {
         $this->endpoints = [
             'GET' => [
+                '/users/profile' => [
+                    'description' => 'for an account to get info their own profile',
+                    'function' => 'getProfile',
+                    'auth' => true
+                ],
                 '/users' => [
-                    'description' => 'TODO: working; but dev-only endpoint; remove in prod',
+                    'description' => 'NOTE: working; but dev-only endpoint; remove in prod',
                     'function' => 'getUsers',
                     'auth' => true
                 ],
                 '/users/user' => [
-                    'description' => 'TODO: working; but dev-only endpoint; remove in prod',
+                    'description' => 'NOTE: working; but dev-only endpoint; remove in prod',
                     'function' => 'getUser',
                     'auth' => true,
                     'query' => ['id']
@@ -24,40 +29,49 @@ class UsersController extends Controller {
             ],
             'PUT' => [
                 '/users/profile' => [
-                    'description' => 'TODO: allow account to update their profile',
+                    'description' => 'allow account to update their profile, provide field in data to update; must match db column name in users table',
                     'function' => 'updateProfile',
                     'auth' => true,
-                    'data' => [
-                        'first_name',
-                        'last_name',
-                        'email',
-                        'phone_number',
-                        'address',
-                        'password',
-                        'payment_credit_card'
-                    ]
+                    'data' => [] // NOTE: if empty, wont do anything, if given 'email' then will update that
                 ]
             ]
         ];
     }
 
-    function getUsers() {
+    function getProfile($args, $data, $cookies) {
+        $user = new UsersQueries();
+
+        return $user->getUser($this->user_id);
+    }
+
+    function updateProfile($args, $data, $cookies) {
+        $user = new UsersQueries();
+
+        if (count($data) == 0) {
+            return new ErrorRes('No data provided to update');
+        } else {
+            // logger lol
+            // var_dump($data);
+        }
+
+        $user->updateUser($this->user_id, $data);
+    }
+
+    function getUsers($args, $data, $cookies) {
         $users = new UsersQueries();
+
         return $users->getUsers();
     }
 
-    function getUser($args) {
-        // todo: eventually move this validation to __construct() and Controller() to validate args
-        if (!isset($args['id'])) {
-            return 'id not found & required';
-        }
-
+    function getUser($args, $data, $cookies) {
         $users = new UsersQueries();
+
         return $users->getUser($args['id']);
     }
 
-    function accountType() {
+    function accountType($args, $data, $cookies) {
         $users = new UsersQueries();
+
         return $users->getAccountType($this->user_id);
     }
 }

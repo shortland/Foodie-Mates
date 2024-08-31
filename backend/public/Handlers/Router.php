@@ -75,7 +75,10 @@ class Router {
                     case 'restaurant':
                         (new RestaurantAuctionsController())->route($method, $full_endpoint, $query_string, $bin_data, $cookies);
                         break;
+                    default:
+                        echo '"' . $full_endpoint . '" not found';
                 }
+                break;
             default:
                 echo '"' . $full_endpoint . '" not found';
         }
