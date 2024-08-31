@@ -3,13 +3,13 @@ import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-import { signUp } from "@/app/src/screens/auth/util/helpers";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 import FormSwitch from "@/app/src/components/FormSwitch";
 import images from "@/app/src/constants/images";
 import { AccountType } from "@/app/src/models/AccountType";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
+import { authService } from "../api/api";
 
 const SignUpScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -33,7 +33,7 @@ const SignUpScreen = () => {
         throw new Error("Please fill in all fields");
       }
       setSubmitting(true);
-      const result = await signUp(
+      const result = await await authService.signUpWithEmailAndPassword(
         form.email,
         form.password,
         form.firstName,
