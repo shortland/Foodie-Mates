@@ -48,7 +48,9 @@ class UsersQueries {
                 last_name,
                 email,
                 phone_number,
-                address 
+                address,
+                account_type,
+                requires_onboard
             FROM 
                 users
             WHERE
@@ -60,6 +62,37 @@ class UsersQueries {
         $this->db->disconnect();
 
         return $user;
+    }
+
+    public function updateUser($user_id, $data) {
+        // Ensure the database is connected
+        $this->db->connect();
+
+        // Prepare the SET part of the SQL statement
+        $set_query_part = '';
+        foreach ($data as $key => $value) {
+            // Consider adding validation to check if $key is a valid column name
+            if ($set_query_part != '') {
+                $set_query_part .= ', ';
+            }
+            $set_query_part .= $key . ' = ?';
+        }
+
+        // Build the query
+        $query = <<<SQL
+            UPDATE
+                users
+            SET
+                $set_query_part
+            WHERE
+                user_id = ?;
+        SQL;
+
+        $result = $this->db->doRawQuery($query, [...array_values($data), $user_id], false);
+
+        $this->db->disconnect();
+
+        return $result;
     }
 
     public function getAccountType($user_id) {
