@@ -7,7 +7,7 @@
     "phone_number": "112487843131",
     "user_id": "27",
     "requires_onboard": true,
-    "account_type": "restaurant"
+    "account_type": "person"
   },
   "status": 200
 }

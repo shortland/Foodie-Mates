@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { profile } from "./constants";
+import { profile } from "../constants";
 
 class Profile {
   static async saveUserData(key, userData) {
@@ -11,12 +11,27 @@ class Profile {
     }
   }
 
-  static async getUserData() {
+  static async getProfileData() {
     try {
-      const userData = await AsyncStorage.getItem(profile.userData);
-      return userData ? JSON.parse(userData) : null;
+      const profileData = await AsyncStorage.getItem(profile.info);
+      return profileData ? JSON.parse(profileData) : null;
     } catch (error) {
-      console.error("Error fetching user data:", error);
+      console.error("Error fetching profile data:", error);
+      throw error;
+    }
+  }
+
+  static async getAccountType() {
+    try {
+      const profileData = await AsyncStorage.getItem(profile.info);
+      const { data } = JSON.parse(profileData);
+      if (data && data.account_type) {
+        return data.account_type;
+      } else {
+        throw new Error("No account type data found");
+      }
+    } catch (error) {
+      console.error("Error fetching profile data:", error);
       throw error;
     }
   }

@@ -11,7 +11,6 @@ const Welcome = () => {
   const loading = false;
   const isLogged = false;
 
-  console.log("welcome");
   if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (

@@ -9,8 +9,6 @@ import CustomButton from "@/app/src/components/CustomButton";
 
 import Session from "../../../utils/Session/Session";
 import { authService } from "../api/api";
-import Profile from "@/app/src/utils/Profile/Profile";
-import { profile } from "@/app/src/utils/Profile/constants";
 
 const SignInScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -36,8 +34,6 @@ const SignInScreen = () => {
       );
       if (result.status == 200) {
         await Session.setTokenWithSessionExpirationTime(result.data.SESSION_ID);
-        await Profile.saveUserData(profile.userData, result);
-        // navigate to onboard page after login to determine next route
         router.replace("/onboard");
       } else {
         throw new Error("Sign-in failed. Please try again.");

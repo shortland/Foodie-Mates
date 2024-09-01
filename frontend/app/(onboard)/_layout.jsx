@@ -4,7 +4,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { AccountType } from "../src/models/AccountType";
 import { authService } from "../src/screens/auth/api/api";
-import { profile } from "../src/utils/Profile/constants";
+import { profile } from "../src/utils/constants";
 import Profile from "../src/utils/Profile/Profile";
 
 const OnBoardLayout = () => {
@@ -18,7 +18,7 @@ const OnBoardLayout = () => {
   const determineRouteAndNavigate = async () => {
     try {
       const profileData = await authService.getProfileData();
-      await Profile.saveUserData(profile.profileData, profileData);
+      await Profile.saveUserData(profile.info, profileData);
 
       if (profileData) {
         const {account_type, requires_onboard} = profileData.data;
