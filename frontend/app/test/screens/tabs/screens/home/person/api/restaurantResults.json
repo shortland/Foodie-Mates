@@ -1,0 +1,77 @@
+{
+    "data": [
+      {
+        "id": "1",
+        "categoryName": "Featured On Satisfy For You",
+        "restaurants": [
+          {
+            "id": "1",
+            "name": "Turmeric Indian Bistro",
+            "rating": 4.5,
+            "imageUrl": "https://plus.unsplash.com/premium_photo-1670984939562-d936470dbced?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": "2",
+            "name": "Essence of Kesar",
+            "rating": 4.8,
+            "imageUrl": "https://images.unsplash.com/photo-1642231877874-ce3e205f39c0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": "3",
+            "name": "Taste Of India",
+            "rating": 4.2,
+            "imageUrl": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "categoryName": "Best Fit Your Cuisine Preferences",
+        "restaurants": [
+          {
+            "id": "3",
+            "name": "Ching's Indo Chinese",
+            "rating": 4.9,
+            "imageUrl": "https://images.unsplash.com/photo-1658829457670-d80231baebe5?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": "4",
+            "name": "Bobby Flay Steak",
+            "rating": 4.8,
+            "imageUrl": "https://plus.unsplash.com/premium_photo-1676310055316-d73c9d5eeb51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": "5",
+            "name": "Jenny Crow Fish",
+            "rating": 4.8,
+            "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138398-fe1ce5e5b03b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "categoryName": "Best Fit Your Budget",
+        "restaurants": [
+          {
+            "id": "3",
+            "name": "Ching's Indo Italian Bistro",
+            "rating": 4.9,
+            "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138161-209f57a074fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
+          },
+          {
+            "id": "4",
+            "name": "KBBQ by David Chang",
+            "rating": 4.8,
+            "imageUrl": "https://images.unsplash.com/photo-1651440204317-acca48e8a7bc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+          },
+          {
+            "id": "5",
+            "name": "Eddie Murphy's Signature Popcorn",
+            "rating": 4.8,
+            "imageUrl": "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,71 +1,138 @@
-import React, { useEffect } from "react";
-import { Image, StyleSheet, Platform } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView, View, Text, FlatList, Image, ScrollView, StyleSheet } from "react-native";
 
-import { HelloWave } from "@/app/src/components/HelloWave";
-import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
-import { ThemedText } from "@/app/src/components/ThemedText";
-import { ThemedView } from "@/app/src/components/ThemedView";
+import { resultsService } from "./api/api";
 import Profile from "@/app/src/utils/Profile/Profile";
 
 export default function PersonHomeScreen() {
-  const [user, setUser] = React.useState("");
+  const [user, setUser] = useState("");
+  const [restaurantData, setRestaurantData] = useState({ data: [] });
 
   useEffect(() => {
+    // Fetch user data
     const loadUserData = async () => {
-      const { data } = await Profile.getProfileData();
-      if (data) {
-        setUser(data.first_name);
+      try {
+        const { data } = await Profile.getProfileData();
+        if (data) {
+          setUser(data.first_name);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    // Fetch restaurant data
+    const fetchData = async () => {
+      try {
+        const response = await resultsService.getRestaurantResults();
+        setRestaurantData(response); // Store the fetched restaurant data
+      } catch (error) {
+        console.error("Error fetching restaurant data:", error);
       }
     };
 
     loadUserData();
+    fetchData();
   }, []);
 
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/public/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome {user}</ThemedText>
-        <HelloWave />
-      </ThemedView>
+  // Component to display each restaurant
+  const RestaurantItem = ({ restaurant }) => (
+    <View style={styles.restaurantContainer}>
+      <Image
+        source={{ uri: restaurant.imageUrl }}
+        style={styles.restaurantImage}
+      />
+      <View style={styles.restaurantDetails}>
+        <Text style={styles.restaurantName}>{restaurant.name}</Text>
+        <Text style={styles.restaurantInfo}>Rating: {restaurant.rating} ★</Text>
+      </View>
+    </View>
+  );
 
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Goals For This Customer Page</ThemedText>
-        <ThemedText>
-          On the home screen, there will be a list of recomended/potential
-          restaurants in the area for the user to browse through.
-        </ThemedText>
-        <ThemedText>
-          Upon clickng the restaurant, user can view the menu items and the
-          reviews. Moving forward with the restaurant will yield a request.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+  // Component to display each category
+  const CategorySection = ({ category }) => (
+    <View style={styles.categoryContainer}>
+      <Text style={styles.categoryTitle}>{category.categoryName}</Text>
+      <FlatList
+        data={category.restaurants}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={({ item }) => <RestaurantItem restaurant={item} />}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
+  );
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.welcomeText}>Welcome, {user}</Text>
+        </View>
+        <ScrollView style={styles.scrollView}>
+          {restaurantData.data.map((category) => (
+            <CategorySection key={category.id} category={category} />
+          ))}
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  container: {
+    flex: 1,
+    padding: 8,
+    backgroundColor: "#fff",
+  },
   titleContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 8,
+    marginLeft: 8,
+    marginBottom: 16,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
+  scrollView: {
+    flex: 1,
+  },
+  categoryContainer: {
+    marginBottom: 20,
+  },
+  categoryTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  restaurantContainer: {
+    flexDirection: "column",
+    marginRight: 15,
+    backgroundColor: "#f8f8f8",
+    padding: 10,
+    borderRadius: 10,
+    width: 150,
+  },
+  restaurantImage: {
+    width: 130,
+    height: 130,
+    borderRadius: 10,
+  },
+  restaurantDetails: {
+    marginTop: 5,
+  },
+  restaurantName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  restaurantInfo: {
+    fontSize: 14,
+    color: "#555",
   },
 });
