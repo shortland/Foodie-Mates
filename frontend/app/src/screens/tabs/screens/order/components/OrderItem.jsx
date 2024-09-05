@@ -1,12 +1,12 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { ThemedText } from "@/app/src/components/ThemedText";
-import { orderService } from "../api/api";
+import { reservationService } from "../api/api";
 
 const OrderItem = ({ order, onCancel }) => {
   const handleCancel = async () => {
     try {
-      const response = await orderService.cancelOrder(order.request_id);
+      const response = await reservationService.cancelOrder(order.request_id);
       if (response.status == 200) {
         Alert.alert("Success", "The order has been canceled.");
         onCancel(order.request_id); // Notify the parent component of the cancellation

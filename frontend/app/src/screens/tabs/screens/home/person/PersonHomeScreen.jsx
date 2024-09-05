@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, Text, FlatList, Image, ScrollView, StyleSheet } from "react-native";
-
+import { SafeAreaView, View, Text, FlatList, Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router"; // Import useRouter from expo-router
 import { resultsService } from "./api/api";
 import Profile from "@/app/src/utils/Profile/Profile";
 
 export default function PersonHomeScreen() {
   const [user, setUser] = useState("");
   const [restaurantData, setRestaurantData] = useState({ data: [] });
+  const router = useRouter(); // Initialize useRouter for navigation
 
   useEffect(() => {
     // Fetch user data
@@ -37,16 +38,20 @@ export default function PersonHomeScreen() {
 
   // Component to display each restaurant
   const RestaurantItem = ({ restaurant }) => (
-    <View style={styles.restaurantContainer}>
-      <Image
-        source={{ uri: restaurant.imageUrl }}
-        style={styles.restaurantImage}
-      />
-      <View style={styles.restaurantDetails}>
-        <Text style={styles.restaurantName}>{restaurant.name}</Text>
-        <Text style={styles.restaurantInfo}>Rating: {restaurant.rating} ★</Text>
+    <TouchableOpacity
+      onPress={() => router.push(`/restaurant-info?id=${restaurant.id}`)} // Navigate to restaurant-info and pass restaurant id
+    >
+      <View style={styles.restaurantContainer}>
+        <Image
+          source={{ uri: restaurant.imageUrl }}
+          style={styles.restaurantImage}
+        />
+        <View style={styles.restaurantDetails}>
+          <Text style={styles.restaurantName}>{restaurant.name}</Text>
+          <Text style={styles.restaurantInfo}>Rating: {restaurant.rating} ★</Text>
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   // Component to display each category

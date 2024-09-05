@@ -9,17 +9,21 @@ import { ThemedView } from "@/app/src/components/ThemedView";
 import CustomButton from "@/app/src/components/CustomButton";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
 import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
+import { useRouter } from "expo-router";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SearchScreen() {
+  const router = useRouter(); // Get the router object
+
   const [form, setForm] = useState({
-    preferred_cuisine_type: "",
-    num_people: "",
-    distance_miles: "",
-    total_budget: "",
-    num_appetizer: "",
-    num_main_course: "",
-    num_dessert: "",
-    num_drink: "",
+    preferred_cuisine_type: "indian",
+    num_people: "4",
+    distance_miles: "1",
+    total_budget: "100",
+    num_appetizer: "1",
+    num_main_course: "1",
+    num_dessert: "1",
+    num_drink: "1",
   });
 
   // Refs for navigation between fields
@@ -38,35 +42,29 @@ export default function SearchScreen() {
     });
   };
 
-  const handleSubmit = async () => {
-    // TODO give option to select a location by putting address or using current location
+  const handleSubmit = () => {
+    
     const latitude = "37.7749";
     const longitude = "-122.4194";
 
     try {
+      // Create formData object from form values
       const formData = {
-        preferred_cuisine_type: form.preferred_cuisine_type,
-        num_people: form.num_people,
-        distance_miles: form.distance_miles,
-        longitude: latitude,
-        latitude: longitude,
-        total_budget: form.total_budget,
-        num_appetizer: form.num_appetizer,
-        num_main_course: form.num_main_course,
-        num_dessert: form.num_dessert,
-        num_drink: form.num_drink,
+        ...form, // Destructure form object to avoid repetition
+        latitude,
+        longitude,
       };
 
+      // Validate required fields
       if (!validateRequiredFields(form, [])) {
         throw new Error("Please fill in all fields");
       }
 
-      const result = await createService.createRequest(formData);
-      if (result.status === 200) {
-        Alert.alert("Success", "Request created successfully!");
-      } else {
-        throw new Error("Failed to create request. " + result.error);
-      }
+      // Navigate to the results screen with formData using router.push()
+      router.push({
+        pathname: "/restaurant-results",
+        params: { formData: JSON.stringify(formData) }, // Pass formData as string
+      });
     } catch (error) {
       Alert.alert("Error", error.message || "An unexpected error occurred.");
     }

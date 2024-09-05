@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { orderService } from "./api/api";  // Replace with your API service
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from "react-native";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { reservationService } from "./api/api"; // Replace with your API service
+import { useRouter } from "expo-router"; // Import useRouter from expo-router
 
 // Create the Top Tab Navigator
 const Tab = createMaterialTopTabNavigator();
@@ -9,10 +17,11 @@ const Tab = createMaterialTopTabNavigator();
 export default function ReservationScreen() {
   const [currentReservations, setCurrentReservations] = useState([]);
   const [pastReservations, setPastReservations] = useState([]);
+  const router = useRouter(); // Get the router instance for navigation
 
   const fetchReservations = async () => {
     try {
-      const data = await orderService.fetchUserReservations();
+      const data = await reservationService.fetchUserReservations();
       const current = data.data.filter((reservation) => reservation.is_live);
       const past = data.data.filter((reservation) => !reservation.is_live);
       setCurrentReservations(current);
@@ -26,8 +35,13 @@ export default function ReservationScreen() {
     fetchReservations();
   }, []);
 
+  // Handle reservation click and navigate to the /reservation-info page
   const handleReservationClick = (reservation) => {
-    alert(`You clicked on ${reservation.name}`);
+    // Navigate to the /reservation-info page and pass id and is_live as params
+    router.push({
+      pathname: "/reservation-info",
+      params: { id: reservation.id, isActive: reservation.is_live },
+    });
   };
 
   // Current Reservations screen
@@ -46,14 +60,20 @@ export default function ReservationScreen() {
               />
               <View style={styles.reservationInfo}>
                 <Text style={styles.reservationName}>{reservation.name}</Text>
-                <Text style={styles.reservationDetails}>Party of {reservation.party_size}</Text>
-                <Text style={styles.reservationDetails}>{reservation.reserved_date} at {reservation.time}</Text>
+                <Text style={styles.reservationDetails}>
+                  Party of {reservation.party_size}
+                </Text>
+                <Text style={styles.reservationDetails}>
+                  {reservation.reserved_date} at {reservation.time}
+                </Text>
               </View>
             </View>
           </TouchableOpacity>
         ))
       ) : (
-        <Text style={styles.emptyMessage}>No current reservations available.</Text>
+        <Text style={styles.emptyMessage}>
+          No current reservations available.
+        </Text>
       )}
     </View>
   );
@@ -74,8 +94,12 @@ export default function ReservationScreen() {
               />
               <View style={styles.reservationInfo}>
                 <Text style={styles.reservationName}>{reservation.name}</Text>
-                <Text style={styles.reservationDetails}>Party of {reservation.party_size}</Text>
-                <Text style={styles.reservationDetails}>{reservation.reserved_date} at {reservation.time}</Text>
+                <Text style={styles.reservationDetails}>
+                  Party of {reservation.party_size}
+                </Text>
+                <Text style={styles.reservationDetails}>
+                  {reservation.reserved_date} at {reservation.time}
+                </Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -93,10 +117,10 @@ export default function ReservationScreen() {
       </View>
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: '#333',
-          tabBarLabelStyle: { fontSize: 16, fontWeight: '600' },
-          tabBarStyle: { backgroundColor: '#fff' }, // Changed to white
-          tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 }, // Changed to black
+          tabBarActiveTintColor: "#333",
+          tabBarLabelStyle: { fontSize: 16, fontWeight: "600" },
+          tabBarStyle: { backgroundColor: "#fff" }, // Changed to white
+          tabBarIndicatorStyle: { backgroundColor: "#333", height: 3 }, // Changed to black
         }}
       >
         <Tab.Screen name="Current" component={CurrentReservations} />
@@ -108,11 +132,11 @@ export default function ReservationScreen() {
 
 const styles = StyleSheet.create({
   appBar: {
-    backgroundColor: '#f4f4f4', // Light color for the app bar
+    backgroundColor: "#f4f4f4", // Light color for the app bar
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: "#ddd",
   },
   header: {
     fontSize: 28,
@@ -123,7 +147,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    backgroundColor: '#f4f4f8',
+    backgroundColor: "#f4f4f8",
   },
   reservationContainer: {
     flexDirection: "row",
@@ -131,7 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 14,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
@@ -144,7 +168,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginRight: 15,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
   },
   reservationInfo: {
     flexDirection: "column",
@@ -164,7 +188,7 @@ const styles = StyleSheet.create({
   emptyMessage: {
     fontSize: 16,
     color: "#666",
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 20,
   },
 });

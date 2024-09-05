@@ -21,6 +21,8 @@ import createData from "@/app/test/screens/tabs/screens/search/api/createRequest
 import orderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
 import cancelData from "@/app/test/screens/tabs/screens/order/api/cancel.json";
 import reservationsData from "@/app/test/screens/tabs/screens/order/api/reservations.json";
+import restaurantResults from "@/app/test/screens/tabs/screens/order/api/restaurantResults.json";
+import allRestaurants from "@/app/test/screens/tabs/screens/order/api/allRestaurants.json";
 
 // results
 import restaurantResultsData from "@/app/test/screens/tabs/screens/home/person/api/restaurantResults.json";
@@ -34,5 +36,7 @@ export const mock = {
   orderData,
   cancelData,
   reservationsData,
+  restaurantResults,
+  allRestaurants,
   restaurantResultsData,
 };

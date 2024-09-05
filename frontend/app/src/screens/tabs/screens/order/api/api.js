@@ -2,12 +2,28 @@ import { TESTING, mock } from "@/app/test/constants/mockData";
 import ApiClient from "@/app/src/api/ApiClient";
 import { api } from "@/app/src/api/constants";
 
-export const orderService = {
+export const reservationService = {
   fetchUserOrders: async () => {
     return ApiClient.request({
       endpoint: `${api.ORDER_ENDPOINT}/self`,
       method: "GET",
       dummyData: TESTING.order ? mock.orderData : null,
+    });
+  },
+
+  fetchAllRestaurants: async () => {
+    return ApiClient.request({
+      endpoint: `${api.ORDER_ENDPOINT}/self`,
+      method: "GET",
+      dummyData: TESTING.order ? mock.allRestaurants : null,
+    });
+  },
+
+  fetchRestaurantsFromQuery: async () => {
+    return ApiClient.request({
+      endpoint: `${api.ORDER_ENDPOINT}/self`,
+      method: "GET",
+      dummyData: TESTING.order ? mock.restaurantResults : null,
     });
   },
 
