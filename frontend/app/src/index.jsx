@@ -1,3 +1,4 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
@@ -7,9 +8,8 @@ import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
 
 const Welcome = () => {
-const loading = false;
-const isLogged = false;
-
+  const loading = false;
+  const isLogged = false;
 
   if (!loading && isLogged) return <Redirect href="/home" />;
 

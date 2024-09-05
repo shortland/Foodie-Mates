@@ -7,7 +7,7 @@ export const orderService = {
     return ApiClient.request({
       endpoint: `${api.ORDER_ENDPOINT}/self`,
       method: "GET",
-      dummyData: TESTING.order ? mock.dummyOrderData : null,
+      dummyData: TESTING.order ? mock.orderData : null,
     });
   },
 
@@ -17,7 +17,7 @@ export const orderService = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ request_id: requestId }),
-      dummyData: TESTING.order ? mock.dummyCancelData : null,
+      dummyData: TESTING.order ? mock.cancelData : null,
     });
   },
 };

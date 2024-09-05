@@ -7,7 +7,7 @@ import images from "@/app/src/constants/images";
 import FormField from "@/app/src/components/FormField";
 import CustomButton from "@/app/src/components/CustomButton";
 
-import Session from "../util/Session";
+import Session from "../../../utils/Session/Session";
 import { authService } from "../api/api";
 
 const SignInScreen = () => {
@@ -28,12 +28,13 @@ const SignInScreen = () => {
 
       setSubmitting(true);
 
-      const result = await authService.signInWithEmailAndPassword(form.email, form.password);
+      const result = await authService.signInWithEmailAndPassword(
+        form.email,
+        form.password
+      );
       if (result.status == 200) {
-        await Session.setTokenWithSessionExpirationTime(result.SESSION_ID);
-        await Session.saveUserData(result);
-        // Navigate to the home screen
-        router.replace("/home");
+        await Session.setTokenWithSessionExpirationTime(result.data.SESSION_ID);
+        router.replace("/onboard");
       } else {
         throw new Error("Sign-in failed. Please try again.");
       }
@@ -53,10 +54,7 @@ const SignInScreen = () => {
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
-          <Image
-            source={images.logo}
-            resizeMode="contain"
-          />
+          <Image source={images.logo} resizeMode="contain" />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Log in to FoodieMate

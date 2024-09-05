@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/app/src/components/CustomButton";
 import Loader from "@/app/src/components/Loader";
 import images from "./src/constants/images";
-import Session from "./src/screens/auth/util/Session";
+import Session from "./src/utils/Session/Session";
 
 export default function WelcomeScreen() {
   const [loading, setLoading] = useState(true);
