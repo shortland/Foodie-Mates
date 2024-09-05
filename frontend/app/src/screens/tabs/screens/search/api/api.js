@@ -11,7 +11,7 @@ export const createService = {
         "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams(formData).toString(),
-      dummyData: TESTING.create ? mock.dummyCreateData : null,
+      dummyData: TESTING.create ? mock.createData : null,
     });
   },
 };

@@ -3,6 +3,18 @@ import ApiClient from "@/app/src/api/ApiClient";
 import { TESTING, mock } from "@/app/test/constants/mockData";
 
 export const authService = {
+  getProfileData: async () => {
+    return ApiClient.request({
+      endpoint: `${api.AUTH_ENDPOINT}/profile`,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      useSession: true,
+      dummyData: TESTING.profile ? mock.profileData : null,
+    });
+  },
+
   signInWithEmailAndPassword: async (email, password) => {
     return ApiClient.request({
       endpoint: `${api.AUTH_ENDPOINT}/login`,
@@ -15,7 +27,7 @@ export const authService = {
         password: password,
       }).toString(),
       useSession: false,
-      dummyData: TESTING.auth ? mock.dummySignInData : null,
+      dummyData: TESTING.auth ? mock.signInData : null,
     });
   },
 
@@ -42,7 +54,19 @@ export const authService = {
         account_type: accountType,
       }).toString(),
       useSession: false,
-      dummyData: TESTING.auth ? mock.dummySignUpData : null,
+      dummyData: TESTING.auth ? mock.signUpData : null,
+    });
+  },
+
+  signOut: async () => {
+    return ApiClient.request({
+      endpoint: `${api.AUTH_ENDPOINT}/logout`,
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      useSession: true,
+      dummyData: TESTING.auth ? mock.signOutData : null,
     });
   },
 };

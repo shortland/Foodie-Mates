@@ -1,5 +1,5 @@
 import { api } from "./constants";
-import Session from "../screens/auth/util/Session";
+import Session from "../utils/Session/Session";
 
 class ApiClient {
   constructor(baseURL) {
