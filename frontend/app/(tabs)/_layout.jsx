@@ -27,7 +27,7 @@ const TabLayout = () => {
     },
     {
       name: "orders",
-      title: "Orders",
+      title: "Reservations",
       icon: "menu",
       visibleFor: [AccountType.PERSON],
     },

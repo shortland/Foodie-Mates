@@ -11,6 +11,14 @@ export const orderService = {
     });
   },
 
+  fetchUserReservations: async () => {
+    return ApiClient.request({
+      endpoint: `${api.ORDER_ENDPOINT}/self`,
+      method: "GET",
+      dummyData: TESTING.order ? mock.reservationsData : null,
+    });
+  },
+  
   cancelOrder: async (requestId) => {
     return ApiClient.request({
       endpoint: `${api.ORDER_ENDPOINT}/cancel`,

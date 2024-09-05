@@ -1,124 +1,170 @@
 import React, { useState, useEffect } from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Alert,
-  RefreshControl,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { orderService } from "./api/api";  // Replace with your API service
 
-import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
-import { ThemedText } from "@/app/src/components/ThemedText";
-import { ThemedView } from "@/app/src/components/ThemedView";
-import { orderService } from "./api/api"; // Import the order service
-import OrderItem from "./components/OrderItem";
+// Create the Top Tab Navigator
+const Tab = createMaterialTopTabNavigator();
 
-export default function OrderScreen() {
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
+export default function ReservationScreen() {
+  const [currentReservations, setCurrentReservations] = useState([]);
+  const [pastReservations, setPastReservations] = useState([]);
 
-  const fetchOrders = async () => {
+  const fetchReservations = async () => {
     try {
-      const data = await orderService.fetchUserOrders(); // Use the API service to fetch orders
-      setOrders(data.data);
-      setLoading(false);
-      setRefreshing(false);
+      const data = await orderService.fetchUserReservations();
+      const current = data.data.filter((reservation) => reservation.is_live);
+      const past = data.data.filter((reservation) => !reservation.is_live);
+      setCurrentReservations(current);
+      setPastReservations(past);
     } catch (error) {
-      console.error("Error fetching user orders:", error);
-      setLoading(false);
-      setRefreshing(false);
+      console.error("Error fetching reservations:", error);
     }
   };
 
   useEffect(() => {
-    fetchOrders();
+    fetchReservations();
   }, []);
 
-  const handleCancelOrder = (requestId) => {
-    setOrders(orders.filter((order) => order.request_id !== requestId));
+  const handleReservationClick = (reservation) => {
+    alert(`You clicked on ${reservation.name}`);
   };
 
-  const onRefresh = () => {
-    setRefreshing(true);
-    fetchOrders();
-  };
+  // Current Reservations screen
+  const CurrentReservations = () => (
+    <View style={styles.content}>
+      {currentReservations.length > 0 ? (
+        currentReservations.map((reservation) => (
+          <TouchableOpacity
+            key={reservation.id}
+            onPress={() => handleReservationClick(reservation)}
+          >
+            <View style={styles.reservationContainer}>
+              <Image
+                source={{ uri: reservation.imageUrl }}
+                style={styles.reservationImage}
+              />
+              <View style={styles.reservationInfo}>
+                <Text style={styles.reservationName}>{reservation.name}</Text>
+                <Text style={styles.reservationDetails}>Party of {reservation.party_size}</Text>
+                <Text style={styles.reservationDetails}>{reservation.reserved_date} at {reservation.time}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        ))
+      ) : (
+        <Text style={styles.emptyMessage}>No current reservations available.</Text>
+      )}
+    </View>
+  );
 
-  // Separate live order and past orders
-  const liveOrder = orders.find((order) => order.is_live === "1");
-  const pastOrders = orders.filter((order) => order.is_live !== "1");
+  // Past Reservations screen
+  const PastReservations = () => (
+    <View style={styles.content}>
+      {pastReservations.length > 0 ? (
+        pastReservations.map((reservation) => (
+          <TouchableOpacity
+            key={reservation.id}
+            onPress={() => handleReservationClick(reservation)}
+          >
+            <View style={styles.reservationContainer}>
+              <Image
+                source={{ uri: reservation.imageUrl }}
+                style={styles.reservationImage}
+              />
+              <View style={styles.reservationInfo}>
+                <Text style={styles.reservationName}>{reservation.name}</Text>
+                <Text style={styles.reservationDetails}>Party of {reservation.party_size}</Text>
+                <Text style={styles.reservationDetails}>{reservation.reserved_date} at {reservation.time}</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        ))
+      ) : (
+        <Text style={styles.emptyMessage}>No past reservations available.</Text>
+      )}
+    </View>
+  );
 
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
-      headerImage={
-        <Ionicons size={310} name="code-slash" style={styles.headerImage} />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Orders</ThemedText>
-      </ThemedView>
-
-      <ScrollView
-        contentContainerStyle={styles.container}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.appBar}>
+        <Text style={styles.header}>Reservations</Text>
+      </View>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#333',
+          tabBarLabelStyle: { fontSize: 16, fontWeight: '600' },
+          tabBarStyle: { backgroundColor: '#fff' }, // Changed to white
+          tabBarIndicatorStyle: { backgroundColor: '#333', height: 3 }, // Changed to black
+        }}
       >
-        {loading ? (
-          <ThemedText>Loading orders...</ThemedText>
-        ) : (
-          <>
-            {liveOrder && (
-              <View>
-                <ThemedText type="title" style={styles.currentHeader}>
-                  Current
-                </ThemedText>
-                <OrderItem order={liveOrder} onCancel={handleCancelOrder} />
-              </View>
-            )}
-
-            {pastOrders.length > 0 && (
-              <View>
-                <ThemedText type="title" style={styles.pastHeader}>
-                  Past Orders
-                </ThemedText>
-                {pastOrders.map((order, index) => (
-                  <OrderItem key={index} order={order} />
-                ))}
-              </View>
-            )}
-          </>
-        )}
-      </ScrollView>
-    </ParallaxScrollView>
+        <Tab.Screen name="Current" component={CurrentReservations} />
+        <Tab.Screen name="Past" component={PastReservations} />
+      </Tab.Navigator>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: "#808080",
-    bottom: -90,
-    left: -35,
-    position: "absolute",
+  appBar: {
+    backgroundColor: '#f4f4f4', // Light color for the app bar
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
   },
-  titleContainer: {
+  header: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: '#f4f4f8',
+  },
+  reservationContainer: {
     flexDirection: "row",
-    gap: 8,
-    marginBottom: 16,
+    marginBottom: 12,
+    backgroundColor: "#fff",
+    padding: 14,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
+    alignItems: "center",
   },
-  container: {
-    padding: 16,
+  reservationImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    marginRight: 15,
+    borderWidth: 1,
+    borderColor: '#ddd',
   },
-  currentHeader: {
-    marginBottom: 8,
-    color: "#FF5733", // Customize the color for the "Current" label
+  reservationInfo: {
+    flexDirection: "column",
+    flex: 1,
   },
-  pastHeader: {
-    marginTop: 24,
-    marginBottom: 8,
-    color: "#3498db", // Customize the color for the "Past Orders" label
+  reservationName: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 6,
+  },
+  reservationDetails: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 4,
+  },
+  emptyMessage: {
+    fontSize: 16,
+    color: "#666",
+    textAlign: 'center',
+    marginTop: 20,
   },
 });
-

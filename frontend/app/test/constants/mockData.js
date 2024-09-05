@@ -20,6 +20,7 @@ import createData from "@/app/test/screens/tabs/screens/search/api/createRequest
 // order
 import orderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
 import cancelData from "@/app/test/screens/tabs/screens/order/api/cancel.json";
+import reservationsData from "@/app/test/screens/tabs/screens/order/api/reservations.json";
 
 // results
 import restaurantResultsData from "@/app/test/screens/tabs/screens/home/person/api/restaurantResults.json";
@@ -32,5 +33,6 @@ export const mock = {
   createData,
   orderData,
   cancelData,
+  reservationsData,
   restaurantResultsData,
 };
