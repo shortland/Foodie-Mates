@@ -1,8 +1,8 @@
 export const TESTING = {
   auth: true,
   profile: true,
-  create: true,
-  order: true,
+  search: true,
+  reservation: true,
   results: true,
 };
 
@@ -14,8 +14,8 @@ import signOutData from "@/app/test/screens/auth/api/signout.json";
 // profile
 import profileData from "@/app/test/screens/auth/api/profileData.json";
 
-// create
-import createData from "@/app/test/screens/tabs/screens/search/api/createRequest.json";
+// search
+import searchData from "@/app/test/screens/tabs/screens/search/api/searchRequest.json";
 
 // order
 import orderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
@@ -32,7 +32,7 @@ export const mock = {
   signOutData,
   profileData,
   signUpData,
-  createData,
+  searchData,
   orderData,
   cancelData,
   reservationsData,

@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { StyleSheet, Alert, ScrollView } from "react-native";
 
-import { createService } from "./api/api";
+import { searchService } from "./api/api";
 import FormField from "@/app/src/components/FormField";
 import { ThemedText } from "@/app/src/components/ThemedText";
 import { ThemedView } from "@/app/src/components/ThemedView";

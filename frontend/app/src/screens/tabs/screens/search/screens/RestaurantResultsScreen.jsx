@@ -10,9 +10,9 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router"; // To get query params and navigate
-import { reservationService } from "../api/api"; // Ensure correct path to API service
+import { searchService } from "../../search/api/api";
 
-export default function RestaurantResults() {
+export default function RestaurantResultsScreen() {
   const searchParams = useLocalSearchParams(); // Extract search parameters from the URL
   const router = useRouter(); // Use router to navigate to restaurant-info page
   const [restaurants, setRestaurants] = useState([]);
@@ -27,7 +27,7 @@ export default function RestaurantResults() {
         await new Promise((resolve) => setTimeout(resolve, 1500));
 
         // Include searchParams in the API request
-        const response = await reservationService.fetchRestaurantsFromQuery(
+        const response = await searchService.fetchRestaurantsFromQuery(
           searchParams
         );
 

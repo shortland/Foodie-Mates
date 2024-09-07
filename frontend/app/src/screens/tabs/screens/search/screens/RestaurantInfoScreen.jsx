@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import { reservationService } from "../api/api";
+import { searchService } from "../../search/api/api";
 
 export default function RestaurantInfoScreen() {
   const [restaurant, setRestaurant] = useState(null);
@@ -22,7 +22,7 @@ export default function RestaurantInfoScreen() {
   useEffect(() => {
     const fetchRestaurant = async () => {
       try {
-        const response = await reservationService.fetchAllRestaurants();
+        const response = await searchService.fetchAllRestaurants();
 
         if (response && response.data) {
           const foundRestaurant = response.data.find(
@@ -111,11 +111,6 @@ export default function RestaurantInfoScreen() {
           <Text style={styles.details}>Hours: {restaurant.hours}</Text>
           <Text style={styles.details}>Price: {restaurant.price}</Text>
           <Text style={styles.details}>Cuisines: {restaurant.cuisines}</Text>
-          <Text style={styles.details}>
-            Dining Style: {restaurant.diningStyle}
-          </Text>
-          <Text style={styles.details}>Dress Code: {restaurant.dressCode}</Text>
-          <Text style={styles.details}>Parking: {restaurant.parking}</Text>
           <Text style={styles.details}>
             Additional Info: {restaurant.additionalInfo}
           </Text>

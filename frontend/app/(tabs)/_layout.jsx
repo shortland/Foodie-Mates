@@ -21,12 +21,12 @@ const TabLayout = () => {
     },
     {
       name: "search",
-      title: "Add",
-      icon: "add-circle",
+      title: "Search",
+      icon: "search",
       visibleFor: [AccountType.PERSON],
     },
     {
-      name: "orders",
+      name: "reservations",
       title: "Reservations",
       icon: "menu",
       visibleFor: [AccountType.PERSON],
@@ -63,7 +63,6 @@ const TabLayout = () => {
               <TabBarIcon
                 name={focused ? tab.icon : `${tab.icon}-outline`}
                 color={color}
-                style={tab.name === "add" ? styles.addButtonIcon : null}
               />
             ),
           }}

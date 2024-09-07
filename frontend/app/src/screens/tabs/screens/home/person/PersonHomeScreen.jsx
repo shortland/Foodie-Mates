@@ -7,7 +7,7 @@ import Profile from "@/app/src/utils/Profile/Profile";
 export default function PersonHomeScreen() {
   const [user, setUser] = useState("");
   const [restaurantData, setRestaurantData] = useState({ data: [] });
-  const router = useRouter(); // Initialize useRouter for navigation
+  const router = useRouter(); 
 
   useEffect(() => {
     // Fetch user data

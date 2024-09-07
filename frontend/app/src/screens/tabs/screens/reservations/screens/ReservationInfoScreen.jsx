@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router"; // Import useLocalSearchParams
-import { reservationService } from "../api/api"; // Ensure correct path to API service
+import { searchService } from "../../search/api/api";
 
 export default function ReservationInfoScreen() {
   const [reservation, setReservation] = useState(null); // To hold the reservation data
@@ -21,7 +21,7 @@ export default function ReservationInfoScreen() {
     const fetchReservation = async () => {
       try {
         // Fetch all reservations or restaurants from the API
-        const response = await reservationService.fetchAllRestaurants(); // Or fetchAllReservations based on your API
+        const response = await searchService.fetchAllRestaurants(); // Or fetchAllReservations based on your API
 
         if (response && response.data) {
           // Find the reservation or restaurant that matches the ID
