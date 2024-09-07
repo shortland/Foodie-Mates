@@ -16,13 +16,13 @@ import profileData from "@/app/test/screens/auth/api/profileData.json";
 
 // search
 import searchData from "@/app/test/screens/tabs/screens/search/api/searchRequest.json";
+import restaurantResults from "@/app/test/screens/tabs/screens/search/api/restaurantResults.json";
+import allRestaurants from "@/app/test/screens/tabs/screens/search/api/allRestaurants.json";
 
-// order
-import orderData from "@/app/test/screens/tabs/screens/order/api/orders.json";
-import cancelData from "@/app/test/screens/tabs/screens/order/api/cancel.json";
-import reservationsData from "@/app/test/screens/tabs/screens/order/api/reservations.json";
-import restaurantResults from "@/app/test/screens/tabs/screens/order/api/restaurantResults.json";
-import allRestaurants from "@/app/test/screens/tabs/screens/order/api/allRestaurants.json";
+// reservation
+import orderData from "@/app/test/screens/tabs/screens/reservation/api/orders.json";
+import cancelData from "@/app/test/screens/tabs/screens/reservation/api/cancel.json";
+import reservationsData from "@/app/test/screens/tabs/screens/reservation/api/reservations.json";
 
 // results
 import restaurantResultsData from "@/app/test/screens/tabs/screens/home/person/api/restaurantResults.json";

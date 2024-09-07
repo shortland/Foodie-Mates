@@ -15,6 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function SearchScreen() {
   const router = useRouter(); // Get the router object
 
+  // TODO remove default values
   const [form, setForm] = useState({
     preferred_cuisine_type: "indian",
     num_people: "4",

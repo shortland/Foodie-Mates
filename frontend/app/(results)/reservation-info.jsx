@@ -1,5 +1,5 @@
 import React from "react";
-import ReservationInfoScreen from "../src/screens/tabs/screens/reservations/screens/ReservationInfoScreen";
+import ReservationInfoScreen from "../src/screens/tabs/screens/reservation/screens/ReservationInfoScreen";
 
 export default function ReservationInfo() {
   return <ReservationInfoScreen/>;
