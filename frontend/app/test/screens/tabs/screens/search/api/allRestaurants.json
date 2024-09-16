@@ -1,0 +1,202 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Turmeric Indian Bistro",
+      "rating": 4.5,
+      "distance": 1.2,
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1670984939562-d936470dbced?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": false,
+      "description": "A cozy Indian bistro offering the best turmeric-inspired dishes in the heart of the city.",
+      "neighborhood": "Upper West Side",
+      "hours": "Tue–Thu 4:00 pm–12:00 am, Fri–Sat 4:00 pm–1:00 am, Sun 2:00 pm–10:00 pm",
+      "price": "$30 and under",
+      "cuisines": "Indian",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Business Casual",
+      "parking": "Street Parking",
+      "additionalInfo": "Wheelchair Access, Wine, Vegan Options",
+      "menus": [
+        { "name": "Menu A", "items": [] },
+        { "name": "Menu B", "items": [] },
+        { "name": "Menu C", "items": [] }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Essence of Kesar",
+      "rating": 4.8,
+      "distance": 2.5,
+      "imageUrl": "https://images.unsplash.com/photo-1642231877874-ce3e205f39c0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": true,
+      "description": "A fine dining experience with authentic Indian flavors enriched with saffron and kesar.",
+      "neighborhood": "Downtown",
+      "hours": "Mon–Fri 5:00 pm–11:00 pm, Sat–Sun 12:00 pm–11:00 pm",
+      "price": "$50 and under",
+      "cuisines": "Indian, Fine Dining",
+      "diningStyle": "Upscale Dining",
+      "dressCode": "Formal",
+      "parking": "Valet Parking",
+      "additionalInfo": "Private Room, Full Bar, Happy Hour",
+      "menus": [
+        { "name": "Vegetarian Menu", "items": [] },
+        { "name": "Non-Vegetarian Menu", "items": [] },
+        { "name": "Dessert Menu", "items": [] }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Taste Of India",
+      "rating": 4.2,
+      "distance": 0.9,
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": false,
+      "description": "Traditional Indian fare with a modern twist, offering a variety of vegetarian and meat options.",
+      "neighborhood": "Brooklyn",
+      "hours": "Tue–Sun 11:00 am–10:00 pm",
+      "price": "$20 and under",
+      "cuisines": "Indian",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Casual",
+      "parking": "None",
+      "additionalInfo": "Patio Dining, Family Friendly, Vegan Options",
+      "menus": [
+        { "name": "Lunch Menu", "items": [] },
+        { "name": "Dinner Menu", "items": [] },
+        { "name": "Desserts", "items": [] }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Ching's Indo Chinese",
+      "rating": 4.9,
+      "distance": 3.1,
+      "imageUrl": "https://images.unsplash.com/photo-1658829457670-d80231baebe5?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": true,
+      "description": "An Indo-Chinese fusion restaurant with bold flavors and a lively atmosphere.",
+      "neighborhood": "Chinatown",
+      "hours": "Mon–Fri 12:00 pm–10:00 pm, Sat–Sun 1:00 pm–11:00 pm",
+      "price": "$40 and under",
+      "cuisines": "Indo-Chinese",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Casual",
+      "parking": "Street Parking",
+      "additionalInfo": "Bar/Lounge, Happy Hour, Wheelchair Access",
+      "menus": [
+        { "name": "Appetizers", "items": [] },
+        { "name": "Main Course", "items": [] },
+        { "name": "Beverages", "items": [] }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Bobby Flay Steak",
+      "rating": 4.8,
+      "distance": 1.5,
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1676310055316-d73c9d5eeb51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": false,
+      "description": "A premier steakhouse by celebrity chef Bobby Flay, offering top-quality meats and seafood.",
+      "neighborhood": "Midtown",
+      "hours": "Mon–Thu 5:00 pm–11:00 pm, Fri–Sat 5:00 pm–12:00 am",
+      "price": "$100 and under",
+      "cuisines": "Steakhouse",
+      "diningStyle": "Fine Dining",
+      "dressCode": "Business Casual",
+      "parking": "Valet",
+      "additionalInfo": "Full Bar, Private Dining, Wheelchair Access",
+      "menus": [
+        { "name": "Steak Menu", "items": [] },
+        { "name": "Seafood Menu", "items": [] },
+        { "name": "Wine List", "items": [] }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Jenny Crow Fish",
+      "rating": 4.8,
+      "distance": 2.8,
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138398-fe1ce5e5b03b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "isSponsored": true,
+      "description": "A seafood paradise offering a wide variety of fresh fish and signature seafood dishes.",
+      "neighborhood": "Seaport District",
+      "hours": "Daily 12:00 pm–10:00 pm",
+      "price": "$60 and under",
+      "cuisines": "Seafood",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Casual",
+      "parking": "None",
+      "additionalInfo": "Patio Dining, Full Bar, Wheelchair Access",
+      "menus": [
+        { "name": "Lunch Specials", "items": [] },
+        { "name": "Dinner Menu", "items": [] },
+        { "name": "Cocktails", "items": [] }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Ching's Indo Italian Bistro",
+      "rating": 4.9,
+      "distance": 3.0,
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138161-209f57a074fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8",
+      "isSponsored": false,
+      "description": "An eclectic fusion of Italian and Indo-Chinese cuisine offering the best of both worlds.",
+      "neighborhood": "Little Italy",
+      "hours": "Tue–Sun 12:00 pm–11:00 pm",
+      "price": "$30 and under",
+      "cuisines": "Indo-Italian",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Casual",
+      "parking": "Street Parking",
+      "additionalInfo": "Outdoor Dining, Vegan Options, Happy Hour",
+      "menus": [
+        { "name": "Fusion Menu", "items": [] },
+        { "name": "Drinks", "items": [] },
+        { "name": "Desserts", "items": [] }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "KBBQ by David Chang",
+      "rating": 4.8,
+      "distance": 1.7,
+      "imageUrl": "https://images.unsplash.com/photo-1651440204317-acca48e8a7bc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+      "isSponsored": true,
+      "description": "Korean BBQ with a modern twist, curated by celebrity chef David Chang.",
+      "neighborhood": "Koreatown",
+      "hours": "Mon–Sun 11:00 am–12:00 am",
+      "price": "$80 and under",
+      "cuisines": "Korean BBQ",
+      "diningStyle": "Casual Dining",
+      "dressCode": "Smart Casual",
+      "parking": "Valet Parking",
+      "additionalInfo": "Full Bar, Late Night, Vegan Options",
+      "menus": [
+        { "name": "BBQ Menu", "items": [] },
+        { "name": "Drinks", "items": [] },
+        { "name": "Side Dishes", "items": [] }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Eddie Murphy's Signature Popcorn",
+      "rating": 4.8,
+      "distance": 2.0,
+      "imageUrl": "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D",
+      "isSponsored": false,
+      "description": "A fun and quirky spot offering Eddie Murphy's signature gourmet popcorn and treats.",
+      "neighborhood": "Times Square",
+      "hours": "Mon–Sun 10:00 am–11:00 pm",
+      "price": "$10 and under",
+      "cuisines": "Snacks, American",
+      "diningStyle": "Casual",
+      "dressCode": "Casual",
+      "parking": "None",
+      "additionalInfo": "Family Friendly, Vegan Options, Wheelchair Access",
+      "menus": [
+        { "name": "Gourmet Popcorn", "items": [] },
+        { "name": "Snacks", "items": [] },
+        { "name": "Drinks", "items": [] }
+      ]
+    }
+  ]
+}
