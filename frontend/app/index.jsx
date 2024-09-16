@@ -1,8 +1,15 @@
-import React from "react";
-import { useEffect, useState } from "react";
+// WelcomeScreen.js
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Redirect, router } from "expo-router";
-import { View, Text, Image, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import CustomButton from "@/app/src/components/CustomButton";
@@ -31,55 +38,116 @@ export default function WelcomeScreen() {
   }
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView style={styles.safeArea}>
+      {/* Loader Component */}
       <Loader isLoading={loading} />
 
       <ScrollView
-        contentContainerStyle={{
-          height: "100%",
-        }}
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false} // Hide vertical scrollbar for a cleaner look
       >
-        <View className="w-full flex justify-center items-center h-full px-4">
-          <Image
-            source={images.logo}
-            className="w-[260px] h-[168px]"
-            resizeMode="contain"
-          />
+        <View style={styles.contentContainer}>
+          {/* Top Section: Logo and Description */}
+          <View style={styles.topSection}>
+            {/* Logo Image */}
+            <Image source={images.logo} style={styles.logo} resizeMode="contain" />
 
-          {/* <Image
-            source={images.cards}
-            className="max-w-[380px] w-full h-[298px]"
-            resizeMode="contain"
-          /> */}
+            {/* Main Title */}
+            <View style={styles.titleContainer}>
+              <Text style={styles.titleText}>
+                Discover Endless{"\n"}
+                Possibilities with{" "}
+                <Text style={styles.titleAccent}>FoodieMate</Text>
+              </Text>
 
-          <View className="relative mt-5">
-            <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{"\n"}
-              Possibilities with{" "}
-              <Text className="text-secondary-200">Satisfy</Text>
+              {/* Decorative Path Image */}
+              <Image
+                source={images.path}
+                style={styles.decorativePath}
+                resizeMode="contain"
+              />
+            </View>
+
+            {/* Subtitle */}
+            <Text style={styles.subtitleText}>
+              Satisfy Your Stomach & Wallet
             </Text>
-
-            <Image
-              source={images.path}
-              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
-              resizeMode="contain"
-            />
           </View>
 
-          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Satisfy Your Stomach & Wallet
-
-          </Text>
-
-          <CustomButton
-            title="Continue with Email"
-            handlePress={() => router.push("/sign-in")}
-            containerStyles="w-full mt-7"
-          />
+          {/* Button Section: Continue Button */}
+          <View style={styles.buttonSection}>
+            <CustomButton
+              title="Continue with Email"
+              handlePress={() => router.push("/sign-in")}
+              containerStyles={styles.button}
+            />
+          </View>
         </View>
       </ScrollView>
 
-      <StatusBar backgroundColor="#161622" style="light" />
+      {/* Status Bar Configuration */}
+      <StatusBar backgroundColor="#ffffff" style="dark" />
     </SafeAreaView>
   );
 }
+
+const { width } = Dimensions.get("window");
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff", // White background
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center", // Center content vertically
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    backgroundColor: "#fff", // White background for scroll content
+  },
+  contentContainer: {
+    alignItems: "center",
+  },
+  topSection: {
+    alignItems: "center",
+    marginBottom: 30, // Space between top section and button
+  },
+  logo: {
+    width: width * 0.6, // Responsive width (60% of screen width)
+    height: width * 0.6, // Maintain square aspect ratio
+    marginBottom: 20,
+  },
+  titleContainer: {
+    alignItems: "center",
+    marginBottom: 15,
+  },
+  titleText: {
+    fontSize: 26,
+    fontWeight: "700",
+    color: "#333", // Dark text color
+    textAlign: "center",
+    lineHeight: 32,
+  },
+  titleAccent: {
+    color: "#0a7ea4", // Primary blue for accent
+  },
+  decorativePath: {
+    width: 136,
+    height: 15,
+    marginTop: 5,
+  },
+  subtitleText: {
+    fontSize: 16,
+    fontWeight: "400",
+    color: "#555", // Medium gray for secondary text
+    textAlign: "center",
+    marginTop: 8,
+  },
+  buttonSection: {
+    width: "100%",
+    alignItems: "center",
+  },
+  button: {
+    width: "100%",
+  },
+});
