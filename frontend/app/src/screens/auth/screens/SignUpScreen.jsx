@@ -1,15 +1,27 @@
+// SignUpScreen.js
 import React, { useState, useRef } from "react";
 import { Link, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  Dimensions,
+  Alert,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import FormField from "@/app/src/components/FormField";
-import CustomButton from "@/app/src/components/CustomButton";
 import FormSwitch from "@/app/src/components/FormSwitch";
+import CustomButton from "@/app/src/components/CustomButton";
 import images from "@/app/src/constants/images";
 import { AccountType } from "@/app/src/models/AccountType";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
 import { authService } from "../api/api";
+import Loader from "@/app/src/components/Loader";
+import Session from "../../../utils/Session/Session";
 
 const SignUpScreen = () => {
   const [isSubmitting, setSubmitting] = useState(false);
@@ -21,7 +33,9 @@ const SignUpScreen = () => {
     password: "",
     accountType: false,
   });
+  const [error, setError] = useState(null);
 
+  // Refs for form fields
   const lastNameRef = useRef(null);
   const emailRef = useRef(null);
   const phoneNumberRef = useRef(null);
@@ -29,11 +43,11 @@ const SignUpScreen = () => {
 
   const submit = async () => {
     try {
-      if (!validateRequiredFields(form, ['accountType'])) {
+      if (!validateRequiredFields(form, ["accountType"])) {
         throw new Error("Please fill in all fields");
       }
       setSubmitting(true);
-      const result = await await authService.signUpWithEmailAndPassword(
+      const result = await authService.signUpWithEmailAndPassword(
         form.email,
         form.password,
         form.firstName,
@@ -42,83 +56,119 @@ const SignUpScreen = () => {
         form.accountType ? AccountType.PERSON : AccountType.RESTAURANT
       );
       if (result.data.success) {
-        Alert.alert("Sign-up successful. Please sign in.");
+        Alert.alert("Success", "Sign-up successful. Please sign in.");
         router.replace("/sign-in");
       } else {
         throw new Error("Sign-up failed. Please try again.");
       }
     } catch (error) {
       Alert.alert("Error", error.message || "An unexpected error occurred.");
+      setError(error.message || "An unexpected error occurred.");
     } finally {
       setSubmitting(false);
     }
   };
 
-  return (
-    <SafeAreaView className="bg-primary h-full">
-      <ScrollView>
-        <View
-          className="w-full flex justify-center h-full px-4 my-6"
-          style={{
-            minHeight: Dimensions.get("window").height - 100,
-          }}
-        >
-          
-          <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Sign Up For FoodieMate
-          </Text>
+  // Optional: Handle retry after error
+  const handleRetry = () => {
+    setError(null);
+    submit();
+  };
 
+  // Conditional rendering based on error state
+  if (error) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+          {/* Optional Retry Button */}
+          <TouchableOpacity
+            onPress={handleRetry}
+            style={styles.retryButton}
+            accessibilityRole="button"
+            accessibilityLabel="Retry signing up"
+          >
+            <Text style={styles.retryText}>Retry</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      {/* Loader Component */}
+      <Loader isLoading={isSubmitting} />
+
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false} // Hide vertical scrollbar for a cleaner look
+      >
+        <View style={styles.container}>
+          {/* Logo Image */}
+          <Image source={images.logo} style={styles.logo} resizeMode="contain" />
+
+          {/* Title */}
+          <Text style={styles.title}>Sign Up For FoodieMate</Text>
+
+          {/* First Name Form Field */}
           <FormField
             title="First Name"
             value={form.firstName}
             handleChangeText={(e) => setForm({ ...form, firstName: e })}
-            otherStyles="mt-10"
+            otherStyles={styles.formField}
             returnKeyType="next"
-            onSubmitEditing={() => lastNameRef.current.focus()}
+            onSubmitEditing={() => lastNameRef.current.focus()} // Focus on last name field when "Next" is pressed
           />
 
+          {/* Last Name Form Field */}
           <FormField
             title="Last Name"
             value={form.lastName}
             handleChangeText={(e) => setForm({ ...form, lastName: e })}
-            otherStyles="mt-10"
+            otherStyles={styles.formField}
             ref={lastNameRef}
             returnKeyType="next"
-            onSubmitEditing={() => emailRef.current.focus()}
+            onSubmitEditing={() => emailRef.current.focus()} // Focus on email field when "Next" is pressed
           />
 
+          {/* Email Form Field */}
           <FormField
             title="Email"
             value={form.email}
             handleChangeText={(e) => setForm({ ...form, email: e })}
-            otherStyles="mt-7"
+            otherStyles={styles.formField}
             keyboardType="email-address"
             ref={emailRef}
             returnKeyType="next"
-            onSubmitEditing={() => phoneNumberRef.current.focus()}
+            onSubmitEditing={() => phoneNumberRef.current.focus()} // Focus on phone number field when "Next" is pressed
           />
 
+          {/* Phone Number Form Field */}
           <FormField
             title="Phone Number"
             value={form.phoneNumber}
             handleChangeText={(e) => setForm({ ...form, phoneNumber: e })}
-            otherStyles="mt-7"
+            otherStyles={styles.formField}
             keyboardType="phone-pad"
             ref={phoneNumberRef}
             returnKeyType="next"
-            onSubmitEditing={() => passwordRef.current.focus()}
+            onSubmitEditing={() => passwordRef.current.focus()} // Focus on password field when "Next" is pressed
           />
 
+          {/* Password Form Field */}
           <FormField
             title="Password"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
-            otherStyles="mt-7"
+            otherStyles={styles.formField}
             ref={passwordRef}
             returnKeyType="done"
-            onSubmitEditing={submit} // Optionally trigger form submission here
+            onSubmitEditing={submit} // Trigger submit when "Done" is pressed
+            secureTextEntry // Hide password input
           />
 
+          {/* Account Type Switch */}
           <FormSwitch
             title="Account Type"
             value={form.accountType}
@@ -126,23 +176,24 @@ const SignUpScreen = () => {
             onValueChange={() =>
               setForm({ ...form, accountType: !form.accountType })
             }
-            otherStyles="mt-7"
+            otherStyles={styles.formSwitch}
           />
 
+          {/* Sign Up Button */}
           <CustomButton
             title="Sign Up"
             handlePress={submit}
-            containerStyles="mt-7"
+            containerStyles={styles.button}
             isLoading={isSubmitting}
           />
 
-          <View className="flex justify-center pt-5 flex-row gap-2">
-            <Text className="text-lg text-gray-100 font-pregular">
-              Have an account already?
-            </Text>
+          {/* Login Link */}
+          <View style={styles.loginContainer}>
+            <Text style={styles.loginText}>Have an account already?</Text>
             <Link
               href="/sign-in"
-              className="text-lg font-psemibold text-secondary"
+              style={styles.loginLink}
+              accessibilityLabel="Navigate to Login screen"
             >
               Login
             </Link>
@@ -154,3 +205,85 @@ const SignUpScreen = () => {
 };
 
 export default SignUpScreen;
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff", // White background
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+    backgroundColor: "#fff", // White background for scroll content
+  },
+  container: {
+    width: "100%",
+    alignItems: "center",
+  },
+  logo: {
+    width: 260,
+    height: 168,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
+    color: "#333", // Dark text color
+    marginTop: 20,
+    textAlign: "center",
+  },
+  formField: {
+    width: "100%",
+    marginTop: 20,
+  },
+  formSwitch: {
+    width: "100%",
+    marginTop: 20,
+  },
+  button: {
+    width: "100%",
+    marginTop: 30,
+  },
+  loginContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  loginText: {
+    fontSize: 16,
+    color: "#555", // Medium gray for secondary text
+    fontWeight: "400",
+  },
+  loginLink: {
+    fontSize: 16,
+    color: "#0a7ea4", // Primary blue for links
+    fontWeight: "600",
+    marginLeft: 5,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    backgroundColor: "#fff", // White background for error screen
+  },
+  errorText: {
+    fontSize: 16,
+    color: "#ff4d4d", // Error color
+    textAlign: "center",
+    marginBottom: 16,
+  },
+  retryButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: "#0a7ea4", // Blue color for the retry button
+    borderRadius: 8,
+  },
+  retryText: {
+    color: "#fff", // White text color
+    fontSize: 16,
+    fontWeight: "600",
+  },
+});
