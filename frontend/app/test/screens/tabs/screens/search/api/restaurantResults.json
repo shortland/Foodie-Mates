@@ -26,7 +26,7 @@
     },
     {
       "id": "4",
-      "name": "Ching's Indo Chinese",
+      "name": "Lee's Indo Chinese",
       "rating": 4.9,
       "distance": 0.8,
       "sponsored": true,
@@ -50,7 +50,7 @@
     },
     {
       "id": "7",
-      "name": "Ching's Indo Italian Bistro",
+      "name": "Lee's Indo Italian Bistro",
       "rating": 4.9,
       "distance": 1.9,
       "sponsored": false,

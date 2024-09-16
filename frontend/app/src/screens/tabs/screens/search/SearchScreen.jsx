@@ -6,8 +6,7 @@ import {
   ScrollView,
   View,
   TouchableWithoutFeedback,
-  TouchableOpacity,
-  SafeAreaView, // Import SafeAreaView
+  SafeAreaView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -89,33 +88,23 @@ export default function SearchScreen() {
     // Add more options as needed
   ];
 
-  // Function to handle scrolling to the bottom
-  const scrollToBottom = () => {
-    if (scrollViewRef.current) {
-      scrollViewRef.current.scrollToEnd({ animated: true });
-    }
-  };
-
   return (
-    <TouchableWithoutFeedback onPress={() => { /* Dismiss keyboard if needed */ }}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        /* Dismiss keyboard if needed */
+      }}
+    >
       <SafeAreaView style={styles.safeArea}>
         <ScrollView
           style={styles.scrollView}
           ref={scrollViewRef}
           contentContainerStyle={styles.scrollContent}
         >
-          {/* Subtitle */}
-          <ThemedText style={styles.subtitle}>
-            Fill in the details below to create a new request:
-          </ThemedText>
-
           {/* Basic Section */}
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Ionicons name="hammer-outline" size={24} color="#0a7ea4" />
-              <ThemedText style={styles.sectionTitle}>
-                Basic
-              </ThemedText>
+              <ThemedText style={styles.sectionTitle}>Basic</ThemedText>
             </View>
 
             {/* Preferred Cuisine Type */}
@@ -133,7 +122,9 @@ export default function SearchScreen() {
               <FormField
                 title="Number of People"
                 value={form.num_people}
-                handleChangeText={(value) => handleInputChange("num_people", value)}
+                handleChangeText={(value) =>
+                  handleInputChange("num_people", value)
+                }
                 otherStyles={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numPeopleRef}
@@ -162,7 +153,9 @@ export default function SearchScreen() {
             <FormField
               title="Total Budget"
               value={form.total_budget}
-              handleChangeText={(value) => handleInputChange("total_budget", value)}
+              handleChangeText={(value) =>
+                handleInputChange("total_budget", value)
+              }
               otherStyles={styles.formField}
               keyboardType="numeric"
               ref={totalBudgetRef}
@@ -179,9 +172,7 @@ export default function SearchScreen() {
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Ionicons name="settings-outline" size={24} color="#0a7ea4" />
-              <ThemedText style={styles.sectionTitle}>
-                Advanced
-              </ThemedText>
+              <ThemedText style={styles.sectionTitle}>Advanced</ThemedText>
             </View>
 
             {/* Number of Appetizers and Main Courses */}
@@ -221,7 +212,9 @@ export default function SearchScreen() {
               <FormField
                 title="Number of Desserts"
                 value={form.num_dessert}
-                handleChangeText={(value) => handleInputChange("num_dessert", value)}
+                handleChangeText={(value) =>
+                  handleInputChange("num_dessert", value)
+                }
                 otherStyles={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numDessertRef}
@@ -233,7 +226,9 @@ export default function SearchScreen() {
               <FormField
                 title="Number of Drinks"
                 value={form.num_drink}
-                handleChangeText={(value) => handleInputChange("num_drink", value)}
+                handleChangeText={(value) =>
+                  handleInputChange("num_drink", value)
+                }
                 otherStyles={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numDrinkRef}
@@ -253,16 +248,6 @@ export default function SearchScreen() {
             isLoading={false}
           />
         </ScrollView>
-
-        {/* "Skip to Submit" Floating Button */}
-        <TouchableOpacity
-          style={styles.floatingButton}
-          onPress={scrollToBottom}
-          accessibilityRole="button"
-          accessibilityLabel="Skip to Submit"
-        >
-          <Ionicons name="arrow-down-outline" size={24} color="#fff" />
-        </TouchableOpacity>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
@@ -278,7 +263,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 20,
-    paddingBottom: 100, // Extra padding to ensure content is scrollable below the floating button
+    paddingBottom: 32,
   },
   subtitle: {
     fontSize: 16,
@@ -292,7 +277,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 15,
+    marginBottom: 8,
   },
   sectionTitle: {
     fontSize: 20,
@@ -303,36 +288,14 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 15,
   },
   halfFormField: {
     width: "48%",
   },
   formField: {
-    marginBottom: 15,
+    marginBottom: 8,
   },
   buttonContainer: {
     marginTop: 20,
-  },
-  floatingButton: {
-    position: "absolute",
-    bottom: 30,
-    right: 30,
-    backgroundColor: "#0a7ea4",
-    width: 60,
-    height: 60,
-    borderRadius: 30, // Makes the button circular
-    alignItems: "center",
-    justifyContent: "center",
-    // Shadow for iOS
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 3.84,
-    // Elevation for Android
-    elevation: 5,
   },
 });

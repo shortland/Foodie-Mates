@@ -6,7 +6,7 @@
     "last_name": "Doe",
     "phone_number": "2015555555",
     "user_id": "27",
-    "requires_onboard": true,
+    "requires_onboard": false,
     "account_type": "person"
   },
   "status": 200

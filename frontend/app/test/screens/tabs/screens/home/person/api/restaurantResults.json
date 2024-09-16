@@ -30,7 +30,7 @@
         "restaurants": [
           {
             "id": "4",
-            "name": "Ching's Indo Chinese",
+            "name": "Lee's Indo Chinese",
             "rating": 4.9,
             "imageUrl": "https://images.unsplash.com/photo-1658829457670-d80231baebe5?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           },
@@ -54,7 +54,7 @@
         "restaurants": [
           {
             "id": "7",
-            "name": "Ching's Indo Italian Bistro",
+            "name": "Lee's Indo Italian Bistro",
             "rating": 4.9,
             "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138161-209f57a074fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
           },
