@@ -1,10 +1,10 @@
 {
   "data": {
     "address": null,
-    "email": "Loopoo@gmail.com",
-    "first_name": "Loo",
-    "last_name": "Poo",
-    "phone_number": "112487843131",
+    "email": "johnDoe@gmail.com",
+    "first_name": "John",
+    "last_name": "Doe",
+    "phone_number": "2015555555",
     "user_id": "27",
     "requires_onboard": true,
     "account_type": "person"
