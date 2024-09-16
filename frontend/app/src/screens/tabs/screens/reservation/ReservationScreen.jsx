@@ -141,9 +141,10 @@ export default function ReservationScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: "#fff",
   },
   appBar: {
-    backgroundColor: "#f4f4f4", // Light gray for the app bar
+    backgroundColor: "#fff", // Light gray for the app bar
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333", // Dark text color
   },
   content: {
     flex: 1,

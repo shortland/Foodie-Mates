@@ -7,6 +7,7 @@ import {
   View,
   TouchableWithoutFeedback,
   SafeAreaView,
+  Text,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -95,6 +96,7 @@ export default function SearchScreen() {
       }}
     >
       <SafeAreaView style={styles.safeArea}>
+        <Text style={styles.header}>Search</Text>
         <ScrollView
           style={styles.scrollView}
           ref={scrollViewRef}
@@ -257,6 +259,19 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  appBar: {
+    backgroundColor: "#f4f4f4", // Light gray for the app bar
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
+  },
+  header: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333", // Dark text color
+    marginLeft: 20,
   },
   scrollView: {
     flex: 1,
