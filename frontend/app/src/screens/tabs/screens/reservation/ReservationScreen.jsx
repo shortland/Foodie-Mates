@@ -1,3 +1,4 @@
+// ReservationScreen.js
 import React, { useState, useEffect } from "react";
 import {
   View,
@@ -52,6 +53,8 @@ export default function ReservationScreen() {
           <TouchableOpacity
             key={reservation.id}
             onPress={() => handleReservationClick(reservation)}
+            activeOpacity={0.8} // Added for better feedback
+            accessibilityLabel={`View details for reservation at ${reservation.name}`} // Accessibility enhancement
           >
             <View style={styles.reservationContainer}>
               <Image
@@ -86,6 +89,8 @@ export default function ReservationScreen() {
           <TouchableOpacity
             key={reservation.id}
             onPress={() => handleReservationClick(reservation)}
+            activeOpacity={0.8} // Added for better feedback
+            accessibilityLabel={`View details for past reservation at ${reservation.name}`} // Accessibility enhancement
           >
             <View style={styles.reservationContainer}>
               <Image
@@ -111,16 +116,19 @@ export default function ReservationScreen() {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.safeArea}>
       <View style={styles.appBar}>
         <Text style={styles.header}>Reservations</Text>
       </View>
+
+      {/* Top Tabs Navigator */}
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: "#333",
+          tabBarActiveTintColor: "#0a7ea4", // Updated to blue theme
+          tabBarInactiveTintColor: "#555", // Maintained for contrast
           tabBarLabelStyle: { fontSize: 16, fontWeight: "600" },
-          tabBarStyle: { backgroundColor: "#fff" }, // Changed to white
-          tabBarIndicatorStyle: { backgroundColor: "#333", height: 3 }, // Changed to black
+          tabBarStyle: { backgroundColor: "#fff" }, // Kept white for a clean look
+          tabBarIndicatorStyle: { backgroundColor: "#0a7ea4", height: 3 }, // Updated to blue theme
         }}
       >
         <Tab.Screen name="Current" component={CurrentReservations} />
@@ -131,8 +139,12 @@ export default function ReservationScreen() {
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
   appBar: {
-    backgroundColor: "#f4f4f4", // Light color for the app bar
+    backgroundColor: "#fff", // Light gray for the app bar
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderBottomWidth: 1,
@@ -141,17 +153,16 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
   },
   content: {
     flex: 1,
     paddingHorizontal: 16,
     paddingVertical: 10,
-    backgroundColor: "#f4f4f8",
+    backgroundColor: "#f4f4f8", // Slightly different background for content
   },
   reservationContainer: {
     flexDirection: "row",
-    marginBottom: 12,
+    marginBottom: 6, // Increased margin for better spacing
     backgroundColor: "#fff",
     padding: 14,
     borderRadius: 10,
@@ -177,17 +188,17 @@ const styles = StyleSheet.create({
   reservationName: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "#333", // Dark text color
     marginBottom: 6,
   },
   reservationDetails: {
     fontSize: 14,
-    color: "#666",
+    color: "#555", // Secondary text color
     marginBottom: 4,
   },
   emptyMessage: {
     fontSize: 16,
-    color: "#666",
+    color: "#555", // Secondary text color
     textAlign: "center",
     marginTop: 20,
   },

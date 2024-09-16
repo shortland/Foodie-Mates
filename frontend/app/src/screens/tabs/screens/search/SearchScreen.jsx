@@ -1,25 +1,32 @@
+// SearchScreen.js
 import React, { useState, useRef } from "react";
+import {
+  StyleSheet,
+  Alert,
+  ScrollView,
+  View,
+  TouchableWithoutFeedback,
+  SafeAreaView,
+  Text,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Alert, ScrollView } from "react-native";
 
-import { searchService } from "./api/api";
 import FormField from "@/app/src/components/FormField";
+import DropDown from "@/app/src/components/DropDown";
 import { ThemedText } from "@/app/src/components/ThemedText";
-import { ThemedView } from "@/app/src/components/ThemedView";
 import CustomButton from "@/app/src/components/CustomButton";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
-import ParallaxScrollView from "@/app/src/components/ParallaxScrollView";
 import { useRouter } from "expo-router";
-import { useNavigation } from "@react-navigation/native";
 
 export default function SearchScreen() {
-  const router = useRouter(); // Get the router object
+  const router = useRouter();
 
-  // TODO remove default values
+  const scrollViewRef = useRef(null);
+
   const [form, setForm] = useState({
     preferred_cuisine_type: "indian",
-    num_people: "4",
-    distance_miles: "1",
+    num_people: "2",
+    distance_miles: "5",
     total_budget: "100",
     num_appetizer: "1",
     num_main_course: "1",
@@ -27,7 +34,6 @@ export default function SearchScreen() {
     num_drink: "1",
   });
 
-  // Refs for navigation between fields
   const numPeopleRef = useRef(null);
   const distanceMilesRef = useRef(null);
   const totalBudgetRef = useRef(null);
@@ -44,161 +50,267 @@ export default function SearchScreen() {
   };
 
   const handleSubmit = () => {
-    
     const latitude = "37.7749";
     const longitude = "-122.4194";
 
     try {
-      // Create formData object from form values
       const formData = {
-        ...form, // Destructure form object to avoid repetition
+        ...form,
         latitude,
         longitude,
       };
 
-      // Validate required fields
       if (!validateRequiredFields(form, [])) {
-        throw new Error("Please fill in all fields");
+        throw new Error("Please fill in all required fields.");
       }
 
-      // Navigate to the results screen with formData using router.push()
       router.push({
         pathname: "/restaurant-results",
-        params: { formData: JSON.stringify(formData) }, // Pass formData as string
+        params: { formData: JSON.stringify(formData) },
       });
     } catch (error) {
       Alert.alert("Error", error.message || "An unexpected error occurred.");
     }
   };
 
+  const cuisineOptions = [
+    { label: "Indian", value: "indian" },
+    { label: "Chinese", value: "chinese" },
+    { label: "Italian", value: "italian" },
+    { label: "Mexican", value: "mexican" },
+    { label: "Japanese", value: "japanese" },
+    { label: "Thai", value: "thai" },
+    { label: "French", value: "french" },
+    { label: "Mediterranean", value: "mediterranean" },
+    { label: "American", value: "american" },
+    { label: "Spanish", value: "spanish" },
+    { label: "Greek", value: "greek" },
+    { label: "Vietnamese", value: "vietnamese" },
+    // Add more options as needed
+  ];
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
-      headerImage={
-        <Ionicons size={310} name="code-slash" style={styles.headerImage} />
-      }
+    <TouchableWithoutFeedback
+      onPress={() => {
+        /* Dismiss keyboard if needed */
+      }}
     >
-      <ScrollView style={styles.container}>
-        <ThemedView style={styles.titleContainer}>
-          <ThemedText type="title">Create a New Request</ThemedText>
-        </ThemedView>
+      <SafeAreaView style={styles.safeArea}>
+        <Text style={styles.header}>Search</Text>
+        <ScrollView
+          style={styles.scrollView}
+          ref={scrollViewRef}
+          contentContainerStyle={styles.scrollContent}
+        >
+          {/* Basic Section */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="hammer-outline" size={24} color="#0a7ea4" />
+              <ThemedText style={styles.sectionTitle}>Basic</ThemedText>
+            </View>
 
-        <ThemedText>
-          Fill in the details below to create a new request:
-        </ThemedText>
+            {/* Preferred Cuisine Type */}
+            <DropDown
+              title="Preferred Cuisine Type"
+              value={form.preferred_cuisine_type}
+              handleChangeText={(value) =>
+                handleInputChange("preferred_cuisine_type", value)
+              }
+              options={cuisineOptions}
+            />
 
-        <FormField
-          title="Preferred Cuisine Type"
-          value={form.preferred_cuisine_type}
-          handleChangeText={(value) =>
-            handleInputChange("preferred_cuisine_type", value)
-          }
-          otherStyles="mt-7"
-          returnKeyType="next"
-          onSubmitEditing={() => numPeopleRef.current.focus()}
-        />
-        <FormField
-          title="Number of People"
-          value={form.num_people}
-          handleChangeText={(value) => handleInputChange("num_people", value)}
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={numPeopleRef}
-          returnKeyType="next"
-          onSubmitEditing={() => distanceMilesRef.current.focus()}
-        />
-        <FormField
-          title="Distance in Miles"
-          value={form.distance_miles}
-          handleChangeText={(value) =>
-            handleInputChange("distance_miles", value)
-          }
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={distanceMilesRef}
-          returnKeyType="next"
-          onSubmitEditing={() => longitudeRef.current.focus()}
-        />
+            {/* Number of People and Distance in Miles */}
+            <View style={styles.row}>
+              <FormField
+                title="Number of People"
+                value={form.num_people}
+                handleChangeText={(value) =>
+                  handleInputChange("num_people", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={numPeopleRef}
+                returnKeyType="next"
+                onSubmitEditing={() => distanceMilesRef.current.focus()}
+                isBox
+                placeholder="Enter number"
+              />
+              <FormField
+                title="Distance in Miles"
+                value={form.distance_miles}
+                handleChangeText={(value) =>
+                  handleInputChange("distance_miles", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={distanceMilesRef}
+                returnKeyType="next"
+                onSubmitEditing={() => totalBudgetRef.current.focus()}
+                isBox
+                placeholder="Enter distance"
+              />
+            </View>
 
-        <FormField
-          title="Total Budget"
-          value={form.total_budget}
-          handleChangeText={(value) => handleInputChange("total_budget", value)}
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={totalBudgetRef}
-          returnKeyType="next"
-          onSubmitEditing={() => numAppetizerRef.current.focus()}
-        />
-        <FormField
-          title="Number of Appetizers"
-          value={form.num_appetizer}
-          handleChangeText={(value) =>
-            handleInputChange("num_appetizer", value)
-          }
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={numAppetizerRef}
-          returnKeyType="next"
-          onSubmitEditing={() => numMainCourseRef.current.focus()}
-        />
-        <FormField
-          title="Number of Main Courses"
-          value={form.num_main_course}
-          handleChangeText={(value) =>
-            handleInputChange("num_main_course", value)
-          }
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={numMainCourseRef}
-          returnKeyType="next"
-          onSubmitEditing={() => numDessertRef.current.focus()}
-        />
-        <FormField
-          title="Number of Desserts"
-          value={form.num_dessert}
-          handleChangeText={(value) => handleInputChange("num_dessert", value)}
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={numDessertRef}
-          returnKeyType="next"
-          onSubmitEditing={() => numDrinkRef.current.focus()}
-        />
-        <FormField
-          title="Number of Drinks"
-          value={form.num_drink}
-          handleChangeText={(value) => handleInputChange("num_drink", value)}
-          otherStyles="mt-7"
-          keyboardType="numeric"
-          ref={numDrinkRef}
-          returnKeyType="done"
-          onSubmitEditing={handleSubmit}
-        />
+            {/* Total Budget */}
+            <FormField
+              title="Total Budget"
+              value={form.total_budget}
+              handleChangeText={(value) =>
+                handleInputChange("total_budget", value)
+              }
+              otherStyles={styles.formField}
+              keyboardType="numeric"
+              ref={totalBudgetRef}
+              returnKeyType="next"
+              onSubmitEditing={() => numAppetizerRef.current.focus()}
+              isBox
+              placeholder="Enter budget"
+              prefix="$" /* Added prefix here */
+              suffix="" /* Added invisible suffix to maintain layout */
+            />
+          </View>
 
-        <CustomButton
-          title="Create Request"
-          handlePress={handleSubmit}
-          containerStyles="mt-7"
-          isLoading={false}
-        />
-      </ScrollView>
-    </ParallaxScrollView>
+          {/* Advanced Section */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="settings-outline" size={24} color="#0a7ea4" />
+              <ThemedText style={styles.sectionTitle}>Advanced</ThemedText>
+            </View>
+
+            {/* Number of Appetizers and Main Courses */}
+            <View style={styles.row}>
+              <FormField
+                title="Number of Appetizers"
+                value={form.num_appetizer}
+                handleChangeText={(value) =>
+                  handleInputChange("num_appetizer", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={numAppetizerRef}
+                returnKeyType="next"
+                onSubmitEditing={() => numMainCourseRef.current.focus()}
+                isBox
+                placeholder="Enter number"
+              />
+              <FormField
+                title="Number of Main Courses"
+                value={form.num_main_course}
+                handleChangeText={(value) =>
+                  handleInputChange("num_main_course", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={numMainCourseRef}
+                returnKeyType="next"
+                onSubmitEditing={() => numDessertRef.current.focus()}
+                isBox
+                placeholder="Enter number"
+              />
+            </View>
+
+            {/* Number of Desserts and Drinks */}
+            <View style={styles.row}>
+              <FormField
+                title="Number of Desserts"
+                value={form.num_dessert}
+                handleChangeText={(value) =>
+                  handleInputChange("num_dessert", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={numDessertRef}
+                returnKeyType="next"
+                onSubmitEditing={() => numDrinkRef.current.focus()}
+                isBox
+                placeholder="Enter number"
+              />
+              <FormField
+                title="Number of Drinks"
+                value={form.num_drink}
+                handleChangeText={(value) =>
+                  handleInputChange("num_drink", value)
+                }
+                otherStyles={styles.halfFormField}
+                keyboardType="numeric"
+                ref={numDrinkRef}
+                returnKeyType="done"
+                onSubmitEditing={handleSubmit}
+                isBox
+                placeholder="Enter number"
+              />
+            </View>
+          </View>
+
+          {/* Submit Button */}
+          <CustomButton
+            title="Submit"
+            handlePress={handleSubmit}
+            containerStyles={styles.buttonContainer}
+            isLoading={false}
+          />
+        </ScrollView>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
   },
-  headerImage: {
-    color: "#808080",
-    bottom: -90,
-    left: -35,
-    position: "absolute",
+  appBar: {
+    backgroundColor: "#f4f4f4", // Light gray for the app bar
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
   },
-  titleContainer: {
+  header: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333", // Dark text color
+    marginLeft: 20,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 20,
+    paddingBottom: 32,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#666",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  section: {
+    marginBottom: 30,
+  },
+  sectionHeader: {
     flexDirection: "row",
-    gap: 8,
-    marginBottom: 16,
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    color: "#333",
+    fontWeight: "700",
+    marginLeft: 8,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  halfFormField: {
+    width: "48%",
+  },
+  formField: {
+    marginBottom: 8,
+  },
+  buttonContainer: {
+    marginTop: 20,
   },
 });
