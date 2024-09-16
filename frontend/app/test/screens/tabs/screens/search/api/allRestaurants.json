@@ -17,9 +17,129 @@
       "parking": "Street Parking",
       "additionalInfo": "Wheelchair Access, Wine, Vegan Options",
       "menus": [
-        { "name": "Menu A", "items": [] },
-        { "name": "Menu B", "items": [] },
-        { "name": "Menu C", "items": [] }
+        {
+          "name": "Discount Menu",
+          "items": [
+            {
+              "name": "Cheap Turmeric Paneer Tikka",
+              "price": "$12.99",
+              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
+              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+            },
+            {
+              "name": "Cheap Golden Lentil Soup",
+              "price": "$6.99",
+              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
+              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+            },
+            {
+              "name": "Cheap Turmeric-Infused Naan",
+              "price": "$3.99",
+              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
+              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+            },
+            {
+              "name": "Cheap Golden Chai",
+              "price": "$2.99",
+              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
+              "description": "Traditional Indian chai with a hint of turmeric and spices."
+            },
+            {
+              "name": "Cheap Turmeric Lamb Curry",
+              "price": "$17.99",
+              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
+              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
+            },
+            {
+              "name": "Cheap Spiced Basmati Rice",
+              "price": "$4.99",
+              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
+              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+            }
+          ]
+        },
+        {
+          "name": "Special Meal Set Menu",
+          "items": [
+            {
+              "name": "Set Turmeric Paneer Tikka",
+              "price": "$12.99",
+              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
+              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+            },
+            {
+              "name": "Set Golden Lentil Soup",
+              "price": "$6.99",
+              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
+              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+            },
+            {
+              "name": "Set Turmeric-Infused Naan",
+              "price": "$3.99",
+              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
+              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+            },
+            {
+              "name": "SetGolden Chai",
+              "price": "$2.99",
+              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
+              "description": "Traditional Indian chai with a hint of turmeric and spices."
+            },
+            {
+              "name": "Set Turmeric Lamb Curry",
+              "price": "$17.99",
+              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
+              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
+            },
+            {
+              "name": "Set Spiced Basmati Rice",
+              "price": "$4.99",
+              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
+              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+            }
+          ]
+        },
+        {
+          "name": "Regular Restaurant Menu",
+          "items": [
+            {
+              "name": "Turmeric Paneer Tikka",
+              "price": "$12.99",
+              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
+              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+            },
+            {
+              "name": "Golden Lentil Soup",
+              "price": "$6.99",
+              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
+              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+            },
+            {
+              "name": "Turmeric-Infused Naan",
+              "price": "$3.99",
+              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
+              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+            },
+            {
+              "name": "Golden Chai",
+              "price": "$2.99",
+              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
+              "description": "Traditional Indian chai with a hint of turmeric and spices."
+            },
+            {
+              "name": "Turmeric Lamb Curry",
+              "price": "$17.99",
+              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
+              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
+            },
+            {
+              "name": "Spiced Basmati Rice",
+              "price": "$4.99",
+              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
+              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+            }
+          ]
+        }
       ]
     },
     {
