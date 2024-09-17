@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   section: {
-    marginBottom: 30,
+    marginBottom: 10,
   },
   sectionHeader: {
     flexDirection: "row",
@@ -295,7 +295,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 16,
     color: "#333",
     fontWeight: "700",
     marginLeft: 8,
