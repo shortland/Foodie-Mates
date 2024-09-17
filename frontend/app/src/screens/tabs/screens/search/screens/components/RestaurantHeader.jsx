@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons"; // Use Ionicons from Expo
+import { useRouter } from "expo-router"; // Import useRouter
 
 export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
+  const router = useRouter(); // Initialize the router
+
   // Format price based on the restaurant's price level
   const formatPrice = (price) => {
     const dollarSigns = Math.ceil(price / 30); // Divide the max price by 30 and round up
@@ -17,8 +20,8 @@ export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
           <Image source={{ uri: restaurant.imageUrl }} style={styles.image} />
         )}
 
-        {/* Close button overlay */}
-        <TouchableOpacity style={styles.closeButton}>
+        {/* Close button overlay to navigate back */}
+        <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
           <Ionicons name="close-outline" size={30} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -66,10 +69,10 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: "relative",
-    width: "100%",
+    width: "100%", // Ensure the image takes full width of the screen
   },
   image: {
-    width: "100%",
+    width: "100%", // Image should cover the full width of the screen
     height: 200,
   },
   closeButton: {
@@ -81,19 +84,22 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   detailsContainer: {
-    paddingHorizontal: 10, // Reduced the side padding for a tighter layout
-    paddingVertical: 10,
+    paddingHorizontal: 0, // Remove horizontal padding for seamless alignment
+    paddingVertical: 10, // Keep some vertical padding for spacing
+    marginHorizontal: 0, // No margin on the sides
   },
   restaurantName: {
-    fontSize: 22, // Slightly reduced the font size to match tighter padding
+    fontSize: 22, 
     fontWeight: "bold",
     color: "#333",
     marginBottom: 5,
+    paddingHorizontal: 10, // Padding for the text inside the container
   },
   row: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 5,
+    paddingHorizontal: 10, // Padding for the text inside the container
   },
   rating: {
     fontSize: 16,
