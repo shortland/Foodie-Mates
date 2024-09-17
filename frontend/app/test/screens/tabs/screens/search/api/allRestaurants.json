@@ -18,125 +18,157 @@
       "additionalInfo": "Wheelchair Access, Wine, Vegan Options",
       "menus": [
         {
-          "name": "Discount Menu",
-          "items": [
+          "name": "Best Value",
+          "sections": [
             {
-              "name": "Cheap Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "6.99",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "5.99",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
             },
             {
-              "name": "Cheap Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "14.99",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "10.99",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
             },
             {
-              "name": "Cheap Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "3.99",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                }
+              ]
             },
             {
-              "name": "Cheap Golden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
-            },
-            {
-              "name": "Cheap Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
-            },
-            {
-              "name": "Cheap Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "4.99",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                }
+              ]
             }
           ]
         },
         {
-          "name": "Special Meal Set Menu",
-          "items": [
+          "name": "Best Match",
+          "sections": [
             {
-              "name": "Set Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "7.99",
+                  "description": "Fried paneer fritters served with mint chutney."
+                }
+              ]
             },
             {
-              "name": "Set Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Rogan Josh",
+                  "price": "18.99",
+                  "description": "Slow-cooked lamb in a fragrant tomato and yogurt-based sauce."
+                },
+                {
+                  "name": "Palak Paneer",
+                  "price": "12.99",
+                  "description": "Cubes of cottage cheese cooked in a rich spinach gravy."
+                }
+              ]
             },
             {
-              "name": "Set Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Masala Chai",
+                  "price": "2.99",
+                  "description": "Spiced black tea simmered with milk and aromatic herbs."
+                }
+              ]
             },
             {
-              "name": "SetGolden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
-            },
-            {
-              "name": "Set Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
-            },
-            {
-              "name": "Set Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kheer",
+                  "price": "4.99",
+                  "description": "Traditional rice pudding flavored with cardamom and saffron."
+                }
+              ]
             }
           ]
         },
         {
-          "name": "Regular Restaurant Menu",
-          "items": [
+          "name": "Discounted",
+          "sections": [
             {
-              "name": "Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Tikka",
+                  "price": "6.99",
+                  "description": "Chargrilled boneless chicken marinated in yogurt and spices."
+                }
+              ]
             },
             {
-              "name": "Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "11.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices, served with raita."
+                },
+                {
+                  "name": "Dal Tadka",
+                  "price": "8.99",
+                  "description": "Yellow lentils tempered with cumin, garlic, and chili, served with steamed rice."
+                }
+              ]
             },
             {
-              "name": "Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Nimbu Pani",
+                  "price": "1.99",
+                  "description": "Refreshing lemon-based drink flavored with cumin and mint."
+                }
+              ]
             },
             {
-              "name": "Golden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
-            },
-            {
-              "name": "Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
-            },
-            {
-              "name": "Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Rasmalai",
+                  "price": "4.99",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
             }
           ]
         }
@@ -159,9 +191,18 @@
       "parking": "Valet Parking",
       "additionalInfo": "Private Room, Full Bar, Happy Hour",
       "menus": [
-        { "name": "Vegetarian Menu", "items": [] },
-        { "name": "Non-Vegetarian Menu", "items": [] },
-        { "name": "Dessert Menu", "items": [] }
+        {
+          "name": "Vegetarian Menu",
+          "items": []
+        },
+        {
+          "name": "Non-Vegetarian Menu",
+          "items": []
+        },
+        {
+          "name": "Dessert Menu",
+          "items": []
+        }
       ]
     },
     {
@@ -181,9 +222,18 @@
       "parking": "None",
       "additionalInfo": "Patio Dining, Family Friendly, Vegan Options",
       "menus": [
-        { "name": "Lunch Menu", "items": [] },
-        { "name": "Dinner Menu", "items": [] },
-        { "name": "Desserts", "items": [] }
+        {
+          "name": "Lunch Menu",
+          "items": []
+        },
+        {
+          "name": "Dinner Menu",
+          "items": []
+        },
+        {
+          "name": "Desserts",
+          "items": []
+        }
       ]
     },
     {
@@ -203,9 +253,18 @@
       "parking": "Street Parking",
       "additionalInfo": "Bar/Lounge, Happy Hour, Wheelchair Access",
       "menus": [
-        { "name": "Appetizers", "items": [] },
-        { "name": "Main Course", "items": [] },
-        { "name": "Beverages", "items": [] }
+        {
+          "name": "Appetizers",
+          "items": []
+        },
+        {
+          "name": "Main Course",
+          "items": []
+        },
+        {
+          "name": "Beverages",
+          "items": []
+        }
       ]
     },
     {
@@ -225,9 +284,18 @@
       "parking": "Valet",
       "additionalInfo": "Full Bar, Private Dining, Wheelchair Access",
       "menus": [
-        { "name": "Steak Menu", "items": [] },
-        { "name": "Seafood Menu", "items": [] },
-        { "name": "Wine List", "items": [] }
+        {
+          "name": "Steak Menu",
+          "items": []
+        },
+        {
+          "name": "Seafood Menu",
+          "items": []
+        },
+        {
+          "name": "Wine List",
+          "items": []
+        }
       ]
     },
     {
@@ -247,9 +315,18 @@
       "parking": "None",
       "additionalInfo": "Patio Dining, Full Bar, Wheelchair Access",
       "menus": [
-        { "name": "Lunch Specials", "items": [] },
-        { "name": "Dinner Menu", "items": [] },
-        { "name": "Cocktails", "items": [] }
+        {
+          "name": "Lunch Specials",
+          "items": []
+        },
+        {
+          "name": "Dinner Menu",
+          "items": []
+        },
+        {
+          "name": "Cocktails",
+          "items": []
+        }
       ]
     },
     {
@@ -269,9 +346,18 @@
       "parking": "Street Parking",
       "additionalInfo": "Outdoor Dining, Vegan Options, Happy Hour",
       "menus": [
-        { "name": "Fusion Menu", "items": [] },
-        { "name": "Drinks", "items": [] },
-        { "name": "Desserts", "items": [] }
+        {
+          "name": "Fusion Menu",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        },
+        {
+          "name": "Desserts",
+          "items": []
+        }
       ]
     },
     {
@@ -291,9 +377,18 @@
       "parking": "Valet Parking",
       "additionalInfo": "Full Bar, Late Night, Vegan Options",
       "menus": [
-        { "name": "BBQ Menu", "items": [] },
-        { "name": "Drinks", "items": [] },
-        { "name": "Side Dishes", "items": [] }
+        {
+          "name": "BBQ Menu",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        },
+        {
+          "name": "Side Dishes",
+          "items": []
+        }
       ]
     },
     {
@@ -313,9 +408,18 @@
       "parking": "None",
       "additionalInfo": "Family Friendly, Vegan Options, Wheelchair Access",
       "menus": [
-        { "name": "Gourmet Popcorn", "items": [] },
-        { "name": "Snacks", "items": [] },
-        { "name": "Drinks", "items": [] }
+        {
+          "name": "Gourmet Popcorn",
+          "items": []
+        },
+        {
+          "name": "Snacks",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        }
       ]
     }
   ]
