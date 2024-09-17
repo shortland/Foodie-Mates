@@ -318,7 +318,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   map: {
-    width: '100%',
+    position: 'relative',
+    left: '-15%',
+    width: '120%',
     height: 200,
   },
 });
