@@ -11,6 +11,7 @@ const ResultsLayout = () => {
         }}
       >
         <Stack.Screen name="restaurant-info" />
+        <Stack.Screen name="custom-order" />
         <Stack.Screen name="reservation-info" />
         <Stack.Screen name="restaurant-results" />
       </Stack>

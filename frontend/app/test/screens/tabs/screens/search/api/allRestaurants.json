@@ -10,7 +10,7 @@
       "description": "A cozy Indian bistro offering the best turmeric-inspired dishes in the heart of the city.",
       "neighborhood": "Upper West Side",
       "hours": "Tue–Thu 4:00 pm–12:00 am, Fri–Sat 4:00 pm–1:00 am, Sun 2:00 pm–10:00 pm",
-      "price": "$30 and under",
+      "price": "60",
       "cuisines": "Indian",
       "diningStyle": "Casual Dining",
       "dressCode": "Business Casual",
@@ -18,125 +18,446 @@
       "additionalInfo": "Wheelchair Access, Wine, Vegan Options",
       "menus": [
         {
-          "name": "Discount Menu",
-          "items": [
+          "name": "Best Value",
+          "sections": [
             {
-              "name": "Cheap Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "6.99",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "5.99",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
             },
             {
-              "name": "Cheap Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "14.99",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "10.99",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
             },
             {
-              "name": "Cheap Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "3.99",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                }
+              ]
             },
             {
-              "name": "Cheap Golden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
-            },
-            {
-              "name": "Cheap Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
-            },
-            {
-              "name": "Cheap Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "4.99",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                }
+              ]
             }
           ]
         },
         {
-          "name": "Special Meal Set Menu",
-          "items": [
+          "name": "Best Match",
+          "sections": [
             {
-              "name": "Set Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "7.99",
+                  "description": "Fried paneer fritters served with mint chutney."
+                }
+              ]
             },
             {
-              "name": "Set Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Rogan Josh",
+                  "price": "18.99",
+                  "description": "Slow-cooked lamb in a fragrant tomato and yogurt-based sauce."
+                },
+                {
+                  "name": "Palak Paneer",
+                  "price": "12.99",
+                  "description": "Cubes of cottage cheese cooked in a rich spinach gravy."
+                }
+              ]
             },
             {
-              "name": "Set Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Masala Chai",
+                  "price": "2.99",
+                  "description": "Spiced black tea simmered with milk and aromatic herbs."
+                }
+              ]
             },
             {
-              "name": "SetGolden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
-            },
-            {
-              "name": "Set Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
-            },
-            {
-              "name": "Set Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kheer",
+                  "price": "4.99",
+                  "description": "Traditional rice pudding flavored with cardamom and saffron."
+                }
+              ]
             }
           ]
         },
         {
-          "name": "Regular Restaurant Menu",
-          "items": [
+          "name": "Discounted",
+          "sections": [
             {
-              "name": "Turmeric Paneer Tikka",
-              "price": "$12.99",
-              "imageUrl": "https://images.unsplash.com/photo-1594026289674-1d372d1a3482?w=400&auto=format&fit=crop&q=60",
-              "description": "Grilled paneer marinated in turmeric and spices, served with mint chutney."
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Tikka",
+                  "price": "6.99",
+                  "description": "Chargrilled boneless chicken marinated in yogurt and spices."
+                }
+              ]
             },
             {
-              "name": "Golden Lentil Soup",
-              "price": "$6.99",
-              "imageUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dcf77d?w=400&auto=format&fit=crop&q=60",
-              "description": "Creamy lentil soup infused with turmeric and garnished with cilantro."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "11.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices, served with raita."
+                },
+                {
+                  "name": "Dal Tadka",
+                  "price": "8.99",
+                  "description": "Yellow lentils tempered with cumin, garlic, and chili, served with steamed rice."
+                }
+              ]
             },
             {
-              "name": "Turmeric-Infused Naan",
-              "price": "$3.99",
-              "imageUrl": "https://images.unsplash.com/photo-1631015631692-b74269fffc8f?w=400&auto=format&fit=crop&q=60",
-              "description": "Soft and fluffy naan bread infused with turmeric and garlic."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Nimbu Pani",
+                  "price": "1.99",
+                  "description": "Refreshing lemon-based drink flavored with cumin and mint."
+                }
+              ]
             },
             {
-              "name": "Golden Chai",
-              "price": "$2.99",
-              "imageUrl": "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&auto=format&fit=crop&q=60",
-              "description": "Traditional Indian chai with a hint of turmeric and spices."
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Rasmalai",
+                  "price": "4.99",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "regeneratedMenus": [
+        {
+          "name": "Best Value",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Onion Bhaji",
+                  "price": "5.49",
+                  "description": "Crispy fried onion fritters served with mint chutney."
+                },
+                {
+                  "name": "Vegetable Pakora",
+                  "price": "6.99",
+                  "description": "Assorted vegetables dipped in chickpea batter and fried to golden perfection."
+                }
+              ]
             },
             {
-              "name": "Turmeric Lamb Curry",
-              "price": "$17.99",
-              "imageUrl": "https://images.unsplash.com/photo-1607113543304-2f9073f1558a?w=400&auto=format&fit=crop&q=60",
-              "description": "Tender lamb cooked in a rich turmeric and coconut sauce."
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Chicken Korma",
+                  "price": "13.99",
+                  "description": "Mildly spiced chicken cooked in a creamy cashew and yogurt sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "9.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                }
+              ]
             },
             {
-              "name": "Spiced Basmati Rice",
-              "price": "$4.99",
-              "imageUrl": "https://images.unsplash.com/photo-1625865152781-0f2c9fe04b65?w=400&auto=format&fit=crop&q=60",
-              "description": "Basmati rice flavored with saffron, turmeric, and mild spices."
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "3.49",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "4.49",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Best Match",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chili Paneer",
+                  "price": "7.99",
+                  "description": "Cubes of paneer stir-fried with bell peppers and onions in a spicy sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Goat Curry",
+                  "price": "19.99",
+                  "description": "Tender goat cooked in a rich, flavorful curry sauce."
+                },
+                {
+                  "name": "Shahi Paneer",
+                  "price": "13.99",
+                  "description": "Cottage cheese cubes cooked in a rich tomato and cream-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Thandai",
+                  "price": "3.99",
+                  "description": "A spiced cold drink made with milk, almonds, and saffron."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gajar Ka Halwa",
+                  "price": "5.49",
+                  "description": "Sweet carrot pudding flavored with cardamom and garnished with nuts."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Discounted",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Fish Amritsari",
+                  "price": "6.49",
+                  "description": "Spiced fish fillets deep-fried in a gram flour batter."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Chicken Biryani",
+                  "price": "12.99",
+                  "description": "Fragrant rice cooked with marinated chicken and aromatic spices."
+                },
+                {
+                  "name": "Rajma Masala",
+                  "price": "8.49",
+                  "description": "Red kidney beans cooked in a spicy onion and tomato gravy."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Jeera Soda",
+                  "price": "1.49",
+                  "description": "Refreshing soda flavored with cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Rabri",
+                  "price": "4.99",
+                  "description": "Sweet condensed milk pudding flavored with cardamom."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Onion Bhaji",
+                  "price": "5.49",
+                  "description": "Crispy fried onion fritters served with mint chutney."
+                },
+                {
+                  "name": "Vegetable Pakora",
+                  "price": "6.99",
+                  "description": "Assorted vegetables dipped in chickpea batter and fried to golden perfection."
+                },
+                {
+                  "name": "Samosa",
+                  "price": "4.99",
+                  "description": "Fried pastry filled with spiced potatoes and peas."
+                },
+                {
+                  "name": "Paneer Tikka",
+                  "price": "8.99",
+                  "description": "Grilled cottage cheese cubes marinated in yogurt and spices."
+                },
+                {
+                  "name": "Papdi Chaat",
+                  "price": "6.49",
+                  "description": "Crispy wafers topped with yogurt, tamarind chutney, and spiced potatoes."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Chicken Korma",
+                  "price": "13.99",
+                  "description": "Mildly spiced chicken cooked in a creamy cashew and yogurt sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "9.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Lamb Rogan Josh",
+                  "price": "17.99",
+                  "description": "Slow-cooked lamb in a fragrant tomato-based sauce."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "11.49",
+                  "description": "Basmati rice cooked with mixed vegetables and aromatic spices."
+                },
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "12.99",
+                  "description": "Paneer cubes cooked in a rich and creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "8.49",
+                  "description": "Chickpeas cooked in a spicy tomato-based sauce, served with rice."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "3.49",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.49",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.99",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "2.49",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Rose Milk",
+                  "price": "3.99",
+                  "description": "Chilled milk flavored with rose syrup and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "4.49",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Gulab Jamun",
+                  "price": "4.99",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "5.49",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                },
+                {
+                  "name": "Jalebi",
+                  "price": "3.99",
+                  "description": "Crispy deep-fried spirals soaked in sweet sugar syrup."
+                },
+                {
+                  "name": "Kheer",
+                  "price": "4.49",
+                  "description": "Creamy rice pudding flavored with cardamom and garnished with nuts."
+                }
+              ]
             }
           ]
         }
@@ -152,17 +473,27 @@
       "description": "A fine dining experience with authentic Indian flavors enriched with saffron and kesar.",
       "neighborhood": "Downtown",
       "hours": "Mon–Fri 5:00 pm–11:00 pm, Sat–Sun 12:00 pm–11:00 pm",
-      "price": "$50 and under",
+      "price": "50",
       "cuisines": "Indian, Fine Dining",
       "diningStyle": "Upscale Dining",
       "dressCode": "Formal",
       "parking": "Valet Parking",
       "additionalInfo": "Private Room, Full Bar, Happy Hour",
       "menus": [
-        { "name": "Vegetarian Menu", "items": [] },
-        { "name": "Non-Vegetarian Menu", "items": [] },
-        { "name": "Dessert Menu", "items": [] }
-      ]
+        {
+          "name": "Vegetarian Menu",
+          "items": []
+        },
+        {
+          "name": "Non-Vegetarian Menu",
+          "items": []
+        },
+        {
+          "name": "Dessert Menu",
+          "items": []
+        }
+      ],
+      "custom": []
     },
     {
       "id": "3",
@@ -174,17 +505,28 @@
       "description": "Traditional Indian fare with a modern twist, offering a variety of vegetarian and meat options.",
       "neighborhood": "Brooklyn",
       "hours": "Tue–Sun 11:00 am–10:00 pm",
-      "price": "$20 and under",
+      "price": "20",
       "cuisines": "Indian",
       "diningStyle": "Casual Dining",
       "dressCode": "Casual",
       "parking": "None",
       "additionalInfo": "Patio Dining, Family Friendly, Vegan Options",
       "menus": [
-        { "name": "Lunch Menu", "items": [] },
-        { "name": "Dinner Menu", "items": [] },
-        { "name": "Desserts", "items": [] }
-      ]
+        {
+          "name": "Lunch Menu",
+          "items": []
+        },
+        {
+          "name": "Dinner Menu",
+          "items": []
+        },
+        {
+          "name": "Desserts",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "4",
@@ -196,17 +538,28 @@
       "description": "An Indo-Chinese fusion restaurant with bold flavors and a lively atmosphere.",
       "neighborhood": "Chinatown",
       "hours": "Mon–Fri 12:00 pm–10:00 pm, Sat–Sun 1:00 pm–11:00 pm",
-      "price": "$40 and under",
+      "price": "40",
       "cuisines": "Indo-Chinese",
       "diningStyle": "Casual Dining",
       "dressCode": "Casual",
       "parking": "Street Parking",
       "additionalInfo": "Bar/Lounge, Happy Hour, Wheelchair Access",
       "menus": [
-        { "name": "Appetizers", "items": [] },
-        { "name": "Main Course", "items": [] },
-        { "name": "Beverages", "items": [] }
-      ]
+        {
+          "name": "Appetizers",
+          "items": []
+        },
+        {
+          "name": "Main Course",
+          "items": []
+        },
+        {
+          "name": "Beverages",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "5",
@@ -218,17 +571,28 @@
       "description": "A premier steakhouse by celebrity chef Bobby Flay, offering top-quality meats and seafood.",
       "neighborhood": "Midtown",
       "hours": "Mon–Thu 5:00 pm–11:00 pm, Fri–Sat 5:00 pm–12:00 am",
-      "price": "$100 and under",
+      "price": "100",
       "cuisines": "Steakhouse",
       "diningStyle": "Fine Dining",
       "dressCode": "Business Casual",
       "parking": "Valet",
       "additionalInfo": "Full Bar, Private Dining, Wheelchair Access",
       "menus": [
-        { "name": "Steak Menu", "items": [] },
-        { "name": "Seafood Menu", "items": [] },
-        { "name": "Wine List", "items": [] }
-      ]
+        {
+          "name": "Steak Menu",
+          "items": []
+        },
+        {
+          "name": "Seafood Menu",
+          "items": []
+        },
+        {
+          "name": "Wine List",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "6",
@@ -240,17 +604,28 @@
       "description": "A seafood paradise offering a wide variety of fresh fish and signature seafood dishes.",
       "neighborhood": "Seaport District",
       "hours": "Daily 12:00 pm–10:00 pm",
-      "price": "$60 and under",
+      "price": "60",
       "cuisines": "Seafood",
       "diningStyle": "Casual Dining",
       "dressCode": "Casual",
       "parking": "None",
       "additionalInfo": "Patio Dining, Full Bar, Wheelchair Access",
       "menus": [
-        { "name": "Lunch Specials", "items": [] },
-        { "name": "Dinner Menu", "items": [] },
-        { "name": "Cocktails", "items": [] }
-      ]
+        {
+          "name": "Lunch Specials",
+          "items": []
+        },
+        {
+          "name": "Dinner Menu",
+          "items": []
+        },
+        {
+          "name": "Cocktails",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "7",
@@ -262,17 +637,28 @@
       "description": "An eclectic fusion of Italian and Indo-Chinese cuisine offering the best of both worlds.",
       "neighborhood": "Little Italy",
       "hours": "Tue–Sun 12:00 pm–11:00 pm",
-      "price": "$30 and under",
+      "price": "30",
       "cuisines": "Indo-Italian",
       "diningStyle": "Casual Dining",
       "dressCode": "Casual",
       "parking": "Street Parking",
       "additionalInfo": "Outdoor Dining, Vegan Options, Happy Hour",
       "menus": [
-        { "name": "Fusion Menu", "items": [] },
-        { "name": "Drinks", "items": [] },
-        { "name": "Desserts", "items": [] }
-      ]
+        {
+          "name": "Fusion Menu",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        },
+        {
+          "name": "Desserts",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "8",
@@ -284,17 +670,28 @@
       "description": "Korean BBQ with a modern twist, curated by celebrity chef David Chang.",
       "neighborhood": "Koreatown",
       "hours": "Mon–Sun 11:00 am–12:00 am",
-      "price": "$80 and under",
+      "price": "80",
       "cuisines": "Korean BBQ",
       "diningStyle": "Casual Dining",
       "dressCode": "Smart Casual",
       "parking": "Valet Parking",
       "additionalInfo": "Full Bar, Late Night, Vegan Options",
       "menus": [
-        { "name": "BBQ Menu", "items": [] },
-        { "name": "Drinks", "items": [] },
-        { "name": "Side Dishes", "items": [] }
-      ]
+        {
+          "name": "BBQ Menu",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        },
+        {
+          "name": "Side Dishes",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "9",
@@ -306,17 +703,28 @@
       "description": "A fun and quirky spot offering Eddie Murphy's signature gourmet popcorn and treats.",
       "neighborhood": "Times Square",
       "hours": "Mon–Sun 10:00 am–11:00 pm",
-      "price": "$10 and under",
+      "price": "10",
       "cuisines": "Snacks, American",
       "diningStyle": "Casual",
       "dressCode": "Casual",
       "parking": "None",
       "additionalInfo": "Family Friendly, Vegan Options, Wheelchair Access",
       "menus": [
-        { "name": "Gourmet Popcorn", "items": [] },
-        { "name": "Snacks", "items": [] },
-        { "name": "Drinks", "items": [] }
-      ]
+        {
+          "name": "Gourmet Popcorn",
+          "items": []
+        },
+        {
+          "name": "Snacks",
+          "items": []
+        },
+        {
+          "name": "Drinks",
+          "items": []
+        }
+      ],
+      "regeneratedMenus": [],
+      "custom": []
     }
   ]
 }

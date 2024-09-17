@@ -40,7 +40,7 @@ export default function RestaurantResultsScreen() {
     const fetchRestaurants = async () => {
       try {
         // Simulate a delay for 1.5 seconds to test loading state
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 500));
 
         // Include searchParams in the API request
         const response = await searchService.fetchRestaurantsFromQuery(
@@ -113,7 +113,7 @@ export default function RestaurantResultsScreen() {
   if (loading) {
     return (
       <View style={styles.centeredView}>
-        <ActivityIndicator size="large" color="#6200EE" />
+        <ActivityIndicator size="large" />
         <Text>Loading restaurants...</Text>
       </View>
     );
