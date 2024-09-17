@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default function ReservationButton() {
   return (
     <TouchableOpacity style={styles.reservationButton} onPress={() => alert('Reservation added!')}>
-      <Icon name="calendar-plus-o" size={20} color="#fff" />
-      <Text style={styles.reservationButtonText}> Add Reservation</Text>
+      
+      <Text style={styles.reservationButtonText}> Create Reservation  {" "}<Icon name="calendar-plus-o" size={20} color="#fff" /> </Text>
     </TouchableOpacity>
   );
 }
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 8,
+    marginHorizontal: 70,
   },
   reservationButtonText: {
     color: '#fff',

@@ -22,7 +22,9 @@ export default function RestaurantInfoScreen() {
   // const { id } = useLocalSearchParams();
   const id = "1"; // Hardcoded for now
   const [restaurant, setRestaurant] = useState(null);
+  const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoadingNewMenu, setIsLoadingNewMenu] = useState(false);
   const [error, setError] = useState(null);
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -38,12 +40,9 @@ export default function RestaurantInfoScreen() {
           );
           if (foundRestaurant) {
             setRestaurant(foundRestaurant);
-            const discountMenu = foundRestaurant.menus.find((menu) =>
-              menu.name.toLowerCase().includes("discount")
-            );
-            if (discountMenu) {
-              setSelectedMenu(discountMenu);
-            }
+            setMenuItems(foundRestaurant.menus);
+            setSelectedMenu(foundRestaurant.menus[0]);
+
           } else {
             setError("Restaurant not found.");
           }
@@ -58,6 +57,14 @@ export default function RestaurantInfoScreen() {
     };
     fetchRestaurant();
   }, [id]);
+
+  // super hack here
+  useEffect(() => {
+    if (restaurant){
+      setMenuItems(restaurant.regeneratedMenus);
+      setSelectedMenu(restaurant.regeneratedMenus[0]);
+    }
+  }, [isLoadingNewMenu])
 
   if (loading) {
     return (
@@ -98,11 +105,16 @@ export default function RestaurantInfoScreen() {
           onClose={() => setMapModalVisible(false)}
         />
         <MenuTabs
-          restaurant={restaurant}
+          menuItems={menuItems}
           selectedMenu={selectedMenu}
           setSelectedMenu={setSelectedMenu}
+          setIsLoadingNewMenu={setIsLoadingNewMenu}
         />
-        {selectedMenu && <MenuItems selectedMenu={selectedMenu} />}
+        {isLoadingNewMenu ? (
+          <ActivityIndicator size="large" color="#0000ff" />
+        ) : (
+          selectedMenu && <MenuItems selectedMenu={selectedMenu} />
+        )}
       </ScrollView>
       <ReservationButton />
       <ReviewModal

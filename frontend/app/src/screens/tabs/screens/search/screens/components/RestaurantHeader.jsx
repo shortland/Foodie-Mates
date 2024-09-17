@@ -21,7 +21,10 @@ export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
         )}
 
         {/* Close button overlay to navigate back */}
-        <TouchableOpacity style={styles.closeButton} onPress={() => router.back()}>
+        <TouchableOpacity
+          style={styles.closeButton}
+          onPress={() => router.back()}
+        >
           <Ionicons name="close-outline" size={30} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -46,7 +49,12 @@ export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
           <Text style={styles.distance}>
             {restaurant.distance} mi
             <TouchableOpacity onPress={() => setMapModalVisible(true)}>
-              <Ionicons name="location-outline" size={18} color="#555" style={styles.mapIconInline} />
+              <Ionicons
+                name="location-outline"
+                size={18}
+                color="#555"
+                style={styles.mapIconInline}
+              />
             </TouchableOpacity>
           </Text>
         </View>
@@ -54,11 +62,10 @@ export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
         {/* Open Status and Closing Time */}
         <View style={styles.row}>
           <Text style={styles.openStatus}>Open:</Text>
-          <Text style={styles.closingTime}>
-            Closes 10:00 PM
-          </Text>
+          <Text style={styles.closingTime}>Closes 10:00 PM</Text>
         </View>
       </View>
+      <Text style={styles.restaurantDescription}>{restaurant.description}</Text>
     </View>
   );
 }
@@ -89,10 +96,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 0, // No margin on the sides
   },
   restaurantName: {
-    fontSize: 22, 
+    fontSize: 22,
     fontWeight: "bold",
     color: "#333",
     marginBottom: 5,
+    paddingHorizontal: 10, // Padding for the text inside the container
+  },
+  restaurantDescription: {
+    fontSize: 16,
+    fontWeight: 500,
+    color: "#333",
+    marginBottom: 8,
     paddingHorizontal: 10, // Padding for the text inside the container
   },
   row: {
