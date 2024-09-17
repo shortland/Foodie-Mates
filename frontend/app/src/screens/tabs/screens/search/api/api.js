@@ -30,5 +30,4 @@ export const searchService = {
       dummyData: TESTING.reservation ? mock.restaurantResults : null,
     });
   },
-
 };
