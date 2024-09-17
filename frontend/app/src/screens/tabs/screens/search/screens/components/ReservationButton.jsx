@@ -6,7 +6,7 @@ export default function ReservationButton() {
   return (
     <TouchableOpacity style={styles.reservationButton} onPress={() => alert('Reservation added!')}>
       
-      <Text style={styles.reservationButtonText}> Create Reservation  {" "}<Icon name="calendar-plus-o" size={20} color="#fff" /> </Text>
+      <Text style={styles.reservationButtonText}> Reserve Now  {" "}<Icon name="calendar" size={20} color="#fff" /> </Text>
     </TouchableOpacity>
   );
 }
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 8,
-    marginHorizontal: 70,
+    marginHorizontal: 80,
   },
   reservationButtonText: {
     color: '#fff',

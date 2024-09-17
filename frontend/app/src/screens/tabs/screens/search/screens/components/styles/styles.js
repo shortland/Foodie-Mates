@@ -5,8 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   container: {
-    padding: 15,
-    paddingBottom: 100, // Padding to avoid hiding content behind buttons
+    paddingBottom: 100,
   },
   centeredView: {
     flex: 1,
