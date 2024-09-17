@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  SafeAreaView,
   ScrollView,
   ActivityIndicator,
   View,
@@ -8,6 +7,7 @@ import {
   Modal,
   TouchableOpacity,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams } from "expo-router";
 import { searchService } from "../../search/api/api";
 import RestaurantHeader from "./components/RestaurantHeader";
@@ -45,23 +45,22 @@ export default function RestaurantInfoScreen() {
   const handleSubmit = () => {
     // Close the bottom sheet first
     handleCloseSheet();
-  
+
     // Start loading spinner after the bottom sheet is closed
     setTimeout(() => {
       // Start loading spinner
       setIsLoadingNewMenu(true);
-  
+
       // Simulate loading delay (e.g., 2 seconds)
       setTimeout(() => {
         // Set the new custom menu
         setSelectedMenu(restaurant.custom[0]);
-  
+
         // Stop the loading spinner
         setIsLoadingNewMenu(false);
       }, 500); // 2 seconds delay
     }, 0); // Small delay to ensure the bottom sheet closes first
   };
-
 
   useEffect(() => {
     const fetchRestaurant = async () => {
@@ -124,7 +123,7 @@ export default function RestaurantInfoScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.safeArea} edges={["left", "right"]}>
       <ScrollView contentContainerStyle={styles.container}>
         <RestaurantHeader
           restaurant={restaurant}

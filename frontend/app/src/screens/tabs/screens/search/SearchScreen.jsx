@@ -27,7 +27,7 @@ export default function SearchScreen() {
     preferred_cuisine_type: "indian",
     num_people: "2",
     distance_miles: "5",
-    total_budget: "100",
+    total_budget: "$100",
     num_appetizer: "1",
     num_main_course: "1",
     num_dessert: "1",

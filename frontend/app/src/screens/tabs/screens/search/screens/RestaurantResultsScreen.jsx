@@ -86,11 +86,11 @@ export default function RestaurantResultsScreen() {
     if (restaurantId == "1") {
       // first restaurant should be cheapest, so it's price should be below the min specified below so that
       // we can say it's the cheapest option when adding the unique features description
-      return "$29.79";
+      return "$42.99";
     }
 
     // TODO; set this min to be above the cheapest restaurant/first restaurant price
-    const min = 30.12;
+    const min = 43.00;
     // TODO; set this max to be the max the persopn will type when submittinjg the form
     const max = 100.10;
     // Generate a random number between min and max
