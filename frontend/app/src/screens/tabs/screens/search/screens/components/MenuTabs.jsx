@@ -9,9 +9,16 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 
-export default function MenuTabs({ menuItems, selectedMenu, setSelectedMenu, setIsLoadingNewMenu }) {
-  const navigation = useNavigation();
+export default function MenuTabs({
+  menuItems,
+  selectedMenu,
+  setSelectedMenu,
+  setIsLoadingNewMenu,
+  handleOpenSheet,
+}) {
+  const router = useRouter();
 
   const onRegenerate = () => {
     setIsLoadingNewMenu(true);
@@ -24,7 +31,7 @@ export default function MenuTabs({ menuItems, selectedMenu, setSelectedMenu, set
     if (menu.name === "Regenerate") {
       onRegenerate();
     } else if (menu.name === "Custom") {
-      navigation.navigate("CustomPage"); // Replace with your actual route
+      handleOpenSheet();
     } else {
       setSelectedMenu(menu);
     }
@@ -64,7 +71,12 @@ export default function MenuTabs({ menuItems, selectedMenu, setSelectedMenu, set
         {/* Custom Tab */}
         <TouchableOpacity
           key="custom"
-          style={[styles.menuTab, styles.actionTab]}
+          style={[
+            styles.menuTab,
+            selectedMenu &&
+              selectedMenu.name === "Custom" &&
+              styles.selectedMenuTab,
+          ]}
           onPress={() => handleMenuPress({ name: "Custom" })}
         >
           <Ionicons name="add-outline" size={20} color="#555" />

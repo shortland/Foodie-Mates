@@ -329,6 +329,138 @@
             }
           ]
         }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Onion Bhaji",
+                  "price": "5.49",
+                  "description": "Crispy fried onion fritters served with mint chutney."
+                },
+                {
+                  "name": "Vegetable Pakora",
+                  "price": "6.99",
+                  "description": "Assorted vegetables dipped in chickpea batter and fried to golden perfection."
+                },
+                {
+                  "name": "Samosa",
+                  "price": "4.99",
+                  "description": "Fried pastry filled with spiced potatoes and peas."
+                },
+                {
+                  "name": "Paneer Tikka",
+                  "price": "8.99",
+                  "description": "Grilled cottage cheese cubes marinated in yogurt and spices."
+                },
+                {
+                  "name": "Papdi Chaat",
+                  "price": "6.49",
+                  "description": "Crispy wafers topped with yogurt, tamarind chutney, and spiced potatoes."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Chicken Korma",
+                  "price": "13.99",
+                  "description": "Mildly spiced chicken cooked in a creamy cashew and yogurt sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "9.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Lamb Rogan Josh",
+                  "price": "17.99",
+                  "description": "Slow-cooked lamb in a fragrant tomato-based sauce."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "11.49",
+                  "description": "Basmati rice cooked with mixed vegetables and aromatic spices."
+                },
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "12.99",
+                  "description": "Paneer cubes cooked in a rich and creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "8.49",
+                  "description": "Chickpeas cooked in a spicy tomato-based sauce, served with rice."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "3.49",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.49",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.99",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "2.49",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Rose Milk",
+                  "price": "3.99",
+                  "description": "Chilled milk flavored with rose syrup and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "4.49",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Gulab Jamun",
+                  "price": "4.99",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "5.49",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                },
+                {
+                  "name": "Jalebi",
+                  "price": "3.99",
+                  "description": "Crispy deep-fried spirals soaked in sweet sugar syrup."
+                },
+                {
+                  "name": "Kheer",
+                  "price": "4.49",
+                  "description": "Creamy rice pudding flavored with cardamom and garnished with nuts."
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -360,7 +492,8 @@
           "name": "Dessert Menu",
           "items": []
         }
-      ]
+      ],
+      "custom": []
     },
     {
       "id": "3",
@@ -392,7 +525,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "4",
@@ -424,7 +558,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "5",
@@ -456,7 +591,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "6",
@@ -488,7 +624,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "7",
@@ -520,7 +657,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "8",
@@ -552,7 +690,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     },
     {
       "id": "9",
@@ -584,7 +723,8 @@
           "items": []
         }
       ],
-      "regeneratedMenus": []
+      "regeneratedMenus": [],
+      "custom": []
     }
   ]
 }
