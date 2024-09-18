@@ -18,6 +18,8 @@ import ReviewModal from "./components/ReviewModal";
 import MapModal from "./components/MapModal";
 import styles from "./components/styles/styles";
 import CustomOrderBottomSheet from "./components/CustomOrderBottomSheet";
+import ReservationBottomSheet from "./components/ReservationBottomSheet";
+import { mock } from "@/app/test/constants/mockData";
 
 export default function RestaurantInfoScreen() {
   // const { id } = useLocalSearchParams();
@@ -32,6 +34,8 @@ export default function RestaurantInfoScreen() {
   const [mapModalVisible, setMapModalVisible] = useState(false);
 
   const [openBottomSheet, setOpenBottomSheet] = useState(false);
+  const [openReservationBottomSheet, setOpenReservationBottomSheet] =
+    useState(false);
   const [text, setText] = useState("");
 
   const handleOpenSheet = () => {
@@ -88,6 +92,9 @@ export default function RestaurantInfoScreen() {
     };
     fetchRestaurant();
   }, [id]);
+
+  const handleConfirm = (formData) => {
+  };
 
   // super hack here
   useEffect(() => {
@@ -149,13 +156,25 @@ export default function RestaurantInfoScreen() {
           onSubmit={handleSubmit}
           closeBottomSheet={handleCloseSheet}
         />
+        <ReservationBottomSheet
+          openBottomSheet={openReservationBottomSheet}
+          selectedMenu={selectedMenu}
+          numPeople={mock.formData.num_people}
+          totalBudget={mock.formData.total_budget}
+          preferences={mock.formData.preferences}
+          onSubmit={handleConfirm}
+          closeBottomSheet={handleCloseSheet}
+        />
+
         {isLoadingNewMenu ? (
           <ActivityIndicator size="large" />
         ) : (
           selectedMenu && <MenuItems selectedMenu={selectedMenu} />
         )}
       </ScrollView>
-      <ReservationButton />
+      <ReservationButton
+        setOpenReservationBottomSheet={setOpenReservationBottomSheet}
+      />
       <ReviewModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}

@@ -38,6 +38,7 @@ export default function MenuTabs({
   };
 
   return (
+    <View>
     <ScrollView
       horizontal={true}
       style={styles.scrollContainer}
@@ -84,6 +85,7 @@ export default function MenuTabs({
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </View>
   );
 }
 

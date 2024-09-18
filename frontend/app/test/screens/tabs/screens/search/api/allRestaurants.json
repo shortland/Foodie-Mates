@@ -18,6 +18,56 @@
       "additionalInfo": "Wheelchair Access, Wine, Vegan Options",
       "menus": [
         {
+          "name": "Discounted",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Tikka",
+                  "price": "6.99",
+                  "description": "Chargrilled boneless chicken marinated in yogurt and spices."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "11.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices, served with raita."
+                },
+                {
+                  "name": "Dal Tadka",
+                  "price": "8.99",
+                  "description": "Yellow lentils tempered with cumin, garlic, and chili, served with steamed rice."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Nimbu Pani",
+                  "price": "1.99",
+                  "description": "Refreshing lemon-based drink flavored with cumin and mint."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Rasmalai",
+                  "price": "4.99",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        },
+        {
           "name": "Best Value",
           "sections": [
             {
@@ -121,7 +171,9 @@
               ]
             }
           ]
-        },
+        }
+      ],
+      "regeneratedMenus": [
         {
           "name": "Discounted",
           "sections": [
@@ -129,9 +181,9 @@
               "name": "Appetizer",
               "items": [
                 {
-                  "name": "Chicken Tikka",
-                  "price": "6.99",
-                  "description": "Chargrilled boneless chicken marinated in yogurt and spices."
+                  "name": "Fish Amritsari",
+                  "price": "6.49",
+                  "description": "Spiced fish fillets deep-fried in a gram flour batter."
                 }
               ]
             },
@@ -139,14 +191,14 @@
               "name": "Entrée",
               "items": [
                 {
-                  "name": "Vegetable Biryani",
-                  "price": "11.99",
-                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices, served with raita."
+                  "name": "Chicken Biryani",
+                  "price": "12.99",
+                  "description": "Fragrant rice cooked with marinated chicken and aromatic spices."
                 },
                 {
-                  "name": "Dal Tadka",
-                  "price": "8.99",
-                  "description": "Yellow lentils tempered with cumin, garlic, and chili, served with steamed rice."
+                  "name": "Rajma Masala",
+                  "price": "8.49",
+                  "description": "Red kidney beans cooked in a spicy onion and tomato gravy."
                 }
               ]
             },
@@ -154,9 +206,9 @@
               "name": "Drink",
               "items": [
                 {
-                  "name": "Nimbu Pani",
-                  "price": "1.99",
-                  "description": "Refreshing lemon-based drink flavored with cumin and mint."
+                  "name": "Jeera Soda",
+                  "price": "1.49",
+                  "description": "Refreshing soda flavored with cumin."
                 }
               ]
             },
@@ -164,16 +216,14 @@
               "name": "Dessert",
               "items": [
                 {
-                  "name": "Rasmalai",
+                  "name": "Rabri",
                   "price": "4.99",
-                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                  "description": "Sweet condensed milk pudding flavored with cardamom."
                 }
               ]
             }
           ]
-        }
-      ],
-      "regeneratedMenus": [
+        },
         {
           "name": "Best Value",
           "sections": [
@@ -274,56 +324,6 @@
                   "name": "Gajar Ka Halwa",
                   "price": "5.49",
                   "description": "Sweet carrot pudding flavored with cardamom and garnished with nuts."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Discounted",
-          "sections": [
-            {
-              "name": "Appetizer",
-              "items": [
-                {
-                  "name": "Fish Amritsari",
-                  "price": "6.49",
-                  "description": "Spiced fish fillets deep-fried in a gram flour batter."
-                }
-              ]
-            },
-            {
-              "name": "Entrée",
-              "items": [
-                {
-                  "name": "Chicken Biryani",
-                  "price": "12.99",
-                  "description": "Fragrant rice cooked with marinated chicken and aromatic spices."
-                },
-                {
-                  "name": "Rajma Masala",
-                  "price": "8.49",
-                  "description": "Red kidney beans cooked in a spicy onion and tomato gravy."
-                }
-              ]
-            },
-            {
-              "name": "Drink",
-              "items": [
-                {
-                  "name": "Jeera Soda",
-                  "price": "1.49",
-                  "description": "Refreshing soda flavored with cumin."
-                }
-              ]
-            },
-            {
-              "name": "Dessert",
-              "items": [
-                {
-                  "name": "Rabri",
-                  "price": "4.99",
-                  "description": "Sweet condensed milk pudding flavored with cardamom."
                 }
               ]
             }
