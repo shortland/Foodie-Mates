@@ -10,11 +10,11 @@
       "rating": 4.5,
       "distance": 0.4,
       "sponsored": true,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1670984939562-d936470dbced?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1694141251673-1758913ade48?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "2",
-      "name": "Essence of Kesar",
+      "name": "CurryMosaic",
       "location": {
         "latitude": 40.71100472,
         "longitude": -73.9937863
@@ -22,7 +22,7 @@
       "rating": 4.8,
       "distance": 0.5,
       "sponsored": false,
-      "imageUrl": "https://images.unsplash.com/photo-1642231877874-ce3e205f39c0?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1675727579542-ad785e1cee41?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "3",
@@ -38,7 +38,7 @@
     },
     {
       "id": "4",
-      "name": "Lee's Indo Chinese",
+      "name": "Tandoor Chronicles",
       "location": {
         "latitude": 40.71920782,
         "longitude": -73.9807863
@@ -46,23 +46,11 @@
       "rating": 4.9,
       "distance": 0.1,
       "sponsored": true,
-      "imageUrl": "https://images.unsplash.com/photo-1658829457670-d80231baebe5?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "5",
-      "name": "Bobby Flay Steak",
-      "location": {
-        "latitude": 40.7207782,
-        "longitude": -73.9907863
-      },
-      "rating": 4.8,
-      "distance": 0.3,
-      "sponsored": false,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1676310055316-d73c9d5eeb51?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      "imageUrl": "https://images.unsplash.com/photo-1609957072158-fafed110fbe5?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "6",
-      "name": "Jenny Crow Fish",
+      "name": "Saffron Aura",
       "location": {
         "latitude": 40.7247782,
         "longitude": -73.9857863
@@ -70,35 +58,11 @@
       "rating": 4.8,
       "distance": 0.4,
       "sponsored": true,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138398-fe1ce5e5b03b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    },
-    {
-      "id": "7",
-      "name": "Lee's Indo Italian Bistro",
-      "location": {
-        "latitude": 40.7147782,
-        "longitude": -73.9957863
-      },
-      "rating": 4.9,
-      "distance": 0.2,
-      "sponsored": false,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1671394138161-209f57a074fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
-    },
-    {
-      "id": "8",
-      "name": "KBBQ by David Chang",
-      "location": {
-        "latitude": 40.7147782,
-        "longitude": -73.9797863
-      },
-      "rating": 4.8,
-      "distance": 0.1,
-      "sponsored": false,
-      "imageUrl": "https://images.unsplash.com/photo-1651440204317-acca48e8a7bc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1694141253763-209b4c8f8ace?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
       "id": "9",
-      "name": "Eddie Murphy's Signature Popcorn",
+      "name": "Spice Reverie",
       "location": {
         "latitude": 40.7247782,
         "longitude": -73.9957863
@@ -106,7 +70,7 @@
       "rating": 4.8,
       "distance": 0.2,
       "sponsored": true,
-      "imageUrl": "https://images.unsplash.com/photo-1502301103665-0b95cc738daf?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fHw%3D"
+      "imageUrl": "https://images.unsplash.com/photo-1547332226-395d746d139a?q=80&w=2001&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ]
 }
