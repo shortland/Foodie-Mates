@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   halfFormField: {
-    width: "48%",
+    width: "50%",
   },
   formField: {
     marginBottom: 8,
