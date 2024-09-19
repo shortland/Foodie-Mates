@@ -46,6 +46,10 @@ export default function RestaurantInfoScreen() {
     setOpenBottomSheet(false);
   };
 
+  const handleCloseReservationBottomSheet = () => {
+    setOpenReservationBottomSheet(false);
+  };
+
   const handleSubmit = () => {
     // Close the bottom sheet first
     handleCloseSheet();
@@ -163,7 +167,7 @@ export default function RestaurantInfoScreen() {
           totalBudget={mock.formData.total_budget}
           preferences={mock.formData.preferences}
           onSubmit={handleConfirm}
-          closeBottomSheet={handleCloseSheet}
+          closeBottomSheet={handleCloseReservationBottomSheet}
         />
 
         {isLoadingNewMenu ? (
