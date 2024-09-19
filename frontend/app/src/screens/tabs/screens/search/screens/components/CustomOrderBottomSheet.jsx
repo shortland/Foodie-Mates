@@ -38,12 +38,15 @@ export default function CustomOrderBottomSheet({
                 <TextInput
                   value={text}
                   onChangeText={setText}
-                  placeholder="Tell us your preferences or any specific requests. Our AI will tailor the perfect menu just for you!"
+                  placeholder={
+                    "Tell us your preferences or any specific requests.\nOur AI will tailor the perfect menu just for you!"
+                  }
                   style={styles.textInput}
                   multiline={true}
                   scrollEnabled={true} // Enable scrolling inside the TextInput
                   numberOfLines={18} // Set an initial number of lines for a larger box
                 />
+
                 {/* Submit Button */}
                 <TouchableOpacity
                   style={styles.submitButton}
@@ -85,12 +88,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: "#ccc",
     borderRadius: 5,
     padding: 10,
     fontSize: 16,
     height: 280, // Set a fixed height
-    textAlignVertical: 'top', // Align placeholder and input text to the top
+    textAlignVertical: "top", // Align placeholder and input text to the top
   },
   submitButton: {
     backgroundColor: "#6ebf6e", // Softer green for the button

@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   menuItemsContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginHorizontal: 6,
+    marginHorizontal: 8,
   },
   menuTab: {
     flexDirection: "row",
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     borderWidth: 2,
     borderColor: "#007bff", // Theme color
-    height: 39
+    height: 39,
+    marginRight: 8
   },
   customTabText: {
     color: "#007bff", // Theme color

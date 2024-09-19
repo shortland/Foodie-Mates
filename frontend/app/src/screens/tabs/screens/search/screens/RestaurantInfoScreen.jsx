@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, router } from "expo-router";
 import { searchService } from "../../search/api/api";
 import RestaurantHeader from "./components/RestaurantHeader";
 import MenuTabs from "./components/MenuTabs";
@@ -127,7 +127,10 @@ export default function RestaurantInfoScreen() {
     setIsLoadingRegenMenu(false);
   };
 
-  const handleConfirm = (formData) => {};
+  const handleConfirm = () => {
+    setOpenReservationBottomSheet(false);
+    router.push("/reservation-info");
+  };
 
   if (loading) {
     return (

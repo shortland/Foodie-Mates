@@ -75,7 +75,18 @@ const MenuSection = ({ section, selectedMenuName, handleRegenMenuSection }) => {
           <View key={itemIndex} style={styles.menuItem}>
             <View style={styles.menuItemHeader}>
               <Text style={styles.menuItemName}>{item.name}</Text>
-              <Text style={styles.menuItemPrice}>${item.price}</Text>
+              {selectedMenuName === "Discounted" && item.special_price ? (
+                <View style={styles.priceContainer}>
+                  <Text style={styles.specialPrice}>
+                    {item.special_price === "0"
+                      ? "Free"
+                      : `$${item.special_price}`}
+                  </Text>
+                  <Text style={styles.originalPrice}>${item.price}</Text>
+                </View>
+              ) : (
+                <Text style={styles.menuItemPrice}>${item.price}</Text>
+              )}
             </View>
             <Text style={styles.menuItemDescription}>{item.description}</Text>
           </View>
@@ -93,14 +104,27 @@ export default function MenuItems({
 }) {
   const [tipRate, setTipRate] = useState(0.15); // Default tip rate of 15%
 
-  const calculateSubtotal = () => {
+  // Calculate Subtotal and Savings
+  const calculateSubtotalAndSavings = () => {
     let subtotal = 0;
+    let savings = 0;
     selectedMenu.sections.forEach((section) => {
       section.items.forEach((item) => {
-        subtotal += parseFloat(item.price);
+        let itemPrice = parseFloat(item.price);
+        if (selectedMenu.name === "Discounted" && item.special_price) {
+          let specialPrice =
+            item.special_price === "0" ? 0 : parseFloat(item.special_price);
+          subtotal += specialPrice;
+          savings += itemPrice - specialPrice;
+        } else {
+          subtotal += itemPrice;
+        }
       });
     });
-    return subtotal.toFixed(2);
+    return {
+      subtotal: subtotal.toFixed(2),
+      savings: savings.toFixed(2),
+    };
   };
 
   const handleTipIncrease = () => {
@@ -112,10 +136,15 @@ export default function MenuItems({
   };
 
   const taxRate = 0.08; // Example tax rate of 8%
-  const subtotal = parseFloat(calculateSubtotal());
-  const tax = (subtotal * taxRate).toFixed(2);
-  const tip = (subtotal * tipRate).toFixed(2);
-  const total = (subtotal + parseFloat(tax) + parseFloat(tip)).toFixed(2);
+  const { subtotal, savings } = calculateSubtotalAndSavings();
+  const subtotalValue = parseFloat(subtotal);
+  const tax = (subtotalValue * taxRate).toFixed(2);
+  const tip = (subtotalValue * tipRate).toFixed(2);
+  const total = (
+    subtotalValue +
+    parseFloat(tax) +
+    parseFloat(tip)
+  ).toFixed(2);
 
   return (
     <View>
@@ -139,13 +168,25 @@ export default function MenuItems({
         )}
       </View>
 
-      {/* Subtotal, Tax, Tip, and Total Breakdown */}
+      {/* Subtotal, Savings, Tax, Tip, and Total Breakdown */}
       {!isLoadingCustomMenu && (
         <View style={styles.totalContainer}>
           <View style={styles.totalRow}>
             <Text style={styles.totalLabel}>Subtotal:</Text>
             <Text style={styles.totalValue}>${subtotal}</Text>
           </View>
+
+          {selectedMenu.name === "Discounted" && parseFloat(savings) > 0 && (
+            <View style={styles.totalRow}>
+              <Text style={[styles.totalLabel, styles.savingsLabel]}>
+                Savings:
+              </Text>
+              <Text style={[styles.totalValue, styles.savingsValue]}>
+                -${savings}
+              </Text>
+            </View>
+          )}
+
           <View style={styles.totalRow}>
             <Text style={styles.totalLabel}>Tax (8%):</Text>
             <Text style={styles.totalValue}>${tax}</Text>
@@ -199,7 +240,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 5, // Reduced from 10 to 5
-    paddingHorizontal: 2, // Reduced from 15 to 10
+    paddingHorizontal: 10, // Adjusted for consistency
   },
   sectionTitle: {
     fontSize: 16,
@@ -265,6 +306,22 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#666",
   },
+  priceContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  specialPrice: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#e60000", // Red color for discounted price
+    marginRight: 5,
+  },
+  originalPrice: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#666",
+    textDecorationLine: "line-through",
+  },
   menuItemDescription: {
     fontSize: 14,
     color: "#777",
@@ -290,6 +347,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
   },
+  savingsLabel: {
+    color: "#e60000",
+    fontWeight: "bold",
+  },
+  savingsValue: {
+    color: "#e60000",
+    fontWeight: "bold",
+  },
   totalLabelBold: {
     fontWeight: "bold",
     fontSize: 18,
@@ -313,13 +378,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#333",
     marginHorizontal: 10,
-  },
-  sectionDescription: {
-    fontSize: 18,
-    color: "#555",
-    marginVertical: 10,
-    paddingHorizontal: 15,
-    lineHeight: 22,
-    textAlign: "justify",
   },
 });

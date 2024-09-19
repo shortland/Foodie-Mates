@@ -26,7 +26,8 @@
               "items": [
                 {
                   "name": "Chicken Tikka",
-                  "price": "6.99",
+                  "price": "16.99",
+                  "special_price": "12.99",
                   "description": "Chargrilled boneless chicken marinated in yogurt and spices."
                 }
               ]
@@ -42,6 +43,7 @@
                 {
                   "name": "Dal Tadka",
                   "price": "8.99",
+                  "special_price": "6.99",
                   "description": "Yellow lentils tempered with cumin, garlic, and chili, served with steamed rice."
                 }
               ]
@@ -52,6 +54,7 @@
                 {
                   "name": "Nimbu Pani",
                   "price": "1.99",
+                  "special_price": "0",
                   "description": "Refreshing lemon-based drink flavored with cumin and mint."
                 }
               ]
@@ -62,6 +65,7 @@
                 {
                   "name": "Rasmalai",
                   "price": "4.99",
+                  "special_price": "2.99",
                   "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
                 }
               ]
@@ -136,6 +140,7 @@
                 {
                   "name": "Fish Amritsari",
                   "price": "6.49",
+                  "special_price": "4.99",
                   "description": "Spiced fish fillets deep-fried in a gram flour batter."
                 }
               ]
@@ -146,11 +151,13 @@
                 {
                   "name": "Chicken Biryani",
                   "price": "12.99",
+                  "special_price": "10.99",
                   "description": "Fragrant rice cooked with marinated chicken and aromatic spices."
                 },
                 {
                   "name": "Rajma Masala",
                   "price": "8.49",
+                  "special_price": "6.49",
                   "description": "Red kidney beans cooked in a spicy onion and tomato gravy."
                 }
               ]
@@ -161,6 +168,7 @@
                 {
                   "name": "Jeera Soda",
                   "price": "1.49",
+                  "special_price": "0",
                   "description": "Refreshing soda flavored with cumin."
                 }
               ]
@@ -171,6 +179,7 @@
                 {
                   "name": "Rabri",
                   "price": "4.99",
+                  "special_price": "2.99",
                   "description": "Sweet condensed milk pudding flavored with cardamom."
                 }
               ]
