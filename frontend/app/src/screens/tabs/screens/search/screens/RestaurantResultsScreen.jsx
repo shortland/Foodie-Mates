@@ -137,93 +137,95 @@ export default function RestaurantResultsScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'top']}>
-      {/* Top App Bar */}
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Best Results</Text>
-      </View>
+      <View style={styles.contents}>
+        {/* Top App Bar */}
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Best Results</Text>
+        </View>
 
-      {/* // TODO: insert map here with pins for each restaurant location */}
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: 40.7247782,
-          longitude: -73.9957863,
-          latitudeDelta: 0.05522,
-          longitudeDelta: 0.03721,
-        }}
-      >
-        {restaurants.map((restaurant) => (
-          <Marker
-            key={restaurant.id}
-            coordinate={{
-              latitude: restaurant.location.latitude,
-              longitude: restaurant.location.longitude,
-            }}
-            title={restaurant.name}
-            description={restaurant.description}
-          />
-        ))}
-      </MapView>
+        {/* // TODO: insert map here with pins for each restaurant location */}
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 40.7247782,
+            longitude: -73.9957863,
+            latitudeDelta: 0.05522,
+            longitudeDelta: 0.03721,
+          }}
+        >
+          {restaurants.map((restaurant) => (
+            <Marker
+              key={restaurant.id}
+              coordinate={{
+                latitude: restaurant.location.latitude,
+                longitude: restaurant.location.longitude,
+              }}
+              title={restaurant.name}
+              description={restaurant.description}
+            />
+          ))}
+        </MapView>
 
-      <FlatList
-        data={restaurants}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handlePress(item.id)}>
-            <View style={styles.item}>
-              {/* Restaurant Image */}
-              {item.imageUrl ? (
-                <Image source={{ uri: item.imageUrl }} style={styles.image} />
-              ) : (
-                <View style={styles.imagePlaceholder}>
-                  <Text>No Image</Text>
-                </View>
-              )}
-
-              <View style={styles.infoContainer}>
-                <Text style={styles.name}>{item.name}</Text>
-                
-                <Text style={styles.details}>
-                  <Text style={styles.details}>{item.rating} <Ionicons name="star" size={14} color="#ffcc00" /></Text>   {item.distance} miles away
-                </Text>
-                
-                <Text style={styles.details}>Best Total: {generateKindaRandomPrice(item.id)}</Text>
-
-                {/* Sponsored Banner */}
-                {item.sponsored && (
-                  <>
-                    <Text style={styles.details}>
-                      {generatedRandomUniqueFeature(item.id)}
-                    </Text>
-
-                    <View style={styles.sponsoredBanner}>
-                      <Text style={styles.sponsoredText}>Sponsored</Text>
-                    </View>
-
-                    {item.id == "4" && (
-                      <View style={styles.offerBanner}>
-                        <Text style={styles.offerText}>🏆 Buy 1, Get 1 Free</Text>
-                      </View>
-                    )}
-
-                    {item.id == "1" && (
-                      <View style={styles.offerBanner}>
-                        <Text style={styles.offerText}>Offers Available</Text>
-                      </View>
-                    )}
-
-                    {item.id == "6" && (
-                      <View style={styles.offerBanner}>
-                        <Text style={styles.offerText}>Offers Available</Text>
-                      </View>
-                    )}
-                  </>
+        <FlatList
+          data={restaurants}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => handlePress(item.id)}>
+              <View style={styles.item}>
+                {/* Restaurant Image */}
+                {item.imageUrl ? (
+                  <Image source={{ uri: item.imageUrl }} style={styles.image} />
+                ) : (
+                  <View style={styles.imagePlaceholder}>
+                    <Text>No Image</Text>
+                  </View>
                 )}
+
+                <View style={styles.infoContainer}>
+                  <Text style={styles.name}>{item.name}</Text>
+                  
+                  <Text style={styles.details}>
+                    <Text style={styles.details}>{item.rating} <Ionicons name="star" size={14} color="#ffcc00" /></Text>   {item.distance} miles away
+                  </Text>
+                  
+                  <Text style={styles.details}>Best Total: {generateKindaRandomPrice(item.id)}</Text>
+
+                  {/* Sponsored Banner */}
+                  {item.sponsored && (
+                    <>
+                      <Text style={styles.details}>
+                        {generatedRandomUniqueFeature(item.id)}
+                      </Text>
+
+                      <View style={styles.sponsoredBanner}>
+                        <Text style={styles.sponsoredText}>Sponsored</Text>
+                      </View>
+
+                      {item.id == "4" && (
+                        <View style={styles.offerBanner}>
+                          <Text style={styles.offerText}>🏆 Buy 1, Get 1 Free</Text>
+                        </View>
+                      )}
+
+                      {item.id == "1" && (
+                        <View style={styles.offerBanner}>
+                          <Text style={styles.offerText}>Offers Available</Text>
+                        </View>
+                      )}
+
+                      {item.id == "6" && (
+                        <View style={styles.offerBanner}>
+                          <Text style={styles.offerText}>Offers Available</Text>
+                        </View>
+                      )}
+                    </>
+                  )}
+                </View>
               </View>
-            </View>
-          </TouchableOpacity>
-        )}
-      />
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -231,7 +233,11 @@ export default function RestaurantResultsScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    // backgroundColor: "red", // Ensure white background
+    backgroundColor: "black", // Ensure white background
+  },
+  contents: {
+    backgroundColor: "lightgrey",
+    flex: 1,
   },
   header: {
     padding: 16,
