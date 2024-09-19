@@ -18,6 +18,7 @@ import profileData from "@/app/test/screens/auth/api/profileData.json";
 import searchData from "@/app/test/screens/tabs/screens/search/api/searchRequest.json";
 import restaurantResults from "@/app/test/screens/tabs/screens/search/api/restaurantResults.json";
 import allRestaurants from "@/app/test/screens/tabs/screens/search/api/allRestaurants.json";
+import formData from "@/app/test/screens/tabs/screens/search/api/searchFormBody.json";
 
 // reservation
 import orderData from "@/app/test/screens/tabs/screens/reservation/api/orders.json";
@@ -33,6 +34,7 @@ export const mock = {
   profileData,
   signUpData,
   searchData,
+  formData,
   orderData,
   cancelData,
   reservationsData,

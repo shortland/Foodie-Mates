@@ -1,26 +1,130 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
   StyleSheet,
   ActivityIndicator,
   TouchableOpacity,
+  Animated,
+  Easing,
 } from "react-native";
-
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+// MenuSection Component
+const MenuSection = ({ section, selectedMenuName, handleRegenMenuSection }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const spinValue = useRef(new Animated.Value(0)).current;
 
-export default function MenuItems({ selectedMenu, isLoading }) {
+  // Spin animation function
+  const startSpin = () => {
+    spinValue.setValue(0);
+    Animated.timing(spinValue, {
+      toValue: 1,
+      duration: 2000, // Spin for 2 seconds
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start(() => {
+      if (isLoading) {
+        startSpin(); // Continue spinning if still loading
+      }
+    });
+  };
+
+  const spin = spinValue.interpolate({
+    inputRange: [0, 1],
+    outputRange: ["0deg", "360deg"],
+  });
+
+  // Handle regenerate button press
+  const handleRegeneratePress = () => {
+    setIsLoading(true);
+    startSpin();
+
+    // Simulate regeneration process
+    setTimeout(() => {
+      handleRegenMenuSection(selectedMenuName, section.name);
+      setIsLoading(false);
+    }, 2000); // 2-second delay to match spinner duration
+  };
+
+  return (
+    <View style={styles.section}>
+      <View style={styles.rowContainer}>
+        <Text style={styles.sectionTitle}>{section.name}</Text>
+        {selectedMenuName !== "Discounted" && (
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={handleRegeneratePress}
+          >
+            <Animated.View
+              style={{ transform: [{ rotate: isLoading ? spin : "0deg" }] }}
+            >
+              <Ionicons name="refresh-outline" size={20} color="#555" />
+            </Animated.View>
+          </TouchableOpacity>
+        )}
+      </View>
+
+      {isLoading ? (
+        <View style={styles.loaderContainer}>
+          <ActivityIndicator size="small" color="#000" />
+          <Text> Regenerating...</Text>
+        </View>
+      ) : (
+        section.items.map((item, itemIndex) => (
+          <View key={itemIndex} style={styles.menuItem}>
+            <View style={styles.menuItemHeader}>
+              <Text style={styles.menuItemName}>{item.name}</Text>
+              {selectedMenuName === "Discounted" && item.special_price ? (
+                <View style={styles.priceContainer}>
+                  <Text style={styles.specialPrice}>
+                    {item.special_price === "0"
+                      ? "Free"
+                      : `$${item.special_price}`}
+                  </Text>
+                  <Text style={styles.originalPrice}>${item.price}</Text>
+                </View>
+              ) : (
+                <Text style={styles.menuItemPrice}>${item.price}</Text>
+              )}
+            </View>
+            <Text style={styles.menuItemDescription}>{item.description}</Text>
+          </View>
+        ))
+      )}
+    </View>
+  );
+};
+
+// Main MenuItems Component
+export default function MenuItems({
+  selectedMenu,
+  isLoadingCustomMenu,
+  handleRegenMenuSection,
+}) {
   const [tipRate, setTipRate] = useState(0.15); // Default tip rate of 15%
 
-  const calculateSubtotal = () => {
+  // Calculate Subtotal and Savings
+  const calculateSubtotalAndSavings = () => {
     let subtotal = 0;
+    let savings = 0;
     selectedMenu.sections.forEach((section) => {
       section.items.forEach((item) => {
-        subtotal += parseFloat(item.price);
+        let itemPrice = parseFloat(item.price);
+        if (selectedMenu.name === "Discounted" && item.special_price) {
+          let specialPrice =
+            item.special_price === "0" ? 0 : parseFloat(item.special_price);
+          subtotal += specialPrice;
+          savings += itemPrice - specialPrice;
+        } else {
+          subtotal += itemPrice;
+        }
       });
     });
-    return subtotal.toFixed(2);
+    return {
+      subtotal: subtotal.toFixed(2),
+      savings: savings.toFixed(2),
+    };
   };
 
   const handleTipIncrease = () => {
@@ -32,46 +136,57 @@ export default function MenuItems({ selectedMenu, isLoading }) {
   };
 
   const taxRate = 0.08; // Example tax rate of 8%
-  const subtotal = parseFloat(calculateSubtotal());
-  const tax = (subtotal * taxRate).toFixed(2);
-  const tip = (subtotal * tipRate).toFixed(2);
-  const total = (subtotal + parseFloat(tax) + parseFloat(tip)).toFixed(2);
+  const { subtotal, savings } = calculateSubtotalAndSavings();
+  const subtotalValue = parseFloat(subtotal);
+  const tax = (subtotalValue * taxRate).toFixed(2);
+  const tip = (subtotalValue * tipRate).toFixed(2);
+  const total = (
+    subtotalValue +
+    parseFloat(tax) +
+    parseFloat(tip)
+  ).toFixed(2);
 
   return (
     <View>
       <View style={styles.menuSection}>
-        {isLoading ? (
+        {isLoadingCustomMenu ? (
           // Loader screen while regenerating
           <View style={styles.loaderContainer}>
-            <ActivityIndicator size="large" color="#0000ff" />
-            <Text style={styles.loaderText}>Loading...</Text>
+            <ActivityIndicator size="small" color="#000" />
+            <Text> Regenerating Custom Menu...</Text>
           </View>
         ) : (
           selectedMenu.sections.map((section, sectionIndex) => (
-            <View key={sectionIndex} style={styles.section}>
-              <Text style={styles.sectionTitle}>{section.name}</Text>
-              {section.items.map((item, itemIndex) => (
-                <View key={itemIndex} style={styles.menuItem}>
-                  <View style={styles.menuItemHeader}>
-                    <Text style={styles.menuItemName}>{item.name}</Text>
-                    <Text style={styles.menuItemPrice}>${item.price}</Text>
-                  </View>
-                  <Text style={styles.menuItemDescription}>
-                    {item.description}
-                  </Text>
-                </View>
-              ))}
-            </View>
+            <MenuSection
+              key={sectionIndex}
+              selectedMenu={selectedMenu}
+              section={section}
+              selectedMenuName={selectedMenu.name}
+              handleRegenMenuSection={handleRegenMenuSection}
+            />
           ))
         )}
       </View>
-      <View>
-        {/* Subtotal, Tax, Tip, and Total Breakdown */}
+
+      {/* Subtotal, Savings, Tax, Tip, and Total Breakdown */}
+      {!isLoadingCustomMenu && (
         <View style={styles.totalContainer}>
           <View style={styles.totalRow}>
             <Text style={styles.totalLabel}>Subtotal:</Text>
             <Text style={styles.totalValue}>${subtotal}</Text>
           </View>
+
+          {selectedMenu.name === "Discounted" && parseFloat(savings) > 0 && (
+            <View style={styles.totalRow}>
+              <Text style={[styles.totalLabel, styles.savingsLabel]}>
+                Savings:
+              </Text>
+              <Text style={[styles.totalValue, styles.savingsValue]}>
+                -${savings}
+              </Text>
+            </View>
+          )}
+
           <View style={styles.totalRow}>
             <Text style={styles.totalLabel}>Tax (8%):</Text>
             <Text style={styles.totalValue}>${tax}</Text>
@@ -114,105 +229,55 @@ export default function MenuItems({ selectedMenu, isLoading }) {
             </Text>
           </View>
         </View>
-      </View>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 5, // Reduced from 10 to 5
+    paddingHorizontal: 10, // Adjusted for consistency
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 0, // Ensure no extra margin at the bottom
+    padding: 0, // Remove any padding
+  },
+  iconButton: {
+    padding: 4, // Reduced from 8 to 4
+    backgroundColor: "#f0f0f0",
+    borderRadius: 16, // Adjusted to match the smaller padding
+    margin: 0, // Remove any margin
+  },
+  sectionDescription: {
+    fontSize: 14,
+    color: "#666",
+    paddingHorizontal: 10, // Reduced from 15 to 10
+    marginBottom: 5, // Reduced from 10 to 5
+  },
   loaderContainer: {
-    flex: 1,
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 20,
+    marginTop: 10,
   },
   loaderText: {
-    marginTop: 10,
-    fontSize: 16,
-    color: "#333",
-  },
-  regenerateButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginRight: 10,
-    marginBottom: 10, // Added margin bottom to give space between buttons and other elements
-  },
-  addButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginBottom: 10, // Added margin bottom
-  },
-  buttonText: {
     marginLeft: 5,
     fontSize: 16,
-    color: "#555",
+    color: "#333",
   },
   menuSection: {
     paddingHorizontal: 10,
     paddingVertical: 5,
   },
-  topButtonsContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end", // Align buttons to the right
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  regenerateButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginRight: 10, // Space between the regenerate and add button
-  },
-  addButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-  },
-  buttonText: {
-    marginLeft: 5,
-    fontSize: 16,
-    color: "#555",
-  },
-  scrollContainer: {
-    marginBottom: 20,
-  },
-  menuContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  menuTab: {
-    padding: 10,
-    margin: 5,
-    backgroundColor: "#e0e0e0",
-    borderRadius: 5,
-  },
-  menuTabText: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
   section: {
     marginBottom: 15,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 5,
-    color: "#444",
-    paddingLeft: 5,
   },
   menuItem: {
     backgroundColor: "#fff",
@@ -241,6 +306,22 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#666",
   },
+  priceContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  specialPrice: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#e60000", // Red color for discounted price
+    marginRight: 5,
+  },
+  originalPrice: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#666",
+    textDecorationLine: "line-through",
+  },
   menuItemDescription: {
     fontSize: 14,
     color: "#777",
@@ -265,6 +346,14 @@ const styles = StyleSheet.create({
   totalValue: {
     fontSize: 16,
     color: "#333",
+  },
+  savingsLabel: {
+    color: "#e60000",
+    fontWeight: "bold",
+  },
+  savingsValue: {
+    color: "#e60000",
+    fontWeight: "bold",
   },
   totalLabelBold: {
     fontWeight: "bold",
