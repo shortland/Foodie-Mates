@@ -33,11 +33,12 @@ export default function CustomOrderBottomSheet({
                 <Text style={styles.titleText}>
                   How can we curate the menu better for you?
                 </Text>
+
                 {/* Text Input Box */}
                 <TextInput
                   value={text}
                   onChangeText={setText}
-                  placeholder="What do you want to see on the menu..."
+                  placeholder="Tell us your preferences or any specific requests. Our AI will tailor the perfect menu just for you!"
                   style={styles.textInput}
                   multiline={true}
                   scrollEnabled={true} // Enable scrolling inside the TextInput
@@ -83,13 +84,13 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   textInput: {
-    borderColor: "#ccc",
     borderWidth: 1,
-    borderRadius: 8,
+    borderColor: '#ccc',
+    borderRadius: 5,
     padding: 10,
-    height: 180,
-    textAlignVertical: "top",
-    marginBottom: 20,
+    fontSize: 16,
+    height: 280, // Set a fixed height
+    textAlignVertical: 'top', // Align placeholder and input text to the top
   },
   submitButton: {
     backgroundColor: "#6ebf6e", // Softer green for the button

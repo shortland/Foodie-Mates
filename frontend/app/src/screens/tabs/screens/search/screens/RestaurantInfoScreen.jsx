@@ -27,7 +27,9 @@ export default function RestaurantInfoScreen() {
   const [restaurant, setRestaurant] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isLoadingNewMenu, setIsLoadingNewMenu] = useState(false);
+  const [isLoadingCustomMenu, setIsLoadingCustomMenu] = useState(false);
+  const [isLoadingRegenMenu, setIsLoadingRegenMenu] = useState(false);
+
   const [error, setError] = useState(null);
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
@@ -57,7 +59,7 @@ export default function RestaurantInfoScreen() {
     // Start loading spinner after the bottom sheet is closed
     setTimeout(() => {
       // Start loading spinner
-      setIsLoadingNewMenu(true);
+      setIsLoadingCustomMenu(true);
 
       // Simulate loading delay (e.g., 2 seconds)
       setTimeout(() => {
@@ -65,7 +67,7 @@ export default function RestaurantInfoScreen() {
         setSelectedMenu(restaurant.custom[0]);
 
         // Stop the loading spinner
-        setIsLoadingNewMenu(false);
+        setIsLoadingCustomMenu(false);
       }, 500); // 2 seconds delay
     }, 0); // Small delay to ensure the bottom sheet closes first
   };
@@ -97,16 +99,35 @@ export default function RestaurantInfoScreen() {
     fetchRestaurant();
   }, [id]);
 
-  const handleConfirm = (formData) => {
+  const handleRegenMenuSection = (menuChoice, sectionToRegenerate) => {
+    setIsLoadingRegenMenu(true);
+
+    // Create a copy of the selected menu
+    const updatedMenu = { ...selectedMenu };
+
+    // Access the corresponding section from regeneratedMenus
+
+    const updatedSection = restaurant.regeneratedMenus.find(
+      (section) => section.name === menuChoice
+    );
+
+    const regeneretedOption = updatedSection.sections.find(
+      (section) => section.name === sectionToRegenerate
+    );
+
+    const sectionIndex = selectedMenu.sections.findIndex(
+      (section) => section.name === sectionToRegenerate
+    );
+
+    // Update the corresponding section in the current menu
+    updatedMenu.sections[sectionIndex] = regeneretedOption;
+
+    // Update state with the new menu
+    setSelectedMenu(updatedMenu);
+    setIsLoadingRegenMenu(false);
   };
 
-  // super hack here
-  useEffect(() => {
-    if (restaurant && selectedMenu.name !== "Custom") {
-      setMenuItems(restaurant.regeneratedMenus);
-      setSelectedMenu(restaurant.regeneratedMenus[0]);
-    }
-  }, [isLoadingNewMenu]);
+  const handleConfirm = (formData) => {};
 
   if (loading) {
     return (
@@ -151,7 +172,7 @@ export default function RestaurantInfoScreen() {
           selectedMenu={selectedMenu}
           handleOpenSheet={handleOpenSheet}
           setSelectedMenu={setSelectedMenu}
-          setIsLoadingNewMenu={setIsLoadingNewMenu}
+          setIsLoadingCustomMenu={setIsLoadingCustomMenu}
         />
         <CustomOrderBottomSheet
           openBottomSheet={openBottomSheet}
@@ -170,10 +191,13 @@ export default function RestaurantInfoScreen() {
           closeBottomSheet={handleCloseReservationBottomSheet}
         />
 
-        {isLoadingNewMenu ? (
-          <ActivityIndicator size="large" />
-        ) : (
-          selectedMenu && <MenuItems selectedMenu={selectedMenu} />
+        {selectedMenu && (
+          <MenuItems
+          selectedMenu={selectedMenu}
+            isLoadingRegenMenu={isLoadingRegenMenu}
+            isLoadingCustomMenu={isLoadingCustomMenu}
+            handleRegenMenuSection={handleRegenMenuSection}
+          />
         )}
       </ScrollView>
       <ReservationButton
