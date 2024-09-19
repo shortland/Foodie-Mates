@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
   SafeAreaView,
   Text,
+  TextInput,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -17,22 +18,14 @@ import { ThemedText } from "@/app/src/components/ThemedText";
 import CustomButton from "@/app/src/components/CustomButton";
 import { validateRequiredFields } from "@/app/src/utils/helpers";
 import { useRouter } from "expo-router";
+import { mock } from "@/app/test/constants/mockData";
 
 export default function SearchScreen() {
   const router = useRouter();
 
   const scrollViewRef = useRef(null);
+  const [form, setForm] = useState(mock.formData);
 
-  const [form, setForm] = useState({
-    preferred_cuisine_type: "indian",
-    num_people: "2",
-    distance_miles: "0.5",
-    total_budget: "$44.00",
-    num_appetizer: "1",
-    num_main_course: "1",
-    num_dessert: "1",
-    num_drink: "1",
-  });
 
   const numPeopleRef = useRef(null);
   const distanceMilesRef = useRef(null);
@@ -242,6 +235,21 @@ export default function SearchScreen() {
             </View>
           </View>
 
+          <View style={styles.sectionHeader}>
+            <ThemedText style={styles.sectionTitle}>Anything Else You’d Like to Share?</ThemedText>
+          </View>
+
+          <TextInput
+            value={form.preferences}
+            onChangeText={(value) =>
+              handleInputChange("preferences", value)}
+            placeholder="What do you want to see on the menu..."
+            style={styles.textInput}
+            multiline={true}
+            scrollEnabled={true} 
+            numberOfLines={18} 
+          />
+
           {/* Submit Button */}
           <CustomButton
             title="Submit"
@@ -312,5 +320,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 20,
+  },
+  textInput: {
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    height: 180,
+    textAlignVertical: "top",
+    marginBottom: 20,
   },
 });
