@@ -15,5 +15,5 @@ docker image push docker.artifactory.prod.adnxs.net/hackathon-foodiemates-fronte
 ## Run frontend docker
 
 ```sh
-docker run -p 8081:8081 docker.artifactory.prod.adnxs.net/hackathon-foodiemates-frontend:0.0.1
+docker run -p 8081:8081 -it --rm docker.artifactory.prod.adnxs.net/hackathon-foodiemates-frontend:0.0.1
 ```
