@@ -26,6 +26,7 @@ export default function SearchScreen() {
   const scrollViewRef = useRef(null);
   const [form, setForm] = useState(mock.formData);
 
+
   const numPeopleRef = useRef(null);
   const distanceMilesRef = useRef(null);
   const totalBudgetRef = useRef(null);
@@ -119,7 +120,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("num_people", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numPeopleRef}
                 returnKeyType="next"
@@ -133,7 +134,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("distance_miles", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={distanceMilesRef}
                 returnKeyType="next"
@@ -150,7 +151,7 @@ export default function SearchScreen() {
               handleChangeText={(value) =>
                 handleInputChange("total_budget", value)
               }
-              otherStyles={styles.formField}
+              style={styles.formField}
               keyboardType="numeric"
               ref={totalBudgetRef}
               returnKeyType="next"
@@ -177,7 +178,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("num_appetizer", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numAppetizerRef}
                 returnKeyType="next"
@@ -191,7 +192,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("num_main_course", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numMainCourseRef}
                 returnKeyType="next"
@@ -209,7 +210,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("num_dessert", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numDessertRef}
                 returnKeyType="next"
@@ -223,7 +224,7 @@ export default function SearchScreen() {
                 handleChangeText={(value) =>
                   handleInputChange("num_drink", value)
                 }
-                otherStyles={styles.halfFormField}
+                style={styles.halfFormField}
                 keyboardType="numeric"
                 ref={numDrinkRef}
                 returnKeyType="done"
