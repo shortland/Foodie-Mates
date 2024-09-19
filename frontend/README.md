@@ -7,7 +7,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ```
 node -v
-npm -vv21.6.2
+v21.6.2
 ```
 
 ```
