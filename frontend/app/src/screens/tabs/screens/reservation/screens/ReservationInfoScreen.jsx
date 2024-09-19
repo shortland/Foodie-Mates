@@ -15,7 +15,9 @@ export default function ReservationInfoScreen() {
   const [reservation, setReservation] = useState(null); // To hold the reservation data
   const [loading, setLoading] = useState(true); // For loading state
   const [error, setError] = useState(null); // For error handling
-  const { id, isActive } = useLocalSearchParams(); // Get the reservation ID and active status from the params
+  const id = 1;
+  const isActive = true;
+  // const { id, isActive } = useLocalSearchParams(); // Get the reservation ID and active status from the params
 
   useEffect(() => {
     const fetchReservation = async () => {
