@@ -1,4 +1,4 @@
 #!/bin/bash
 pwd
 ls -la
-npx expo start -c
+npx expo start --host tunnel
