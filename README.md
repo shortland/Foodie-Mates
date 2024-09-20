@@ -1,19 +1,9 @@
-# Foodie Mates
+# Foodie Mates - Microsoft 2024 Hackathon Project
 
 Satisfy your Stomach &amp; Wallet
 
-## Build, Tag, Push New Docker Image
+## Description
 
-```sh
-export VRS=0.0.7
+TODO
 
-docker build -t foodiemates-frontend:$VRS . && \
-docker image tag foodiemates-frontend:$VRS docker.artifactory.prod.adnxs.net/hackathon-foodiemates-frontend:$VRS && \
-docker image push docker.artifactory.prod.adnxs.net/hackathon-foodiemates-frontend:$VRS
-```
-
-## Run frontend docker
-
-```sh
-docker run -p 8081:8081 -it docker.artifactory.prod.adnxs.net/hackathon-foodiemates-frontend:0.0.7
-```
+Only the frontend was 'completed', work on backend was dropped & this is a purely frontend POC project
