@@ -717,14 +717,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   peopleButton: {
-    padding: 10,
-    backgroundColor: '#ddd',
-    borderRadius: 5,
+    padding: 1,
+    // backgroundColor: '#ddd',
+    borderRadius: 100,
     marginHorizontal: 5,
+    width: 37,
+    height: 37,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: '#ccc',
+    borderWidth: 1,
   },
   peopleButtonText: {
     fontSize: 18,
     fontWeight: 'bold',
+    alignContent: 'center',
+    textAlign: 'center',
   },
   peopleCount: {
     fontSize: 16,
@@ -748,6 +756,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#6200EE',
   },
   submitButton: {
+    marginTop: 20,
     width: '40%',
   },
 });
