@@ -129,7 +129,7 @@ export default function RestaurantInfoScreen() {
 
   const handleConfirm = () => {
     setOpenReservationBottomSheet(false);
-    router.push("/reservation-info");
+    router.push("/reservations");
   };
 
   if (loading) {
