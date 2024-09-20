@@ -24,6 +24,7 @@ import formData from "@/app/test/screens/tabs/screens/search/api/searchFormBody.
 import orderData from "@/app/test/screens/tabs/screens/reservation/api/orders.json";
 import cancelData from "@/app/test/screens/tabs/screens/reservation/api/cancel.json";
 import reservationsData from "@/app/test/screens/tabs/screens/reservation/api/reservations.json";
+import reservationInfo from "@/app/test/screens/tabs/screens/reservation/api/reservation-info.json";
 
 // results
 import restaurantResultsData from "@/app/test/screens/tabs/screens/home/person/api/restaurantResults.json";
@@ -38,6 +39,7 @@ export const mock = {
   orderData,
   cancelData,
   reservationsData,
+  reservationInfo,
   restaurantResults,
   allRestaurants,
   restaurantResultsData,

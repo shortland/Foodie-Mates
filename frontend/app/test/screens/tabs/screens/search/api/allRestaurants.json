@@ -5,10 +5,13 @@
       "name": "Turmeric Indian Bistro",
       "rating": 4.5,
       "distance": 1.2,
+      "address" : "47 4th Ave, New York, NY 10001", 
       "imageUrl": "https://plus.unsplash.com/premium_photo-1694141251673-1758913ade48?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "isSponsored": false,
       "description": "A cozy Indian bistro offering the best turmeric-inspired dishes in the heart of the city.",
       "neighborhood": "Upper West Side",
+      "reservation_date": "2024-09-24 7:00 PM",
+      "party_size": 4,
       "hours": "Tue–Thu 4:00 pm–12:00 am, Fri–Sat 4:00 pm–1:00 am, Sun 2:00 pm–10:00 pm",
       "price": "60",
       "cuisines": "Indian",
@@ -264,16 +267,6 @@
                   "name": "Samosa",
                   "price": "4.99",
                   "description": "Fried pastry filled with spiced potatoes and peas."
-                },
-                {
-                  "name": "Paneer Tikka",
-                  "price": "8.99",
-                  "description": "Grilled cottage cheese cubes marinated in yogurt and spices."
-                },
-                {
-                  "name": "Papdi Chaat",
-                  "price": "6.49",
-                  "description": "Crispy wafers topped with yogurt, tamarind chutney, and spiced potatoes."
                 }
               ]
             },
@@ -294,21 +287,6 @@
                   "name": "Lamb Rogan Josh",
                   "price": "17.99",
                   "description": "Slow-cooked lamb in a fragrant tomato-based sauce."
-                },
-                {
-                  "name": "Vegetable Biryani",
-                  "price": "11.49",
-                  "description": "Basmati rice cooked with mixed vegetables and aromatic spices."
-                },
-                {
-                  "name": "Paneer Butter Masala",
-                  "price": "12.99",
-                  "description": "Paneer cubes cooked in a rich and creamy tomato sauce."
-                },
-                {
-                  "name": "Chana Masala",
-                  "price": "8.49",
-                  "description": "Chickpeas cooked in a spicy tomato-based sauce, served with rice."
                 }
               ]
             },
@@ -334,11 +312,6 @@
                   "name": "Nimbu Pani",
                   "price": "2.49",
                   "description": "Refreshing lemon-based drink with a hint of cumin."
-                },
-                {
-                  "name": "Rose Milk",
-                  "price": "3.99",
-                  "description": "Chilled milk flavored with rose syrup and cardamom."
                 }
               ]
             },
@@ -359,16 +332,6 @@
                   "name": "Rasmalai",
                   "price": "5.49",
                   "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
-                },
-                {
-                  "name": "Jalebi",
-                  "price": "3.99",
-                  "description": "Crispy deep-fried spirals soaked in sweet sugar syrup."
-                },
-                {
-                  "name": "Kheer",
-                  "price": "4.49",
-                  "description": "Creamy rice pudding flavored with cardamom and garnished with nuts."
                 }
               ]
             }
