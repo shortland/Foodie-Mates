@@ -40,7 +40,7 @@ export default function RestaurantResultsScreen() {
     const fetchRestaurants = async () => {
       try {
         // Simulate a delay for 1.5 seconds to test loading state
-        await new Promise((resolve) => setTimeout(resolve, 150));
+        await new Promise((resolve) => setTimeout(resolve, 800));
 
         // Include searchParams in the API request
         const response = await searchService.fetchRestaurantsFromQuery(
@@ -86,13 +86,13 @@ export default function RestaurantResultsScreen() {
     if (restaurantId == "1") {
       // first restaurant should be cheapest, so it's price should be below the min specified below so that
       // we can say it's the cheapest option when adding the unique features description
-      return "$42.99";
+      return "$109.05";
     }
 
     // TODO; set this min to be above the cheapest restaurant/first restaurant price
-    const min = 43.00;
+    const min = 90.00;
     // TODO; set this max to be the max the persopn will type when submittinjg the form
-    const max = 100.10;
+    const max = 119.99;
     // Generate a random number between min and max
     const randomPrice = (Math.random() * (max - min) + min).toFixed(2);
     return `$${randomPrice}`;
