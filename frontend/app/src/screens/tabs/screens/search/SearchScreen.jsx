@@ -9,9 +9,12 @@ import {
   SafeAreaView,
   Text,
   TextInput,
+  FlatList,
+  TouchableOpacity,
+  Image,
 } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
+import Ionicons from "@expo/vector-icons/Ionicons";
 import FormField from "@/app/src/components/FormField";
 import DropDown from "@/app/src/components/DropDown";
 import { ThemedText } from "@/app/src/components/ThemedText";
@@ -66,21 +69,47 @@ export default function SearchScreen() {
     }
   };
 
-  const cuisineOptions = [
-    { label: "Indian", value: "indian" },
-    { label: "Chinese", value: "chinese" },
-    { label: "Italian", value: "italian" },
-    { label: "Mexican", value: "mexican" },
-    { label: "Japanese", value: "japanese" },
-    { label: "Thai", value: "thai" },
-    { label: "French", value: "french" },
-    { label: "Mediterranean", value: "mediterranean" },
-    { label: "American", value: "american" },
-    { label: "Spanish", value: "spanish" },
-    { label: "Greek", value: "greek" },
-    { label: "Vietnamese", value: "vietnamese" },
-    // Add more options as needed
-  ];
+  const [categories] = useState([
+    { label: "Chinese", image: "https://cdn.pixabay.com/photo/2020/05/29/04/17/chinese-5233490_1280.jpg" },
+    { label: "Japanese", image: "https://cdn.pixabay.com/photo/2015/04/10/00/41/food-715542_1280.jpg" },
+    { label: "Mexican", image: "https://cdn.pixabay.com/photo/2017/06/29/20/09/mexican-2456038_1280.jpg" },
+    { label: "Sushi", image: "https://cdn.pixabay.com/photo/2020/04/04/15/07/sushi-5002639_1280.jpg" },
+    { label: "Pizza", image: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg" },
+    { label: "Fast Food", image: "https://cdn.pixabay.com/photo/2022/05/25/21/33/burgers-7221445_1280.jpg" },
+    { label: "Italian", image: "https://cdn.pixabay.com/photo/2018/07/18/19/12/pasta-3547078_1280.jpg" },
+    { label: "Caribbean", image: "https://cdn.pixabay.com/photo/2021/11/01/15/52/spring-roll-6760871_1280.jpg" },
+    { label: "Indian", image: "https://cdn.pixabay.com/photo/2022/06/27/05/38/spices-7286739_1280.jpg" },
+    { label: "Thai", image: "https://cdn.pixabay.com/photo/2017/06/30/04/58/green-curry-2457236_1280.jpg" },
+    { label: "French", image: "https://cdn.pixabay.com/photo/2016/11/12/15/29/restaurant-1819027_1280.jpg" },
+    { label: "Sandwich", image: "https://cdn.pixabay.com/photo/2023/05/29/17/01/hamburger-8026581_1280.jpg" },
+    { label: "Korean", image: "https://cdn.pixabay.com/photo/2016/10/13/19/15/bibimbap-1738580_1280.jpg" },
+    { label: "Coffee", image: "https://cdn.pixabay.com/photo/2016/11/29/04/31/caffeine-1867326_1280.jpg" },
+    { label: "American", image: "https://cdn.pixabay.com/photo/2017/03/23/19/57/asparagus-2169305_1280.jpg" },
+    { label: "Vietnamese", image: "https://cdn.pixabay.com/photo/2020/09/26/02/08/banh-xeo-5602963_1280.jpg" },
+    { label: "Cuban", image: "https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_1280.jpg" },
+    { label: "Seafood", image: "https://cdn.pixabay.com/photo/2016/07/21/09/57/snow-crab-1532115_1280.jpg" },
+    { label: "Vegetarian", image: "https://cdn.pixabay.com/photo/2018/08/29/19/01/fig-3640553_1280.jpg" },
+    { label: "Ice Cream", image: "https://cdn.pixabay.com/photo/2024/04/20/19/34/chocolate-8709260_1280.jpg" },
+    { label: "Bakery", image: "https://cdn.pixabay.com/photo/2013/04/07/21/30/bread-101636_1280.jpg" },
+    { label: "Ramen", image: "https://cdn.pixabay.com/photo/2018/07/25/17/35/ramen-3561894_1280.jpg" },
+    { label: "Bubble Tea", image: "https://cdn.pixabay.com/photo/2018/02/05/03/20/drink-3131322_1280.jpg" },
+    { label: "BBQ", image: "https://cdn.pixabay.com/photo/2023/10/09/04/28/steak-8303237_1280.jpg" },
+    { label: "Jamaican", image: "https://cdn.pixabay.com/photo/2018/08/15/00/07/fried-food-3606942_1280.jpg" },
+    { label: "Halal", image: "https://cdn.pixabay.com/photo/2022/06/27/05/37/food-art-7286735_1280.jpg" },
+    { label: "Soul Food", image: "https://cdn.pixabay.com/photo/2018/06/16/16/38/macaroni-3479021_1280.jpg" },
+    { label: "Greek", image: "https://cdn.pixabay.com/photo/2017/06/22/14/20/salad-2430919_1280.jpg" },
+  ]);
+
+  const renderCategory = ({ item }) => (
+    <TouchableOpacity
+      style={styles.categoryContainer}
+      onPress={() => router.push(`/refine-search`)} // Adjust navigation as needed
+    >
+      <Image source={{ uri: item.image }} style={styles.categoryImage} />
+      
+      <Text style={styles.categoryLabel}>{item.label}</Text>
+    </TouchableOpacity>
+  );  
 
   return (
     <TouchableWithoutFeedback
@@ -90,174 +119,13 @@ export default function SearchScreen() {
     >
       <SafeAreaView style={styles.safeArea}>
         <Text style={styles.header}>Search</Text>
-        <ScrollView
-          style={styles.scrollView}
-          ref={scrollViewRef}
-          contentContainerStyle={styles.scrollContent}
-        >
-          {/* Basic Section */}
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="hammer-outline" size={24} color="#0a7ea4" />
-              <ThemedText style={styles.sectionTitle}>Basic</ThemedText>
-            </View>
-
-            {/* Preferred Cuisine Type */}
-            <DropDown
-              title="Preferred Cuisine Type"
-              value={form.preferred_cuisine_type}
-              handleChangeText={(value) =>
-                handleInputChange("preferred_cuisine_type", value)
-              }
-              options={cuisineOptions}
-            />
-
-            {/* Number of People and Distance in Miles */}
-            <View style={styles.row}>
-              <FormField
-                title="Number of People"
-                value={form.num_people}
-                handleChangeText={(value) =>
-                  handleInputChange("num_people", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={numPeopleRef}
-                returnKeyType="next"
-                onSubmitEditing={() => distanceMilesRef.current.focus()}
-                isBox
-                placeholder="Enter number"
-              />
-              <FormField
-                title="Distance in Miles"
-                value={form.distance_miles}
-                handleChangeText={(value) =>
-                  handleInputChange("distance_miles", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={distanceMilesRef}
-                returnKeyType="next"
-                onSubmitEditing={() => totalBudgetRef.current.focus()}
-                isBox
-                placeholder="Enter distance"
-              />
-            </View>
-
-            {/* Total Budget */}
-            <FormField
-              title="Total Budget"
-              value={form.total_budget}
-              handleChangeText={(value) =>
-                handleInputChange("total_budget", value)
-              }
-              style={styles.formField}
-              keyboardType="numeric"
-              ref={totalBudgetRef}
-              returnKeyType="next"
-              onSubmitEditing={() => numAppetizerRef.current.focus()}
-              isBox
-              placeholder="Enter budget"
-              prefix="$" /* Added prefix here */
-              suffix="" /* Added invisible suffix to maintain layout */
-            />
-          </View>
-
-          {/* Advanced Section */}
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="settings-outline" size={24} color="#0a7ea4" />
-              <ThemedText style={styles.sectionTitle}>Advanced</ThemedText>
-            </View>
-
-            {/* Number of Appetizers and Main Courses */}
-            <View style={styles.row}>
-              <FormField
-                title="Number of Appetizers"
-                value={form.num_appetizer}
-                handleChangeText={(value) =>
-                  handleInputChange("num_appetizer", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={numAppetizerRef}
-                returnKeyType="next"
-                onSubmitEditing={() => numMainCourseRef.current.focus()}
-                isBox
-                placeholder="Enter number"
-              />
-              <FormField
-                title="Number of Main Courses"
-                value={form.num_main_course}
-                handleChangeText={(value) =>
-                  handleInputChange("num_main_course", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={numMainCourseRef}
-                returnKeyType="next"
-                onSubmitEditing={() => numDessertRef.current.focus()}
-                isBox
-                placeholder="Enter number"
-              />
-            </View>
-
-            {/* Number of Desserts and Drinks */}
-            <View style={styles.row}>
-              <FormField
-                title="Number of Desserts"
-                value={form.num_dessert}
-                handleChangeText={(value) =>
-                  handleInputChange("num_dessert", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={numDessertRef}
-                returnKeyType="next"
-                onSubmitEditing={() => numDrinkRef.current.focus()}
-                isBox
-                placeholder="Enter number"
-              />
-              <FormField
-                title="Number of Drinks"
-                value={form.num_drink}
-                handleChangeText={(value) =>
-                  handleInputChange("num_drink", value)
-                }
-                style={styles.halfFormField}
-                keyboardType="numeric"
-                ref={numDrinkRef}
-                returnKeyType="done"
-                onSubmitEditing={handleSubmit}
-                isBox
-                placeholder="Enter number"
-              />
-            </View>
-          </View>
-
-          <View style={styles.sectionHeader}>
-            <ThemedText style={styles.sectionTitle}>Anything Else You’d Like to Share?</ThemedText>
-          </View>
-
-          <TextInput
-            value={form.preferences}
-            onChangeText={(value) =>
-              handleInputChange("preferences", value)}
-            placeholder="What do you want to see on the menu..."
-            style={styles.textInput}
-            multiline={true}
-            scrollEnabled={true} 
-            numberOfLines={18} 
+          <FlatList
+            data={categories}
+            renderItem={renderCategory}
+            keyExtractor={(item) => item.label}
+            numColumns={2}
+            contentContainerStyle={styles.grid}
           />
-
-          {/* Submit Button */}
-          <CustomButton
-            title="Submit"
-            handlePress={handleSubmit}
-            containerStyles={styles.buttonContainer}
-            isLoading={false}
-          />
-        </ScrollView>
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
@@ -330,4 +198,28 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
     marginBottom: 20,
   },
+  categoryContainer: {
+    flex: 1,
+    margin: 7.5,
+    alignItems: 'center',
+  },
+  categoryLabel: {
+    fontSize: 14,
+    fontWeight: "bold",
+    textAlign: "left",
+    marginTop: 8,
+  },
+  categoryImage: {
+    width: '100%',
+    height: 130,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'lightgrey',
+    borderStyle: 'solid',
+  },
+  grid: {
+    // justifyContent: "center",
+    // alignItems: "center",
+    paddingHorizontal: 10,
+  }
 });

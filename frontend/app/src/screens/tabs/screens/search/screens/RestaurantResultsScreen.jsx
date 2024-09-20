@@ -40,7 +40,7 @@ export default function RestaurantResultsScreen() {
     const fetchRestaurants = async () => {
       try {
         // Simulate a delay for 1.5 seconds to test loading state
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 150));
 
         // Include searchParams in the API request
         const response = await searchService.fetchRestaurantsFromQuery(
@@ -140,7 +140,7 @@ export default function RestaurantResultsScreen() {
       <View style={styles.contents}>
         {/* Top App Bar */}
         <View style={styles.header}>
-          <Text style={styles.headerText}>Best Results</Text>
+          <Text style={styles.headerText}>Best Indian Food Results</Text>
         </View>
 
         {/* // TODO: insert map here with pins for each restaurant location */}
@@ -149,8 +149,8 @@ export default function RestaurantResultsScreen() {
           initialRegion={{
             latitude: 40.7247782,
             longitude: -73.9957863,
-            latitudeDelta: 0.05522,
-            longitudeDelta: 0.03721,
+            latitudeDelta: 0.012522,
+            longitudeDelta: 0.01721,
           }}
         >
           {restaurants.map((restaurant) => (
@@ -164,6 +164,19 @@ export default function RestaurantResultsScreen() {
               description={restaurant.description}
             />
           ))}
+          <Marker
+            key='your-location'
+            coordinate={{
+              latitude: 40.7228456,
+              longitude: -73.9889983,
+            }}
+            title='Your Location'
+            description='Current Location'
+          >
+            <View style={styles.myLocation}>
+              <Ionicons name="location" size={24} color="blue" />
+            </View>
+          </Marker>
         </MapView>
 
         <FlatList
