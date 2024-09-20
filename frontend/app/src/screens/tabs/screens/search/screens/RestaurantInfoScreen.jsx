@@ -22,8 +22,8 @@ import ReservationBottomSheet from "./components/ReservationBottomSheet";
 import { mock } from "@/app/test/constants/mockData";
 
 export default function RestaurantInfoScreen() {
-  // const { id } = useLocalSearchParams();
-  const id = "1"; // Hardcoded for now
+  const { id } = useLocalSearchParams();
+
   const [restaurant, setRestaurant] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -102,28 +102,31 @@ export default function RestaurantInfoScreen() {
   const handleRegenMenuSection = (menuChoice, sectionToRegenerate) => {
     setIsLoadingRegenMenu(true);
 
-    // Create a copy of the selected menu
-    const updatedMenu = { ...selectedMenu };
+    if (menuChoice === "Personalized") {
+      // Create a copy of the selected menu
+      const updatedMenu = { ...selectedMenu };
 
-    // Access the corresponding section from regeneratedMenus
+      // Access the corresponding section from regeneratedMenus
 
-    const updatedSection = restaurant.regeneratedMenus.find(
-      (section) => section.name === menuChoice
-    );
+      const updatedSection = restaurant.regeneratedMenus.find(
+        (section) => section.name === menuChoice
+      );
 
-    const regeneretedOption = updatedSection.sections.find(
-      (section) => section.name === sectionToRegenerate
-    );
+      const regeneretedOption = updatedSection.sections.find(
+        (section) => section.name === sectionToRegenerate
+      );
 
-    const sectionIndex = selectedMenu.sections.findIndex(
-      (section) => section.name === sectionToRegenerate
-    );
+      const sectionIndex = selectedMenu.sections.findIndex(
+        (section) => section.name === sectionToRegenerate
+      );
 
-    // Update the corresponding section in the current menu
-    updatedMenu.sections[sectionIndex] = regeneretedOption;
+      // Update the corresponding section in the current menu
+      updatedMenu.sections[sectionIndex] = regeneretedOption;
 
-    // Update state with the new menu
-    setSelectedMenu(updatedMenu);
+      // Update state with the new menu
+      setSelectedMenu(updatedMenu);
+    }
+
     setIsLoadingRegenMenu(false);
   };
 
@@ -196,7 +199,7 @@ export default function RestaurantInfoScreen() {
 
         {selectedMenu && (
           <MenuItems
-          selectedMenu={selectedMenu}
+            selectedMenu={selectedMenu}
             isLoadingRegenMenu={isLoadingRegenMenu}
             isLoadingCustomMenu={isLoadingCustomMenu}
             handleRegenMenuSection={handleRegenMenuSection}

@@ -2,6 +2,8 @@ import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons"; // Use Ionicons from Expo
 import { useRouter } from "expo-router"; // Import useRouter
+import SearchHeader from "../../../../../../components/BackButton";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
   const router = useRouter(); // Initialize the router
@@ -13,64 +15,72 @@ export default function RestaurantHeader({ restaurant, setMapModalVisible }) {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Restaurant Image with close button */}
-      <View style={styles.imageContainer}>
-        {restaurant.imageUrl && (
-          <Image source={{ uri: restaurant.imageUrl }} style={styles.image} />
-        )}
+    <SafeAreaView style={styles.safeArea} edges={["left", "right", "top"]}>
+      <View style={styles.container}>
+        {/* Restaurant Image with close button */}
+        <View style={styles.imageContainer}>
+          {restaurant.imageUrl && (
+            <Image source={{ uri: restaurant.imageUrl }} style={styles.image} />
+          )}
 
-        {/* Close button overlay to navigate back */}
-        <TouchableOpacity
-          style={styles.closeButton}
-          onPress={() => router.back()}
-        >
-          <Ionicons name="close-outline" size={30} color="#fff" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Restaurant details */}
-      <View style={styles.detailsContainer}>
-        {/* Title */}
-        <Text style={styles.restaurantName}>{restaurant.name}</Text>
-
-        {/* Cuisine and Price Range */}
-        <View style={styles.row}>
-          <Text style={styles.cuisine}>
-            {`${restaurant.cuisines} (${formatPrice(restaurant.price)})`}
-          </Text>
-          <Text style={styles.dot}>•</Text>
-          <Text style={styles.rating}>
-            <Ionicons name="star" size={16} color="#ffcc00" />
-            {restaurant.rating}
-          </Text>
-          <Text style={styles.dot}>•</Text>
-          {/* Distance with Map Icon */}
-          <Text style={styles.distance}>
-            {restaurant.distance} mi
-            <TouchableOpacity onPress={() => setMapModalVisible(true)}>
-              <Ionicons
-                name="location-outline"
-                size={18}
-                color="#555"
-                style={styles.mapIconInline}
-              />
-            </TouchableOpacity>
-          </Text>
+          {/* Close button overlay to navigate back */}
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => router.back()}
+          >
+            <Ionicons name="close-outline" size={30} color="#fff" />
+          </TouchableOpacity>
         </View>
 
-        {/* Open Status and Closing Time */}
-        <View style={styles.row}>
-          <Text style={styles.openStatus}>Open:</Text>
-          <Text style={styles.closingTime}>Closes 10:00 PM</Text>
+        {/* Restaurant details */}
+        <View style={styles.detailsContainer}>
+          {/* Title */}
+          <Text style={styles.restaurantName}>{restaurant.name}</Text>
+
+          {/* Cuisine and Price Range */}
+          <View style={styles.row}>
+            <Text style={styles.cuisine}>
+              {`${restaurant.cuisines} (${formatPrice(restaurant.price)})`}
+            </Text>
+            <Text style={styles.dot}>•</Text>
+            <Text style={styles.rating}>
+              <Ionicons name="star" size={16} color="#ffcc00" />
+              {restaurant.rating}
+            </Text>
+            <Text style={styles.dot}>•</Text>
+            {/* Distance with Map Icon */}
+            <Text style={styles.distance}>
+              {restaurant.distance} mi
+              <TouchableOpacity onPress={() => setMapModalVisible(true)}>
+                <Ionicons
+                  name="location-outline"
+                  size={18}
+                  color="#555"
+                  style={styles.mapIconInline}
+                />
+              </TouchableOpacity>
+            </Text>
+          </View>
+
+          {/* Open Status and Closing Time */}
+          <View style={styles.row}>
+            <Text style={styles.openStatus}>Open:</Text>
+            <Text style={styles.closingTime}>Closes 10:00 PM</Text>
+          </View>
         </View>
+        <Text style={styles.restaurantDescription}>
+          {restaurant.description}
+        </Text>
       </View>
-      <Text style={styles.restaurantDescription}>{restaurant.description}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "black", // Ensure white background
+  },
   container: {
     backgroundColor: "#fff",
   },

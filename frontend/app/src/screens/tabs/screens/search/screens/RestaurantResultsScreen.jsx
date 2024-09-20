@@ -13,6 +13,7 @@ import { useLocalSearchParams, useRouter } from "expo-router"; // To get query p
 import { searchService } from "../../search/api/api";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MapView, { Marker } from 'react-native-maps';
+import SearchHeader from "../../../../../components/BackButton";
 
 export default function RestaurantResultsScreen() {
   const searchParams = useLocalSearchParams(); // Extract search parameters from the URL
@@ -139,9 +140,7 @@ export default function RestaurantResultsScreen() {
     <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'top']}>
       <View style={styles.contents}>
         {/* Top App Bar */}
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Best Indian Food Results</Text>
-        </View>
+        <SearchHeader title={"Best Indian Food Results"} />
 
         {/* // TODO: insert map here with pins for each restaurant location */}
         <MapView

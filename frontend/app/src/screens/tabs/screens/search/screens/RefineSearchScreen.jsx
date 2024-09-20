@@ -18,6 +18,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import MapView, { Marker } from "react-native-maps";
 import CustomButton from "@/app/src/components/CustomButton";
 import CustomOrderBottomSheet from "./components/CustomOrderBottomSheet";
+import SearchHeader from "../../../../../components/BackButton";
 
 export default function RefineResultsScreen() {
   const searchParams = useLocalSearchParams(); // Extract search parameters from the URL
@@ -25,7 +26,7 @@ export default function RefineResultsScreen() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true); // To track the loading state
   const [error, setError] = useState(null); // To handle any errors
-  const [peopleCount, setPeopleCount] = useState(4); // Add the People section with Ionicons person icon
+  const [peopleCount, setPeopleCount] = useState(2); // Add the People section with Ionicons person icon
   const [distanceValue, setDistanceValue] = useState("1.5");
   const [budgetValue, setBudgetValue] = useState("$120");
 
@@ -274,9 +275,7 @@ export default function RefineResultsScreen() {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.contents}>
           {/* Top App Bar */}
-          <View style={styles.header}>
-            <Text style={styles.headerText}>Search - Indian Food</Text>
-          </View>
+          <SearchHeader title={"Search - Indian Food"} />
 
           {/* // TODO: insert map here with pins for each restaurant location */}
           <MapView
@@ -614,7 +613,7 @@ export default function RefineResultsScreen() {
             {/* <View style={styles.dividerSection}></View> */}
 
             <View style={styles.dividerSection}></View>
-            <Text style={styles.dividerTitle}>Additional Notes</Text>
+            <Text style={styles.dividerTitle}>Custom Preferences Notes</Text>
 
             <View style={styles.textInputContainer}>
               <TextInput
@@ -622,8 +621,7 @@ export default function RefineResultsScreen() {
                 style={styles.textInput}
                 placeholder="Anything else we should know?"
                 value={specialInstructions}
-                multiline
-                numberOfLines={3}
+                numberOfLines={1}
                 textAlignVertical="top"
                 onFocus={() => {
                   setOpenBottomSheet(true);
@@ -770,7 +768,7 @@ const styles = StyleSheet.create({
     position: "relative",
     left: "-15%",
     width: "120%",
-    height: 80,
+    height: 145,
   },
   twoRowContainer: {
     flexDirection: "row",
@@ -810,11 +808,10 @@ const styles = StyleSheet.create({
   textInputContainer: {
     marginTop: 10,
     marginHorizontal: 10,
-    marginBottom: 10, // Reduced from previous spacing
   },
 
   textInput: {
-    height: 80,
+    height: 40,
     borderColor: "#ccc",
     borderWidth: 1,
     borderRadius: 8,

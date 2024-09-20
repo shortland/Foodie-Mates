@@ -474,19 +474,526 @@
       "additionalInfo": "Private Room, Full Bar, Happy Hour",
       "menus": [
         {
-          "name": "Vegetarian Menu",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Non-Vegetarian Menu",
-          "items": []
-        },
-        {
-          "name": "Dessert Menu",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "3",
@@ -506,20 +1013,440 @@
       "additionalInfo": "Patio Dining, Family Friendly, Vegan Options",
       "menus": [
         {
-          "name": "Lunch Menu",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Dinner Menu",
-          "items": []
-        },
-        {
-          "name": "Desserts",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "4",
@@ -539,20 +1466,440 @@
       "additionalInfo": "Bar/Lounge, Happy Hour, Wheelchair Access",
       "menus": [
         {
-          "name": "Appetizers",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Main Course",
-          "items": []
-        },
-        {
-          "name": "Beverages",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "5",
@@ -572,20 +1919,440 @@
       "additionalInfo": "Full Bar, Private Dining, Wheelchair Access",
       "menus": [
         {
-          "name": "Steak Menu",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Seafood Menu",
-          "items": []
-        },
-        {
-          "name": "Wine List",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "6",
@@ -605,20 +2372,440 @@
       "additionalInfo": "Patio Dining, Full Bar, Wheelchair Access",
       "menus": [
         {
-          "name": "Lunch Specials",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Dinner Menu",
-          "items": []
-        },
-        {
-          "name": "Cocktails",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "7",
@@ -638,20 +2825,440 @@
       "additionalInfo": "Outdoor Dining, Vegan Options, Happy Hour",
       "menus": [
         {
-          "name": "Fusion Menu",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Drinks",
-          "items": []
-        },
-        {
-          "name": "Desserts",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "8",
@@ -671,20 +3278,440 @@
       "additionalInfo": "Full Bar, Late Night, Vegan Options",
       "menus": [
         {
-          "name": "BBQ Menu",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Drinks",
-          "items": []
-        },
-        {
-          "name": "Side Dishes",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "9",
@@ -704,20 +3731,440 @@
       "additionalInfo": "Family Friendly, Vegan Options, Wheelchair Access",
       "menus": [
         {
-          "name": "Gourmet Popcorn",
-          "items": []
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu offered by the restaurant with a variety of appetizers, entrées, drinks, and desserts tailored specifically for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Chicken Malai Tikka",
+                  "price": "14.29",
+                  "special_price": "12.29",
+                  "description": "Creamy marinated chicken skewers grilled to perfection, served with mint chutney."
+                },
+                {
+                  "name": "Beef Kathi Roll",
+                  "price": "13.09",
+                  "special_price": "11.09",
+                  "description": "Spiced beef wrapped in a soft paratha with onions and chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
+                },
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.69",
+                  "description": "Succulent chicken pieces simmered in a rich, creamy tomato sauce."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "14.09",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based mango drink."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "special_price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Jeera Soda",
+                  "price": "2.74",
+                  "special_price": "0",
+                  "description": "Refreshing soda infused with roasted cumin seeds."
+                },
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "special_price": "0",
+                  "description": "Minty lime soda with a hint of sweetness."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "7.59",
+                  "special_price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "8.14",
+                  "special_price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
         },
         {
-          "name": "Snacks",
-          "items": []
-        },
-        {
-          "name": "Drinks",
-          "items": []
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your given preferences. Hit the loop button to regenerate options for that section if you want to see something else.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Butter Chicken",
+                  "price": "18.49",
+                  "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
+                },
+                {
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
+                },
+                {
+                  "name": "Paneer Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with ripe mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "3.84",
+                  "description": "Spiced Indian tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                },
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Gulab Jamun",
+                  "price": "6.59",
+                  "description": "Milk-based dumplings soaked in rose-scented sugar syrup."
+                },
+                {
+                  "name": "Kulfi",
+                  "price": "7.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                }
+              ]
+            }
+          ]
         }
       ],
-      "regeneratedMenus": [],
-      "custom": []
+      "regeneratedMenus": [
+        {
+          "name": "Discounted",
+          "description": "Enjoy our discounted menu with exclusive offers on appetizers, entrées, drinks, and desserts tailored just for you.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Grilled Paneer Skewers",
+                  "price": "13.50",
+                  "special_price": "10.50",
+                  "description": "Marinated paneer grilled to perfection, served with coriander chutney."
+                },
+                {
+                  "name": "Spicy Shrimp Cocktail",
+                  "price": "15.00",
+                  "special_price": "11.25",
+                  "description": "Succulent shrimp tossed in a spicy tomato-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Beef Biryani",
+                  "price": "22.50",
+                  "special_price": "16.88",
+                  "description": "Fragrant basmati rice cooked with tender beef and aromatic spices."
+                },
+                {
+                  "name": "Chicken Tikka Masala",
+                  "price": "19.00",
+                  "special_price": "14.25",
+                  "description": "Grilled chicken pieces in a creamy tomato and tikka sauce."
+                },
+                {
+                  "name": "Vegetable Korma",
+                  "price": "17.50",
+                  "special_price": "13.13",
+                  "description": "Mixed vegetables cooked in a rich and creamy cashew-based sauce."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Pineapple Margarita",
+                  "price": "5.00",
+                  "special_price": "3.75",
+                  "description": "Refreshing pineapple-flavored margarita with a salted rim."
+                },
+                {
+                  "name": "Iced Green Tea",
+                  "price": "3.50",
+                  "special_price": "2.63",
+                  "description": "Chilled green tea with a hint of lemon and honey."
+                },
+                {
+                  "name": "Berry Smoothie",
+                  "price": "4.50",
+                  "special_price": "3.38",
+                  "description": "A blend of fresh berries and yogurt for a healthy treat."
+                },
+                {
+                  "name": "Coconut Water",
+                  "price": "3.00",
+                  "special_price": "2.25",
+                  "description": "Pure coconut water served chilled."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Chocolate Lava Cake",
+                  "price": "7.50",
+                  "special_price": "5.63",
+                  "description": "Warm chocolate cake with a molten center, served with vanilla ice cream."
+                },
+                {
+                  "name": "Fruit Custard",
+                  "price": "6.00",
+                  "special_price": "4.50",
+                  "description": "Assorted seasonal fruits in creamy custard."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Personalized",
+          "description": "This is the menu we curated for you based on your preferences. Use the loop button to regenerate options for any section if desired.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Paneer Pakora",
+                  "price": "11.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                },
+                {
+                  "name": "Mixed Vegetable Spring Rolls",
+                  "price": "8.50",
+                  "description": "Vegetable-filled spring rolls served with sweet chili sauce."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Tandoori Chicken",
+                  "price": "18.99",
+                  "description": "Marinated chicken grilled in a tandoor oven, served with naan."
+                },
+                {
+                  "name": "Dal Makhani",
+                  "price": "12.50",
+                  "description": "Creamy black lentils cooked with spices and butter."
+                },
+                {
+                  "name": "Shrimp Biryani",
+                  "price": "17.50",
+                  "description": "Spiced basmati rice cooked with succulent shrimp and herbs."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Coca Cola",
+                  "price": "1.99",
+                  "description": "Fresh strawberries blended with lemonade for a sweet twist."
+                },
+                {
+                  "name": "Herbal Iced Tea",
+                  "price": "3.75",
+                  "description": "A refreshing blend of herbal teas served over ice."
+                },
+                {
+                  "name": "Chai Latte",
+                  "price": "3.99",
+                  "description": "Strong and rich espresso shot to kickstart your meal."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Creamy vanilla-flavored milkshake topped with whipped cream."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Tiramisu",
+                  "price": "9.00",
+                  "description": "Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream."
+                },
+                {
+                  "name": "Panna Cotta",
+                  "price": "8.50",
+                  "description": "Creamy panna cotta served with a berry coulis."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "custom": [
+        {
+          "name": "Custom",
+          "description": "Our fully vegetarian menu crafted to your tastes.",
+          "sections": [
+            {
+              "name": "Appetizer",
+              "items": [
+                {
+                  "name": "Vegetable Samosa",
+                  "price": "9.69",
+                  "description": "Crispy pastry filled with spiced potatoes, peas, and herbs."
+                },
+                {
+                  "name": "Aloo Tikki",
+                  "price": "7.59",
+                  "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
+                },
+                {
+                  "name": "Paneer Pakora",
+                  "price": "8.99",
+                  "description": "Crispy fried paneer fritters served with mint chutney."
+                }
+              ]
+            },
+            {
+              "name": "Entrée",
+              "items": [
+                {
+                  "name": "Paneer Butter Masala",
+                  "price": "15.99",
+                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                },
+                {
+                  "name": "Aloo Gobi",
+                  "price": "12.99",
+                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                },
+                {
+                  "name": "Vegetable Biryani",
+                  "price": "13.99",
+                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                }
+              ]
+            },
+            {
+              "name": "Drink",
+              "items": [
+                {
+                  "name": "Sweet Lassi",
+                  "price": "4.94",
+                  "description": "Chilled yogurt drink sweetened with sugar and cardamom."
+                },
+                {
+                  "name": "Mango Lassi",
+                  "price": "4.94",
+                  "description": "Sweet and creamy yogurt-based drink with mango pulp."
+                },
+                {
+                  "name": "Masala Chai",
+                  "price": "2.84",
+                  "description": "Spiced black tea brewed with milk and aromatic herbs."
+                },
+                {
+                  "name": "Nimbu Pani",
+                  "price": "3.29",
+                  "description": "Refreshing lemon-based drink with a hint of cumin."
+                }
+              ]
+            },
+            {
+              "name": "Dessert",
+              "items": [
+                {
+                  "name": "Kulfi",
+                  "price": "5.69",
+                  "description": "Traditional Indian ice cream flavored with saffron and pistachios."
+                },
+                {
+                  "name": "Rasmalai",
+                  "price": "6.14",
+                  "description": "Soft cheese dumplings soaked in saffron and cardamom-flavored milk."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

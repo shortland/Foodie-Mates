@@ -13,6 +13,7 @@ import {
 import { useLocalSearchParams } from "expo-router"; // Import useLocalSearchParams
 import { searchService } from "../../search/api/api"; // Adjust the path as needed
 import Ionicons from "@expo/vector-icons/Ionicons"; // Ensure Ionicons is installed
+import SearchHeader from "../../../../../components/BackButton";
 
 // Components
 
@@ -109,7 +110,9 @@ const MenuList = ({ menus, selectedMenu }) => {
 
   return (
     <View style={styles.menuContainer}>
-      <Text style={styles.menuTitle}>Selected Menu: {selectedMenu[0]?.name}</Text>
+      <Text style={styles.menuTitle}>
+        Selected Menu: {selectedMenu[0]?.name}
+      </Text>
       {customSections.sections.map((section, index) => (
         <View key={index} style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>{section.name}</Text>
@@ -312,8 +315,7 @@ export default function ReservationInfoScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       {/* Top App Bar */}
-      <AppBar title="Reservation Info" />
-
+      <SearchHeader title={"Reservation Info"} />
       <ScrollView contentContainerStyle={styles.container}>
         {/* Reservation Title */}
         <Text style={styles.title}>{reservation.name}</Text>
@@ -382,9 +384,10 @@ export default function ReservationInfoScreen() {
             ${finalTotal}
           </Text>
         </View>
-
         {/* Conditionally show the cancel button if the reservation is currently active */}
-        {isActive && <CancelButton onCancel={handleCancelReservation} />}
+        {(id == 1 || id == 4) && (
+          <CancelButton onCancel={handleCancelReservation} />
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -393,7 +396,7 @@ export default function ReservationInfoScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "black",
   },
   appBar: {
     height: 60,

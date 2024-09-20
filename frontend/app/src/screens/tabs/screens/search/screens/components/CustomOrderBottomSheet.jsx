@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Modal,
@@ -18,6 +18,15 @@ export default function CustomOrderBottomSheet({
   setText,
   closeBottomSheet, // Function to close the bottom sheet
 }) {
+  const textInputRef = useRef(null);
+
+  useEffect(() => {
+    // Automatically focus the TextInput when the component is mounted
+    if (textInputRef.current) {
+      textInputRef.current.focus();
+    }
+  }, []);
+
   return (
     <Modal
       visible={openBottomSheet}
@@ -36,6 +45,7 @@ export default function CustomOrderBottomSheet({
 
                 {/* Text Input Box */}
                 <TextInput
+                  ref={textInputRef} // Assign the ref to TextInput
                   value={text}
                   onChangeText={setText}
                   placeholder={
@@ -43,8 +53,8 @@ export default function CustomOrderBottomSheet({
                   }
                   style={styles.textInput}
                   multiline={true}
-                  scrollEnabled={true} // Enable scrolling inside the TextInput
-                  numberOfLines={18} // Set an initial number of lines for a larger box
+                  scrollEnabled={true}
+                  numberOfLines={18}
                 />
 
                 {/* Submit Button */}

@@ -12,7 +12,8 @@ import { useNavigation } from "@react-navigation/native";
 import { searchService } from "../api/api";
 
 export default function CustomOrderScreen({ route }) {
-  const id = "1";
+  const { id } = useLocalSearchParams();
+
   const navigation = useNavigation();
   const [restaurant, setRestaurant] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
