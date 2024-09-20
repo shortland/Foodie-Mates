@@ -290,48 +290,144 @@ export default function RefineResultsScreen() {
                 <Ionicons name="location" size={24} color="blue" />
               </View>
             </Marker>
-            <Marker
-              coordinate={{
-                latitude: 40.722247782,
-                longitude: -73.976863,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.73267782,
-                longitude: -74.0047863,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.73467782,
-                longitude: -73.9947863,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.735867782,
-                longitude: -73.9805744,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.7204824,
-                longitude: -74.0040364,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.7185905,
-                longitude: -74.0059932,
-              }}
-            />
-            <Marker
-              coordinate={{
-                latitude: 40.7429199,
-                longitude: -74.0044697,
-              }}
-            />
+            {peopleCount <= 3 && (
+              <>
+                <Marker
+                  coordinate={{
+                    latitude: 40.722247782,
+                    longitude: -73.976863,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.73267782,
+                    longitude: -74.0047863,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.73467782,
+                    longitude: -73.9947863,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.735867782,
+                    longitude: -73.9805744,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7204824,
+                    longitude: -74.0040364,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7185905,
+                    longitude: -74.0059932,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7429199,
+                    longitude: -74.0044697,
+                  }}
+                />
+              </>)}
+
+              {peopleCount <= 2 && (
+                <>
+                  <Marker
+                    coordinate={{
+                      latitude: 40.722300,
+                      longitude: -73.9746900,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.732700,
+                      longitude: -74.0004800,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.734700,
+                      longitude: -73.984800,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.735900,
+                      longitude: -73.990600,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.7200500,
+                      longitude: -74.0004000,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.718550,
+                      longitude: -74.0006000,
+                    }}
+                  />
+                  <Marker
+                    coordinate={{
+                      latitude: 40.742950,
+                      longitude: -74.000500,
+                    }}
+                  />
+                </>
+              )}
+          {peopleCount == 1 && (
+            <>
+              <Marker
+                coordinate={{
+                  latitude: 40.7322310,
+                  longitude: -73.974700,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.7302710,
+                  longitude: -74.000490,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.734710,
+                  longitude: -73.9984810,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.7385910,
+                  longitude: -73.9890610,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.720060,
+                  longitude: -73.988410,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.7158560,
+                  longitude: -74.000610,
+                }}
+              />
+              <Marker
+                coordinate={{
+                  latitude: 40.74960,
+                  longitude: -74.0000510,
+                }}
+              />
+            </>
+          )}
           </MapView>
 
           {/* TODO: Text that says 'People' and has plus and minus button to increase or decrease value. defaults to 1 */}
