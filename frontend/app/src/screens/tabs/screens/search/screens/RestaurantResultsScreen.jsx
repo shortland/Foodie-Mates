@@ -91,7 +91,7 @@ export default function RestaurantResultsScreen() {
     }
 
     // TODO; set this min to be above the cheapest restaurant/first restaurant price
-    const min = 90.00;
+    const min = 111.99;
     // TODO; set this max to be the max the persopn will type when submittinjg the form
     const max = 119.99;
     // Generate a random number between min and max

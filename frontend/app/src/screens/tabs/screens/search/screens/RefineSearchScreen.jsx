@@ -26,16 +26,16 @@ export default function RefineResultsScreen() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true); // To track the loading state
   const [error, setError] = useState(null); // To handle any errors
-  const [peopleCount, setPeopleCount] = useState(2); // Add the People section with Ionicons person icon
-  const [distanceValue, setDistanceValue] = useState("1.5");
-  const [budgetValue, setBudgetValue] = useState("$120");
+  const [peopleCount, setPeopleCount] = useState(1); // Add the People section with Ionicons person icon
+  const [distanceValue, setDistanceValue] = useState("0.7");
+  const [budgetValue, setBudgetValue] = useState("$118");
 
   const [specialInstructions, setSpecialInstructions] = useState("");
 
-  const [appetizerCount, setAppetizerCount] = useState(2);
-  const [entreeCount, setEntreeCount] = useState(3);
-  const [drinkCount, setDrinkCount] = useState(4);
-  const [dessertCount, setDessertCount] = useState(2);
+  const [appetizerCount, setAppetizerCount] = useState(1);
+  const [entreeCount, setEntreeCount] = useState(1);
+  const [drinkCount, setDrinkCount] = useState(1);
+  const [dessertCount, setDessertCount] = useState(1);
 
   const increaseAppetizerCount = () => {
     setAppetizerCount(appetizerCount + 1);
@@ -554,7 +554,7 @@ export default function RefineResultsScreen() {
             </View>
             <View style={styles.lineContainer}>
               <Ionicons name="restaurant-outline" size={24} color="black" />
-              <Text style={styles.peopleLabel}>Main Courses</Text>
+              <Text style={styles.peopleLabel}>Entrée</Text>
               <View style={styles.peopleControls}>
                 <TouchableOpacity
                   onPress={decreaseEntreeCount}

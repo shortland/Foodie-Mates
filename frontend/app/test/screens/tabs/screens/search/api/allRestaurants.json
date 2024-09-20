@@ -63,7 +63,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -137,20 +137,20 @@
                   "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
                 },
                 {
+                  "name": "Chicken Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                },
+                {
                   "name": "Chana Masala",
                   "price": "12.09",
                   "special_price": "9.89",
                   "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
-                },
-                {
-                  "name": "Paneer Makhani",
-                  "price": "17.39",
-                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
                 }
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -238,7 +238,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -325,7 +325,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -384,11 +384,6 @@
                   "name": "Aloo Tikki",
                   "price": "7.59",
                   "description": "Golden-fried potato patties served with tangy tamarind and mint chutney."
-                },
-                {
-                  "name": "Paneer Pakora",
-                  "price": "8.99",
-                  "description": "Crispy fried paneer fritters served with mint chutney."
                 }
               ]
             },
@@ -396,24 +391,26 @@
               "name": "Entrée",
               "items": [
                 {
-                  "name": "Paneer Butter Masala",
-                  "price": "15.99",
-                  "description": "Soft paneer cubes cooked in a rich and creamy tomato-based sauce."
+                  "name": "Lamb Vindaloo",
+                  "price": "21.99",
+                  "special_price": "10.99",
+                  "description": "Tender lamb cooked in a fiery vindaloo sauce with potatoes."
                 },
                 {
-                  "name": "Aloo Gobi",
-                  "price": "12.99",
-                  "description": "Potato and cauliflower stir-fried with turmeric, cumin, and coriander."
+                  "name": "Chicken Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
                 },
                 {
-                  "name": "Vegetable Biryani",
-                  "price": "13.99",
-                  "description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices."
+                  "name": "Chana Masala",
+                  "price": "12.09",
+                  "special_price": "9.89",
+                  "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
                 }
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -516,7 +513,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -603,7 +600,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -691,7 +688,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -778,7 +775,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -864,7 +861,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -952,7 +949,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -1055,7 +1052,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -1129,20 +1126,20 @@
                   "description": "Tender chicken simmered in a rich, buttery tomato sauce, served with basmati rice."
                 },
                 {
+                  "name": "Chicken Makhani",
+                  "price": "17.39",
+                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
+                },
+                {
                   "name": "Chana Masala",
                   "price": "12.09",
                   "special_price": "9.89",
                   "description": "Chickpeas cooked in a spicy tomato and onion gravy, served with naan."
-                },
-                {
-                  "name": "Paneer Makhani",
-                  "price": "17.39",
-                  "description": "Grilled paneer cubes in a creamy tomato and butter sauce."
                 }
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -1230,7 +1227,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -1317,7 +1314,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -1405,7 +1402,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -1508,7 +1505,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -1595,7 +1592,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -1683,7 +1680,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -1770,7 +1767,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -1858,7 +1855,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -1961,7 +1958,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -2048,7 +2045,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -2136,7 +2133,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -2223,7 +2220,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -2311,7 +2308,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -2414,7 +2411,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -2501,7 +2498,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -2589,7 +2586,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -2676,7 +2673,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -2764,7 +2761,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -2867,7 +2864,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -2954,7 +2951,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -3042,7 +3039,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -3129,7 +3126,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -3217,7 +3214,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -3320,7 +3317,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -3407,7 +3404,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -3495,7 +3492,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -3582,7 +3579,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -3670,7 +3667,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
@@ -3773,7 +3770,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -3860,7 +3857,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Mango Lassi",
@@ -3948,7 +3945,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Pineapple Margarita",
@@ -4035,7 +4032,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Coca Cola",
@@ -4123,7 +4120,7 @@
               ]
             },
             {
-              "name": "Drink",
+              "name": "Beverages",
               "items": [
                 {
                   "name": "Sweet Lassi",
