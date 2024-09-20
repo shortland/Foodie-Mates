@@ -141,7 +141,8 @@ export default function MenuItems({
   const tax = (subtotalValue * taxRate).toFixed(2);
   const tip = (subtotalValue * tipRate).toFixed(2);
   const total = (
-    subtotalValue +
+    subtotalValue - 
+    savings +
     parseFloat(tax) +
     parseFloat(tip)
   ).toFixed(2);

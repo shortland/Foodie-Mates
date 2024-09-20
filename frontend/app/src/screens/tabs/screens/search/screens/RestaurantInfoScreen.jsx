@@ -68,7 +68,7 @@ export default function RestaurantInfoScreen() {
 
         // Stop the loading spinner
         setIsLoadingCustomMenu(false);
-      }, 500); // 2 seconds delay
+      }, 1000); // 2 seconds delay
     }, 0); // Small delay to ensure the bottom sheet closes first
   };
 
@@ -129,7 +129,7 @@ export default function RestaurantInfoScreen() {
 
   const handleConfirm = () => {
     setOpenReservationBottomSheet(false);
-    router.push("/reservation-info");
+    router.push("/reservations");
   };
 
   if (loading) {
