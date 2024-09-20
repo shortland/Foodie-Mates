@@ -9,8 +9,8 @@ export default function ReservationButton({ setOpenReservationBottomSheet }) {
       onPress={() => setOpenReservationBottomSheet(true)}
     >
       <Text style={styles.reservationButtonText}>
-        {" "}
-        Reserve Now <Icon name="calendar" size={20} color="#fff" />{" "}
+      <Icon name="calendar" size={20} color="#fff" />{"  "}
+        Reserve Now 
       </Text>
     </TouchableOpacity>
   );
