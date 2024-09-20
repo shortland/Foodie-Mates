@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import {
   View,
   Text,
@@ -68,7 +68,7 @@ const MenuSection = ({ section, selectedMenuName, handleRegenMenuSection }) => {
       {isLoading ? (
         <View style={styles.loaderContainer}>
           <ActivityIndicator size="small" color="#000" />
-          <Text> Regenerating...</Text>
+          <Text style={styles.loaderText}> Regenerating...</Text>
         </View>
       ) : (
         section.items.map((item, itemIndex) => (
@@ -80,12 +80,16 @@ const MenuSection = ({ section, selectedMenuName, handleRegenMenuSection }) => {
                   <Text style={styles.specialPrice}>
                     {item.special_price === "0"
                       ? "Free"
-                      : `$${item.special_price}`}
+                      : `$${parseFloat(item.special_price).toFixed(2)}`}
                   </Text>
-                  <Text style={styles.originalPrice}>${item.price}</Text>
+                  <Text style={styles.originalPrice}>
+                    ${parseFloat(item.price).toFixed(2)}
+                  </Text>
                 </View>
               ) : (
-                <Text style={styles.menuItemPrice}>${item.price}</Text>
+                <Text style={styles.menuItemPrice}>
+                  ${parseFloat(item.price).toFixed(2)}
+                </Text>
               )}
             </View>
             <Text style={styles.menuItemDescription}>{item.description}</Text>
@@ -104,15 +108,15 @@ export default function MenuItems({
 }) {
   const [tipRate, setTipRate] = useState(0.15); // Default tip rate of 15%
 
-  // Calculate Subtotal and Savings
-  const calculateSubtotalAndSavings = () => {
+  // Calculate Subtotal and Savings using useMemo for optimization
+  const { subtotal, savings } = useMemo(() => {
     let subtotal = 0;
     let savings = 0;
     selectedMenu.sections.forEach((section) => {
       section.items.forEach((item) => {
-        let itemPrice = parseFloat(item.price);
+        const itemPrice = parseFloat(item.price);
         if (selectedMenu.name === "Discounted" && item.special_price) {
-          let specialPrice =
+          const specialPrice =
             item.special_price === "0" ? 0 : parseFloat(item.special_price);
           subtotal += specialPrice;
           savings += itemPrice - specialPrice;
@@ -125,7 +129,7 @@ export default function MenuItems({
       subtotal: subtotal.toFixed(2),
       savings: savings.toFixed(2),
     };
-  };
+  }, [selectedMenu]);
 
   const handleTipIncrease = () => {
     if (tipRate < 0.3) setTipRate((prev) => Math.min(prev + 0.01, 0.3));
@@ -136,16 +140,12 @@ export default function MenuItems({
   };
 
   const taxRate = 0.08; // Example tax rate of 8%
-  const { subtotal, savings } = calculateSubtotalAndSavings();
   const subtotalValue = parseFloat(subtotal);
   const tax = (subtotalValue * taxRate).toFixed(2);
   const tip = (subtotalValue * tipRate).toFixed(2);
-  const total = (
-    subtotalValue - 
-    savings +
-    parseFloat(tax) +
-    parseFloat(tip)
-  ).toFixed(2);
+  
+  // Corrected total calculation: subtotal + tax + tip
+  const total = (subtotalValue + parseFloat(tax) + parseFloat(tip)).toFixed(2);
 
   return (
     <View>
@@ -154,7 +154,7 @@ export default function MenuItems({
           // Loader screen while regenerating
           <View style={styles.loaderContainer}>
             <ActivityIndicator size="small" color="#000" />
-            <Text> Regenerating Custom Menu...</Text>
+            <Text style={styles.loaderText}> Regenerating Custom Menu...</Text>
           </View>
         ) : (
           selectedMenu.sections.map((section, sectionIndex) => (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -9,14 +9,15 @@ import {
   TouchableOpacity,
   TextInput,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router"; // To get query params and navigate
 import { searchService } from "../../search/api/api";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker } from "react-native-maps";
 import CustomButton from "@/app/src/components/CustomButton";
+import CustomOrderBottomSheet from "./components/CustomOrderBottomSheet";
 
 export default function RefineResultsScreen() {
   const searchParams = useLocalSearchParams(); // Extract search parameters from the URL
@@ -24,14 +25,16 @@ export default function RefineResultsScreen() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true); // To track the loading state
   const [error, setError] = useState(null); // To handle any errors
-  const [peopleCount, setPeopleCount] = useState(2); // Add the People section with Ionicons person icon
-  const [distanceValue, setDistanceValue] = useState("0.4");
-  const [budgetValue, setBudgetValue] = useState("$45");
+  const [peopleCount, setPeopleCount] = useState(4); // Add the People section with Ionicons person icon
+  const [distanceValue, setDistanceValue] = useState("1.5");
+  const [budgetValue, setBudgetValue] = useState("$120");
 
-  const [appetizerCount, setAppetizerCount] = useState(1);
-  const [entreeCount, setEntreeCount] = useState(2);
-  const [drinkCount, setDrinkCount] = useState(1);
-  const [dessertCount, setDessertCount] = useState(1);
+  const [specialInstructions, setSpecialInstructions] = useState("");
+
+  const [appetizerCount, setAppetizerCount] = useState(2);
+  const [entreeCount, setEntreeCount] = useState(3);
+  const [drinkCount, setDrinkCount] = useState(4);
+  const [dessertCount, setDessertCount] = useState(2);
 
   const increaseAppetizerCount = () => {
     setAppetizerCount(appetizerCount + 1);
@@ -122,6 +125,8 @@ export default function RefineResultsScreen() {
     setBudgetValue(value);
   };
 
+  const textInputRef = useRef(null);
+
   const doneEditingBudget = () => {
     let budgetNumerical = getBudgetNumericalValue(budgetValue);
 
@@ -130,7 +135,19 @@ export default function RefineResultsScreen() {
 
   const getBudgetNumericalValue = (stringBudget) => {
     return parseFloat(stringBudget.toString().replace("$", "")).toFixed(2);
-  }
+  };
+
+  const [openBottomSheet, setOpenBottomSheet] = useState(false);
+
+  const handleSubmit = () => {
+    setOpenBottomSheet(false);
+  };
+
+  const handleCloseSheet = () => {
+    if (openBottomSheet) {
+      setOpenBottomSheet(false);
+    }
+  };
 
   const goodFeatures = [
     "Most Main Course Options",
@@ -151,7 +168,7 @@ export default function RefineResultsScreen() {
     const fetchRestaurants = async () => {
       try {
         // Simulate a delay for 1.5 seconds to test loading state
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 800));
 
         // Include searchParams in the API request
         const response = await searchService.fetchRestaurantsFromQuery(
@@ -201,25 +218,31 @@ export default function RefineResultsScreen() {
     }
 
     // TODO; set this min to be above the cheapest restaurant/first restaurant price
-    const min = 43.00;
+    const min = 43.0;
     // TODO; set this max to be the max the persopn will type when submittinjg the form
-    const max = 100.10;
+    const max = 100.1;
     // Generate a random number between min and max
     const randomPrice = (Math.random() * (max - min) + min).toFixed(2);
     return `$${randomPrice}`;
-  }
+  };
 
   const generatedRandomUniqueFeature = (restaurantId) => {
     if (restaurantId == "1") {
-      return <>
-        <Text style={styles.randomUniqueFeature}>🥇Cheapest Option</Text>
-        {/* {"\n"} */}
-        {/* <Text style={styles.randomUniqueFeature}>Highest Rated</Text> */}
-      </>;
+      return (
+        <>
+          <Text style={styles.randomUniqueFeature}>🥇Cheapest Option</Text>
+          {/* {"\n"} */}
+          {/* <Text style={styles.randomUniqueFeature}>Highest Rated</Text> */}
+        </>
+      );
     }
 
-    return <Text style={styles.randomUniqueFeature}>{goodFeatures[restaurantId]}</Text>;
-  }
+    return (
+      <Text style={styles.randomUniqueFeature}>
+        {goodFeatures[restaurantId]}
+      </Text>
+    );
+  };
 
   if (loading) {
     return (
@@ -247,13 +270,12 @@ export default function RefineResultsScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['left', 'right', 'top']}>
+    <SafeAreaView style={styles.safeArea} edges={["left", "right", "top"]}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-
         <View style={styles.contents}>
           {/* Top App Bar */}
           <View style={styles.header}>
-            <Text style={styles.headerText}>Results - Indian Food</Text>
+            <Text style={styles.headerText}>Search - Indian Food</Text>
           </View>
 
           {/* // TODO: insert map here with pins for each restaurant location */}
@@ -278,13 +300,13 @@ export default function RefineResultsScreen() {
               />
             ))}
             <Marker
-              key='your-location'
+              key="your-location"
               coordinate={{
                 latitude: 40.7228456,
                 longitude: -73.9889983,
               }}
-              title='Your Location'
-              description='Current Location'
+              title="Your Location"
+              description="Current Location"
             >
               <View style={styles.myLocation}>
                 <Ionicons name="location" size={24} color="blue" />
@@ -334,105 +356,106 @@ export default function RefineResultsScreen() {
                     longitude: -74.0044697,
                   }}
                 />
-              </>)}
+              </>
+            )}
 
-              {peopleCount <= 2 && (
-                <>
-                  <Marker
-                    coordinate={{
-                      latitude: 40.722300,
-                      longitude: -73.9746900,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.732700,
-                      longitude: -74.0004800,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.734700,
-                      longitude: -73.984800,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.735900,
-                      longitude: -73.990600,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.7200500,
-                      longitude: -74.0004000,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.718550,
-                      longitude: -74.0006000,
-                    }}
-                  />
-                  <Marker
-                    coordinate={{
-                      latitude: 40.742950,
-                      longitude: -74.000500,
-                    }}
-                  />
-                </>
-              )}
-          {peopleCount == 1 && (
-            <>
-              <Marker
-                coordinate={{
-                  latitude: 40.7322310,
-                  longitude: -73.974700,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.7302710,
-                  longitude: -74.000490,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.734710,
-                  longitude: -73.9984810,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.7385910,
-                  longitude: -73.9890610,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.720060,
-                  longitude: -73.988410,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.7158560,
-                  longitude: -74.000610,
-                }}
-              />
-              <Marker
-                coordinate={{
-                  latitude: 40.74960,
-                  longitude: -74.0000510,
-                }}
-              />
-            </>
-          )}
+            {peopleCount <= 2 && (
+              <>
+                <Marker
+                  coordinate={{
+                    latitude: 40.7223,
+                    longitude: -73.97469,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7327,
+                    longitude: -74.00048,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7347,
+                    longitude: -73.9848,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7359,
+                    longitude: -73.9906,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.72005,
+                    longitude: -74.0004,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.71855,
+                    longitude: -74.0006,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.74295,
+                    longitude: -74.0005,
+                  }}
+                />
+              </>
+            )}
+            {peopleCount == 1 && (
+              <>
+                <Marker
+                  coordinate={{
+                    latitude: 40.732231,
+                    longitude: -73.9747,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.730271,
+                    longitude: -74.00049,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.73471,
+                    longitude: -73.998481,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.738591,
+                    longitude: -73.989061,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.72006,
+                    longitude: -73.98841,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.715856,
+                    longitude: -74.00061,
+                  }}
+                />
+                <Marker
+                  coordinate={{
+                    latitude: 40.7496,
+                    longitude: -74.000051,
+                  }}
+                />
+              </>
+            )}
           </MapView>
 
           {/* TODO: Text that says 'People' and has plus and minus button to increase or decrease value. defaults to 1 */}
 
-          <View style={{ backgroundColor: 'white', height: '100%'}}>
+          <View style={{ backgroundColor: "white", height: "100%" }}>
             <View style={styles.dividerSection}></View>
             <Text style={styles.dividerTitle}>Options</Text>
 
@@ -440,11 +463,17 @@ export default function RefineResultsScreen() {
               <Ionicons name="accessibility-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>People</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreasePeopleCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreasePeopleCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.peopleCount}>{peopleCount}</Text>
-                <TouchableOpacity onPress={increasePeopleCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increasePeopleCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -453,7 +482,10 @@ export default function RefineResultsScreen() {
               <Ionicons name="navigate-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Distance (miles)</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseDistance} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseDistance}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 {/* <Text style={styles.peopleCount}>{distanceValue.toFixed(2)}m.</Text> */}
@@ -464,7 +496,10 @@ export default function RefineResultsScreen() {
                   keyboardType="numeric"
                   onEndEditing={doneDistanceChange}
                 />
-                <TouchableOpacity onPress={increaseDistance} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseDistance}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -473,7 +508,10 @@ export default function RefineResultsScreen() {
               <Ionicons name="cash-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Budget</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseBudget} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseBudget}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 {/* <Text style={styles.peopleCount}>{distanceValue.toFixed(2)}m.</Text> */}
@@ -484,7 +522,10 @@ export default function RefineResultsScreen() {
                   keyboardType="numeric"
                   onEndEditing={doneEditingBudget}
                 />
-                <TouchableOpacity onPress={increaseBudget} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseBudget}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -497,11 +538,17 @@ export default function RefineResultsScreen() {
               <Ionicons name="fast-food-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Appetizers</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseAppetizerCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseAppetizerCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.peopleCount}>{appetizerCount}</Text>
-                <TouchableOpacity onPress={increaseAppetizerCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseAppetizerCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -510,11 +557,17 @@ export default function RefineResultsScreen() {
               <Ionicons name="restaurant-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Main Courses</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseEntreeCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseEntreeCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.peopleCount}>{entreeCount}</Text>
-                <TouchableOpacity onPress={increaseEntreeCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseEntreeCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -523,11 +576,17 @@ export default function RefineResultsScreen() {
               <Ionicons name="beer-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Beverages</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseDrinkCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseDrinkCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.peopleCount}>{drinkCount}</Text>
-                <TouchableOpacity onPress={increaseDrinkCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseDrinkCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -536,11 +595,17 @@ export default function RefineResultsScreen() {
               <Ionicons name="ice-cream-outline" size={24} color="black" />
               <Text style={styles.peopleLabel}>Desserts</Text>
               <View style={styles.peopleControls}>
-                <TouchableOpacity onPress={decreaseDessertCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={decreaseDessertCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>-</Text>
                 </TouchableOpacity>
                 <Text style={styles.peopleCount}>{dessertCount}</Text>
-                <TouchableOpacity onPress={increaseDessertCount} style={styles.peopleButton}>
+                <TouchableOpacity
+                  onPress={increaseDessertCount}
+                  style={styles.peopleButton}
+                >
                   <Text style={styles.peopleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
@@ -548,10 +613,39 @@ export default function RefineResultsScreen() {
 
             {/* <View style={styles.dividerSection}></View> */}
 
+            <View style={styles.dividerSection}></View>
+            <Text style={styles.dividerTitle}>Additional Notes</Text>
+
+            <View style={styles.textInputContainer}>
+              <TextInput
+                ref={textInputRef}
+                style={styles.textInput}
+                placeholder="Anything else we should know?"
+                value={specialInstructions}
+                multiline
+                numberOfLines={3}
+                textAlignVertical="top"
+                onFocus={() => {
+                  setOpenBottomSheet(true);
+                  textInputRef.current?.blur();
+                }}
+              />
+            </View>
+
+            {openBottomSheet && (
+              <CustomOrderBottomSheet
+                openBottomSheet={true}
+                text={specialInstructions}
+                setText={setSpecialInstructions}
+                onSubmit={handleCloseSheet}
+                closeBottomSheet={handleCloseSheet}
+              />
+            )}
+
             {/* Submit Button */}
             <View style={styles.buttonContainer}>
               <CustomButton
-                title="Submit"
+                title="Search"
                 handlePress={() => {
                   router.push({
                     pathname: "/restaurant-results",
@@ -570,11 +664,8 @@ export default function RefineResultsScreen() {
                 isLoading={false}
               />
             </View>
-            
-
-          </View> 
+          </View>
           {/* end of white bg */}
-          
         </View>
         {/* end of contents */}
       </TouchableWithoutFeedback>
@@ -676,45 +767,60 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   map: {
-    position: 'relative',
-    left: '-15%',
-    width: '120%',
-    height: 200,
+    position: "relative",
+    left: "-15%",
+    width: "120%",
+    height: 80,
   },
   twoRowContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     // display: 'flex',
-    width: '100%',
+    width: "100%",
   },
   lineContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginHorizontal: 10,
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: "#ccc",
   },
   peopleContainer: {
     flex: 1,
     marginLeft: 10,
     // width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     marginVertical: 10,
   },
   peopleLabel: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   distanceLabel: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   peopleControls: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  textInputContainer: {
+    marginTop: 10,
+    marginHorizontal: 10,
+    marginBottom: 10, // Reduced from previous spacing
+  },
+
+  textInput: {
+    height: 80,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: "#fff",
   },
   peopleButton: {
     padding: 1,
@@ -723,40 +829,40 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     width: 37,
     height: 37,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderColor: '#ccc',
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "#ccc",
     borderWidth: 1,
   },
   peopleButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
-    alignContent: 'center',
-    textAlign: 'center',
+    fontWeight: "bold",
+    alignContent: "center",
+    textAlign: "center",
   },
   peopleCount: {
     fontSize: 16,
     marginHorizontal: 10,
     width: 60,
-    textAlign: 'center',
-    fontWeight: 'bold',
+    textAlign: "center",
+    fontWeight: "bold",
   },
   dividerSection: {
     margin: 10,
   },
   dividerTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     paddingLeft: 10,
   },
   buttonContainer: {
     padding: 10,
-    alignItems: 'center',
-    width: '100%',
+    alignItems: "center",
+    width: "100%",
     // backgroundColor: '#6200EE',
   },
   submitButton: {
     marginTop: 20,
-    width: '40%',
+    width: "40%",
   },
 });
